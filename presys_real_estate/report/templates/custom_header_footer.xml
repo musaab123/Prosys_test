@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
+        <!-- Custom header -->
+       
+        <xpath expr="//div[1]" position="replace" >
+         <!-- <div style="border: 20px solid black; padding:15px;"> -->
+             <div  t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="row" >
+                <div class="col-3 mb4">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;  position: relative; top: 50px;"
+                         alt="Logo"/>
+                </div>
+                <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+            </div>
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-12">
+                    <!-- <div style="border-bottom: 1px solid black;"/> -->
+                </div>
+            </div>
+            <div dir="rtl">
+                <div>
+                <style type="text/css">
+                              @font-face {
+                                font-family:Tajawal-ExtraLight ;
+                                src: url(/presys_real_estate/static/src/font/Tajawal-ExtraLight.ttf);
+                              }
+                              h2 {font-family: Tajawal-ExtraLight;}
+                              td {font-family: Tajawal-ExtraLight;}
+                              th { font-family: Tajawal-ExtraLight;}
+                              h5 { font-family: Tajawal-ExtraLight;}
+                              h4 { font-family: Tajawal-ExtraLight;}
+                              p { font-family: Tajawal-ExtraLight;}
+                              
+
+                              span, table, th, td, b, p {
+                                            font-size: 15px;
+                                            text-align: center;
+                                            }
+
+                              .newh {
+                                  text-align: center;
+                                  background-color:#c1f0c1;
+                                  }
+
+                              table, tr, th, td {
+                                  border:1px solid #000000 !important;
+                                  }
+
+                             
+                       </style>
+                    <div  name="company_address" style="text-align:center">
+                        <b>
+						
+						 <td  style="padding-top:20px; margin:30px;">الرمز البريدي ص.ب</td>
+						 <span t-field="company.partner_id.website"/>
+						 <br/>
+
+                        <span t-field="company.partner_id.street2" style="padding-top:20px; margin:30px;"/>
+                        <span t-field="company.partner_id.street"/><br/>
+
+						 <span>Tel: <span t-field="company.partner_id.phone" style="text-align:right;font-size:15px;"/><br/></span>
+                       <span>Email: <span t-field="company.partner_id.email" style="text-align:right;font-size:15px;"/><br/></span>
+                      
+
+						</b>
+						
+                    
+                       
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+
+
+           
+            
+        </div>
+         <div class="footer">
+         
+                 <div class="text-left" >
+                 <img src="/presys_real_estate/static/src/img/1.jpeg"/>
+                
+                </div>
+            </div>
+        </xpath>
+       
+   </template>
+</odoo>
