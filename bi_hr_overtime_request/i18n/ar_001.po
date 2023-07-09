@@ -1,0 +1,273 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bi_hr_overtime_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-04 09:46+0000\n"
+"PO-Revision-Date: 2023-07-04 09:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bi_hr_overtime_request
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_form
+msgid "Approve"
+msgstr "إعتماد"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__approve_by_id
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__approve_by_id
+msgid "Approve By"
+msgstr "معتمد بواسطة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__approve_date
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__approve_date
+msgid "Approve Date"
+msgstr "تاريخ الإعتماد"
+
+#. module: bi_hr_overtime_request
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__create_uid
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__create_uid
+msgid "Created by"
+msgstr "أنشيء بواسطة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__create_date
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__create_date
+msgid "Created on"
+msgstr "أنشيء في"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__department_id
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: bi_hr_overtime_request
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_form
+msgid "Department Approve"
+msgstr "إعتماد القسم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__dept_approve_date
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__dept_approve_date
+msgid "Department Approve Date"
+msgstr "تاريخ إعتماد القسم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__dept_manager_id
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__dept_manager_id
+msgid "Department Manager"
+msgstr "مدير القسم"
+
+#. module: bi_hr_overtime_request
+#: model:res.groups,name:bi_hr_overtime_request.dept_manager_overtime_id
+msgid "Department Manager(Overtime Salary)"
+msgstr "مدير القسم (العمل الإضافي)"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__display_name
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__display_name
+msgid "Display Name"
+msgstr "إسم العرض"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__multiple_overtime_request__state__done
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__overtime_request__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model,name:bi_hr_overtime_request.model_hr_employee
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__employee_ids
+msgid "Employees"
+msgstr "الموظفين"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__end_date
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: bi_hr_overtime_request
+#. odoo-python
+#: code:addons/bi_hr_overtime_request/models/multiple_overtime.py:0
+#: code:addons/bi_hr_overtime_request/models/overtime_request.py:0
+#, python-format
+msgid "End Date must be after the Start Date!!"
+msgstr ""
+
+#. module: bi_hr_overtime_request
+#: model:res.groups,name:bi_hr_overtime_request.hr_manager_overtime_id
+msgid "HR(Overtime Salary)"
+msgstr "الموارد البشرية (العمل الإضافي)"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__id
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__id
+msgid "ID"
+msgstr "الرقم المعرف"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__include_in_payroll
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__include_in_payroll
+msgid "Include In Payroll"
+msgstr "تضمين في شيت الرواتب"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request____last_update
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__write_uid
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__write_date
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__department_manager_id
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__department_manager_id
+msgid "Manager"
+msgstr "المدير"
+
+#. module: bi_hr_overtime_request
+#: model:ir.actions.act_window,name:bi_hr_overtime_request.overtime_req__multi_action
+#: model:ir.model,name:bi_hr_overtime_request.model_multiple_overtime_request
+#: model:ir.ui.menu,name:bi_hr_overtime_request.menu_overtime_multiple
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_tree
+msgid "Multiple Overtime Request"
+msgstr "طلبات عمل إضافي متعددة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.actions.act_window,name:bi_hr_overtime_request.overtime_req__multi_action_hr
+#: model:ir.ui.menu,name:bi_hr_overtime_request.menu_overtime_multiple_hr
+msgid "Multiple Overtime Request To Approve"
+msgstr "طلبات عمل إضافي متعددة للموافقة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.ui.menu,name:bi_hr_overtime_request.menu_overtime_multiple_dept
+msgid "Multiple Overtime Request To Approve By Department"
+msgstr "طلبات عمل إضافي متعددة للموافقة بواسطة القسم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__multiple_overtime_request__state__new
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__overtime_request__state__new
+msgid "New"
+msgstr "جديد"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__notes
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__notes
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__num_of_hours
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__num_of_hours
+msgid "Number Of Hours"
+msgstr "عدد الساعات"
+
+#. module: bi_hr_overtime_request
+#: model:hr.salary.rule,name:bi_hr_overtime_request.hr_rule_overtime
+msgid "Over Time Salary"
+msgstr "راتب العمل الإضافي"
+
+#. module: bi_hr_overtime_request
+#: model:ir.ui.menu,name:bi_hr_overtime_request.sub_menu_employee_overtime
+msgid "Overtime"
+msgstr "العمل الإضافي"
+
+#. module: bi_hr_overtime_request
+#: model:ir.actions.act_window,name:bi_hr_overtime_request.overtime_req_action
+#: model:ir.model,name:bi_hr_overtime_request.model_overtime_request
+#: model:ir.ui.menu,name:bi_hr_overtime_request.menu_overtime
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_tree
+msgid "Overtime Request"
+msgstr "طلب عمل إضافي"
+
+#. module: bi_hr_overtime_request
+#: model:ir.actions.act_window,name:bi_hr_overtime_request.overtime_req_action_hr
+#: model:ir.ui.menu,name:bi_hr_overtime_request.menu_overtime_hr
+msgid "Overtime Request To Approve"
+msgstr "طلب طلب عمل إضافي للموافقة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.actions.act_window,name:bi_hr_overtime_request.overtime_req__multi_action_dept
+#: model:ir.actions.act_window,name:bi_hr_overtime_request.overtime_req_action_dept
+#: model:ir.ui.menu,name:bi_hr_overtime_request.menu_overtime_dept
+msgid "Overtime Request To Approve By Department"
+msgstr "طلب عمل إضافي للموافقة بواسطة القسم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__multiple_overtime_request__state__refuse
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__overtime_request__state__refuse
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_form
+#: model_terms:ir.ui.view,arch_db:bi_hr_overtime_request.view_overtime_req_multi_form
+msgid "Refuse"
+msgstr "رفض"
+
+#. module: bi_hr_overtime_request
+#: model:res.groups,name:bi_hr_overtime_request.group_show_req
+msgid "Show Own Request"
+msgstr "إظهار الطلب الخاص"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__start_date
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_multiple_overtime_request__state
+#: model:ir.model.fields,field_description:bi_hr_overtime_request.field_overtime_request__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__multiple_overtime_request__state__dept_approve
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__overtime_request__state__dept_approve
+msgid "Waiting For Department Approve"
+msgstr "في إنتظار موافقة القسم"
+
+#. module: bi_hr_overtime_request
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__multiple_overtime_request__state__first_approve
+#: model:ir.model.fields.selection,name:bi_hr_overtime_request.selection__overtime_request__state__first_approve
+msgid "Waiting For First Approve"
+msgstr "في إنتظار الموافقة المبدئية"
