@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_view_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name = 'button_confirm']" position="before">
+                <button name="button_approval_tow_action" type="object"  string="first approval" class="oe_highlight" groups="prosys_workflow_custom.group_first_approval_purchase"/>
+                <button name="button_approval_tow" type="object"  string="secound approval" class="oe_highlight" groups="prosys_workflow_custom.group_secound_approval_purchase"/>
+
+                <button name="button_approval_three" type="object"  string="third approval" class="oe_highlight" groups="prosys_workflow_custom.group_third_approval_purchase"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+    <record id="purchase_order_form_view_inherit_prch" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name = 'button_confirm']" position="replace">
+                 <button name="button_confirm_purchase" type="object" states="th_approve"  string="Confirm Order" class="oe_highlight" id="bid_confirm" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
