@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <menuitem id="product_factory_purchase"
+                  name="Factories"
+                  action="product_factory_action"
+                  parent="purchase.menu_purchase_products"
+                  sequence="23"/>
+    </data>
+</odoo>
