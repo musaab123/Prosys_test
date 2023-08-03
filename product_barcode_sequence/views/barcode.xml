@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="product_attribute_view_id" model="ir.ui.view">
+            <field name="name">Product Attribute Value</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.product_attribute_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='value_ids']//tree//field[@name='name']" position="after">
+                    <field name="code" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
