@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+      <record id="view_product_template_prop_form_inherit_test" model="ir.ui.view">
+         <field name="name">product.hs.inherit</field>
+         <field name="model">product.hs</field>
+         <field name="inherit_id" ref="product_hs_code_inventory.product_brand_view"/>
+         <field name="arch" type="xml">
+            <field name="name" position="after">
+               <label for="description" class="oe_edit_only" string="Description"/>
+               <h1>
+                  <field name="description"/>
+               </h1>
+              
+            </field>
+         </field>
+      </record>
+   </data>
+</odoo>
