@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+    
+        <record id="packing_list_custom" model="res.groups">
+            <field name="name">Packing List Permition </field>
+        </record>
+
+
+        <record id="invoice_cif_custom" model="res.groups">
+            <field name="name"> Invoice(CIF) Permition</field>
+        </record>
+    </data>
+</odoo>

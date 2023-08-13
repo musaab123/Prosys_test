@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="prosys_invoice_report_pdf">
+      <t t-call="web.html_container">
+         <div class="article o_report_layout_standard" t-att-data-oe-model="" t-att-data-oe-id="">
+            <t t-foreach="docs" t-as="doc">
+               <div class="page arabic">
+                  <link rel="stylesheet" href="/prosys_packing_list_custom/static/src/css/style.css" />
+                  <br>
+                  </br>
+                  <table
+                     style="border:1pt solid #ff8c00;width:100%;
+                  height: 23px;color:black; margin-top:10pt;"
+                     class="table-condensed table-sm">
+                     <tr>
+                        <h2 style="padding:1pt;margin:0pt;text-align:center;background-color:#ddd;">MANFRY
+                           E-COMMERCE COMPANY LIMITED</h2>
+                     </tr>
+                  </table>
+                  <br></br>
+                  <table
+                     style="border:1pt solid #ff8c00;width:100%;
+                  height: 23px;color:black; margin-top:10pt;"
+                     class="table-condensed table-sm">
+                     <tr>
+                        <h2 style="padding:1pt;margin:0pt;text-align:center;background-color:#ddd;">INVOICE (CIF)</h2>
+                     </tr>
+                  </table>
+                  <br></br>
+                  <div class="row justify-content-around">
+                     <div class="col-4">
+                        <tr>
+                           <div name="invoice_address">
+                              <span>
+                                 <strong>CONSIGNEE</strong>
+                              </span>
+
+                              <address t-field="doc.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+
+                            
+                              <br></br>
+                              <strong>TEL :</strong>
+                              <td t-if="doc.partner_id.phone" class="text-start">
+                                 <span t-field="doc.partner_id.phone" />
+                              </td>
+
+                              <br></br>
+                             
+                           </div>
+
+
+                           <span>
+                              <strong>EXW :</strong>
+                              <span t-field="doc.shipping_company_id" />
+                              
+                           </span>
+                           <br></br>
+
+                           <span>
+                              <strong>CONTAINER NO :</strong>
+                           </span>
+                           <t  t-foreach ="doc.container_ids" t-as="x">
+
+                              <td>
+                                  <span t-field="x.container_type"/>
+                              </td>
+      
+                              </t>
+                        </tr>
+                     </div>
+                     <div class="col-4"></div>
+                     <div class="col-4">
+                        <tr>
+                           <strong>
+                              <span>INVOICE NO</span>
+                           </strong>
+                           <p t-if="doc.name != '/'" t-field="doc.name" class="m-0" />
+
+                           <strong>
+                              <span>DATE</span>
+                           </strong>
+                           <p t-field="doc.invoice_date" class="m-0" />
+
+                           <strong>
+                              <span>PAYMENT TERM</span>
+                           </strong>
+                           <p t-field="doc.invoice_payment_term_id" class="m-0" />
+                           <strong>
+                              <span>DELIVERY TERM </span>
+                           </strong>
+                           <p t-field="doc.payment_reference" class="m-0" />
+                        </tr>
+                     </div>
+                  </div>
+                  <br></br>
+                  <table class="table table-sm table-borderless" style="page-break-inside: avoid;">
+                     <thead style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black;">
+                         <tr class="knk">
+                             <td name="th_description" style="height: 40px;  vertical-align: middle;">
+                                 ITEM NO
+                             </td>
+                             
+                             <td name="th_priceunit"  style="height: 40px;  vertical-align: middle;">
+                                 DESCRIPTION
+                             </td>
+                             <td name="th_quantity"  style="height: 40px;  vertical-align: middle;">
+                                 TOTAL QUANTITY                          </td>
+ 
+                             <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                 UNIT PRICE
+                             </td>
+                             <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                AMOUNT(USD)
+                             </td>
+                            
+                             
+                         </tr>
+                     </thead>
+                     <!-- <t t-set="total_quantity" t-value="0"/>
+                     <t t-set="total_amount" t-value="0"/>
+                     <t t-set="total_price_unit" t-value="0"/> -->
+
+                      <tbody class="knk">
+                        <!-- <t t-set="total_quantity" t-value="total_quantity + doc.quantity"/>
+                        <t t-set="total_amount" t-value="total_amount + doc.amount"/>
+                        <t t-set="total_price_unit" t-value="total_price_unit + doc.price_unit"/> -->
+
+                      <t t-set="total_amount" t-value="0"/>
+                      <t t-foreach="doc.invoice_line_ids" t-as="ml">
+                         <tr>
+                            <td>
+                                 <span t-field="ml.product_id.hscode_id"/>
+
+                            </td>
+                            <td>
+                                 <span t-field="ml.product_id.hscode_id.description"/>
+                            </td>
+
+                            <td>
+                             <span t-field="ml.quantity"/>
+                            </td>
+
+                             <td>
+                             <span t-field="ml.price_unit"/>
+                            </td>
+
+                            <td>
+                                <span t-field="ml.price_subtotal"/>
+                                <t t-set="total_amount" t-value="total_amount+ml.price_subtotal"/>
+                            </td>
+
+                           
+                           <!-- <td>
+                              <t t-foreach="doc.hs_code_array" t-as="record">
+                                 <tr>
+                                    <td><span t-esc="record.quantity"/></td>
+                                    <td><span t-esc="record.price_unit"/></td>
+                                    <td><span t-esc="record.amount"/></td>
+                                 </tr>
+                           </t>
+
+                           </td> -->
+                        </tr>
+                     
+                        
+                     </t>
+                     <tr>
+                        <b><td colspan="4">TOTAL</td></b>
+                       <td style="border: solid 1px black">
+                           <u><b><span t-esc="total_amount"/> <span t-field="ml.currency_id.name"/></b></u>
+                        <!-- <t t-set="total_quantity" t-value="0"/>
+                        <t t-set="total_amount" t-value="0"/>
+                        <t t-set="total_price_unit" t-value="0"/> -->
+
+                       </td>
+
+ 
+                     </tr>
+                  </tbody>
+                     
+               </table>
+               </div>
+            </t>
+         </div>
+      </t>
+   </template>
+
+</odoo>
