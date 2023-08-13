@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+    
+        <!-- <record id="group_ksa_test_company" model="res.groups">
+            <field name="name">Ksa Company </field>
+        </record>
+
+        <record id="group_china_company" model="res.groups">
+            <field name="name">China Company</field>
+        </record> -->
+
+
+        <record id="group_modern_delivery_customer" model="res.groups">
+            <field name="name">Modern Delivery Customer</field>
+        </record>
+
+
+        <record id="group_modern_delivery_vindor" model="res.groups">
+            <field name="name">Modern Delivery Vindor</field>
+        </record>
+
+        <record id="group_delivery_orange" model="res.groups">
+            <field name="name">Modern Delivery Orange</field>
+        </record>
+
+
+        <record id="group_ksa_purchase_order" model="res.groups">
+            <field name="name">Ksa purchase Order(ksa purchase)_</field>
+        </record>
+
+        <record id="group_modern_purchase_orange" model="res.groups">
+            <field name="name">Modern purchase Orange (china)</field>
+        </record>
+
+        <record id="group_modern_utility_invoice" model="res.groups">
+            <field name="name"> Ksa Utility Invoice ( Ksa)</field>
+        </record>
+
+        <record id="group_utility_invoice_china" model="res.groups">
+            <field name="name"> Utility Invoice (China)</field>
+        </record>
+        
+        <record id="group_ksa_invoice_services_to_supplier" model="res.groups">
+            <field name="name">Ksa Invoice Services To Supplier (Ksa)</field>
+        </record>
+       
+        <record id="group_china_invoice_services_to_supplier" model="res.groups">
+            <field name="name">Invoice Services To Supplier(china)</field>
+        </record>
+
+        <record id="group_china_modern_invoice_orange_cus" model="res.groups">
+            <field name="name"> Modern Invoice Orange(china)</field>
+        </record>
+
+        <record id="group_ksa_purchase_invoice" model="res.groups">
+            <field name="name"> Ksa Purchase Invoice(ksa)</field>
+        </record>
+
+
+        <record id="group_ksa_sale_custom_invoice" model="res.groups">
+            <field name="name">Ksa Sale Invoice (ksa)</field>
+        </record>
+
+       
+        <record id="group_ksa_sale_order_custom_inherit" model="res.groups">
+            <field name="name"> Ksa Sale Order (ksa)</field>
+        </record>
+
+        <record id="group_ksa_sale_order_custom_inherit_sudia_ksa" model="res.groups">
+            <field name="name"> Modern Sale Orange(China)</field>
+        </record>
+       
+        
+        
+    </data>
+</odoo>
