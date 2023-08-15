@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="stock_picking_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_assign']" position="replace">
+                <button name="action_assign" attrs="{'invisible': [('show_check_availability', '=', False)]}" string="Check Availability" type="object" class="oe_highlight" groups="prosys_delivery_workflow.group_workflow_check_availabilty"  data-hotkey="q"/>
+            </xpath>
+
+
+            <xpath expr="//button[@class='o_btn_validate']" position="replace">
+                <button name="button_validate" attrs="{'invisible': ['|', ('state', 'not in', ('waiting', 'confirmed')), ('show_validate', '=', False)]}" string="Validate" type="object"  groups="prosys_delivery_workflow.group_workflow_check_availabilty"  class="o_btn_validate" data-hotkey="v"/>
+            </xpath>
+       
+         
+
+            <xpath expr="//button[@name='button_validate']" position="attributes">
+                <button name="button_validate" attrs="{'invisible': ['|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False)]}" string="Validate" type="object" class="oe_highlight"  groups="prosys_delivery_workflow.group_workflow_check_availabilty"  data-hotkey="v"/>
+            </xpath>
+
+
+
+        </field>
+        </record>
+
+    </data>
+</odoo>
