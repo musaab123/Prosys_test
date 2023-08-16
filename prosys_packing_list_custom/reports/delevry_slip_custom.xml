@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="delevry_slip_pdf_custom">
+      <t t-call="web.html_container">
+         <div class="article o_report_layout_standard" t-att-data-oe-model="" t-att-data-oe-id="">
+         <t t-foreach="docs" t-as="doc">
+            <!-- <t t-call="web.external_layout"> -->
+            <div class="page arabic">
+               <link rel="stylesheet" href="/prosys_packing_list_custom/static/src/css/style.css" />
+               <br>
+            </br>
+            <!-- <table style="border:1pt solid #ff8c00;width:100%; height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm"> -->
+             <t t-if="o and 'company_id' in o">
+                 <t t-set="company" t-value="o.company_id"/>
+                 </t>
+                 <t t-if="not o or not 'company_id' in o">
+                 <t t-set="company" t-value="res_company"/>  
+                 </t>
+         
+                 <table style="border:1pt solid #ff8c00;width:100%;
+                     height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm">
+                         <tr>
+                         
+                             <h2 class="text-center"><span class="text-center"  t-field="company.name"/></h2>
+
+                         </tr>
+         
+                     </table>
+            <!-- </table> -->
+            <br></br>
+               <table style="border:1pt solid #ff8c00;width:100%;
+                  height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm">
+                  <tr>
+                     <h2 style="padding:1pt;margin:0pt;text-align:center;background-color:#ddd;">PACKING LIST</h2>
+                  </tr>
+               </table>
+               <br></br>
+               <div class="row justify-content-around">
+                  <div class="col-4">
+                     <tr>
+                        <div name="div_incoming_address">
+                           <span><strong>CONSIGNEE</strong></span>
+                           <!-- <div t-if="doc.picking_type_id.code=='incoming' and doc.partner_id">
+                              <span><strong>Vendor Address </strong></span>
+                           </div> -->
+                           <!-- <div t-if="doc.picking_type_id.code=='internal' and doc.partner_id">
+                              <span><strong>Warehouse Address </strong></span>
+                           </div> -->
+                           <!-- <div t-if="doc.picking_type_id.code=='outgoing' and doc.partner_id">
+                           </div> -->
+                           <div t-if="doc.partner_id" name="partner_header">
+                              <div t-field="doc.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": True, "phone_icons": True}'/>
+                              </div>
+                           </div>
+                           <br></br>
+                           <strong>TEL :</strong>
+                           <td t-if="doc.partner_id.phone" class="text-start">
+                              <span t-field="doc.partner_id.phone" />
+                           </td>
+
+                           <br></br>
+                           <strong>CR NO :</strong>
+                           <span t-field="company.company_registry"/>
+
+                           <br></br>
+                            
+                            <span>
+                                <br></br>
+                                <strong>EXW :</strong>
+                                <span t-field="doc.exw_id" />
+                                
+                             </span>
+                             <br></br>
+                          
+                     </tr>
+                     </div>
+                     <div class="col-4"></div>
+                     <div class="col-4">
+                        <tr>
+                           <strong><span>Invoice Number</span></strong>
+                           <p t-if="doc.name != '/'" t-field="doc.name"/>
+                              <strong><span>Date</span></strong>
+                           <p t-field="doc.scheduled_date" class="m-0" />
+                        </tr>
+                     </div>
+                  </div>
+                  <br></br>
+
+                  <table class="table table-sm table-borderless" style="page-break-inside: avoid;">
+                    <thead style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black;">
+                        <tr class="knk">
+                            <td name="th_description" style="height: 40px;  vertical-align: middle;">
+                                ITEM NO
+                            </td>
+                            
+                            <td name="th_priceunit"  style="height: 40px;  vertical-align: middle;">
+                                DESCRIPTION
+                            </td>
+                            <td name="th_quantity"  style="height: 40px;  vertical-align: middle;">
+                                QTN (PCS)                            </td>
+
+                            <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                CTN NO
+                            </td>
+                            <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                G.W/KG
+                            </td>
+                            <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                CBM
+                            </td>
+                            
+                        </tr>
+                    </thead>
+
+                     <tbody class="knk">
+                        <t t-set="numberArray" t-value="[]" />
+                        <t t-foreach="doc.move_ids_without_package.sorted(key=lambda r: r.product_id.hscode_id.code)" t-as="line">
+                          <t t-if="line.product_id.hscode_id.name not in numberArray">
+                              <t t-set="numberArray" t-value="numberArray+[line.product_id.hscode_id.name]"/>
+                          </t>
+                        </t>
+
+                         <t t-foreach="numberArray" t-as="arr">
+                             <t t-set="description" t-value="0"/>
+                             <t t-set="quantity_done" t-value="0"/>
+                             <t t-set="quantity_done_total" t-value="0"/>
+                             <t t-set="quantity_total" t-value="0"/>
+                             <t t-set="quantity_kg_k" t-value="0"/>
+                             <t t-set="quantity_cbm" t-value="0"/>
+
+                             <t t-set="quantity_total_footer" t-value="0"/>
+
+
+
+
+                             <t t-foreach="doc.move_ids_without_package" t-as="ml">
+                                 <t t-if="arr == ml.product_id.hscode_id.name">
+                                     <t t-set="quantity_done" t-value="quantity_done+ml.quantity_done"/>
+                                     <t t-set="description" t-value="ml.product_id.hscode_id.description"/>
+                                     <t t-set="quantity_done_total" t-value="quantity_done + quantity_done"/>
+                                   
+
+
+
+                                 </t>
+                            </t>
+
+                             <tr>
+                                <td>
+                                    <span t-esc="arr"/>
+                                </td>
+                                <td>
+                                    <span t-esc="description"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="quantity_done"/>
+                                </td>
+                                <t t-set="bakage_done_total" t-value="0"/>
+                            
+                                <t t-foreach="doc.package_ids" t-as="pack">
+                                    <t t-set="quantity_total" t-value="quantity_total + pack.package_number"/>
+                                    <t t-set="quantity_kg_k" t-value="quantity_kg_k + pack.weight"/>
+                                    <t t-set="quantity_cbm" t-value="quantity_cbm + pack.cbm"/>
+
+                                    <!-- <t t-set="quantity_total_footer" t-value="quantity_total + quantity_total"/> -->
+
+                                    
+
+                                    <t t-if="pack.hscode_id.name == arr">
+                                   
+                                        
+
+                                      
+                                        <td>
+                                            <span t-esc="pack.package_number"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="pack.weight"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="pack.cbm"/>
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                         </t>
+                    </tbody>
+                    <tr style="background-color: #ff8c00;">
+                        <td colspan="1" style="border: solid 1px black ">TOTAL</td>
+                        <td colspan="1" style="border: solid 1px black"></td>
+                        <td style="border: solid 1px black">
+                            <u><b><span t-esc="quantity_done_total"/></b></u>
+                        </td>
+                        <td style="border: solid 1px black">
+                            <u><b><span t-esc="quantity_total"/></b></u>
+
+                        </td>
+                        <td style="border: solid 1px black">
+                            <u><b><span t-esc="quantity_kg_k"/></b></u>
+
+                        </td>
+                        <td style="border: solid 1px black">
+                            <u><b><span t-esc="quantity_cbm"/></b></u>
+
+                        </td>
+                    </tr>
+                </table>
+                
+               </div>
+         </t>
+         </div>
+      </t>
+   </template>
+</odoo>

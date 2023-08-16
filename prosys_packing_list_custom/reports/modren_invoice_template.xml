@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="prosys_invoice_report_pdf">
+      <t t-call="web.html_container">
+         <div class="article o_report_layout_standard" t-att-data-oe-model="" t-att-data-oe-id="">
+            <t t-foreach="docs" t-as="doc">
+               <div class="page arabic">
+                  <link rel="stylesheet" href="/prosys_packing_list_custom/static/src/css/style.css" />
+                  <br>
+                  </br>
+                  <!-- <table style="border:1pt solid #ff8c00;width:100%; height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm"> -->
+                   <t t-if="o and 'company_id' in o">
+                       <t t-set="company" t-value="o.company_id"/>
+                       </t>
+                       <t t-if="not o or not 'company_id' in o">
+                       <t t-set="company" t-value="res_company"/>  
+                       </t>
+               
+                       <table style="border:1pt solid #ff8c00;width:100%;
+                           height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm">
+                               <tr>
+                               
+                                   <h2 class="text-center"><span class="text-center"  t-field="company.name"/></h2>
+   
+                               </tr>
+               
+                           </table>
+                  <!-- </table> -->
+                  <br></br>
+                  <table
+                     style="border:1pt solid #ff8c00;width:100%;
+                  height: 23px;color:black; margin-top:10pt;"
+                     class="table-condensed table-sm">
+                     <tr>
+                        <h2 style="padding:1pt;margin:0pt;text-align:center;background-color:#ddd;">INVOICE (CIF)</h2>
+                     </tr>
+                  </table>
+                  <br></br>
+                  <div class="row justify-content-around">
+                     <div class="col-4">
+                        <tr>
+                           <div name="invoice_address">
+                              <span>
+                                 <strong>CONSIGNEE</strong>
+                              </span>
+
+                              <address t-field="doc.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+
+                            
+                              <br></br>
+                              <strong>TEL :</strong>
+                              <td t-if="doc.partner_id.phone" class="text-start">
+                                 <span t-field="doc.partner_id.phone" />
+                              </td>
+
+                              <br></br>
+                             
+                           </div>
+
+
+                           <span>
+                              <strong>EXW :</strong>
+                              <span t-field="doc.shipping_company_id" />
+                              
+                           </span>
+                           <br></br>
+                           <span>
+                              <strong>CR NO :</strong>
+                              <span t-field="company.company_registry"/>
+                           </span>
+                           <br></br>
+                           <span>
+                              <strong>CONTAINER NO :</strong>
+                           </span>
+                           <t  t-foreach ="doc.container_ids" t-as="x">
+
+                              <td>
+                                  <span t-field="x.container_type"/>
+                              </td>
+      
+                              </t>
+                        </tr>
+                     </div>
+                     <div class="col-4"></div>
+                     <div class="col-4">
+                        <!-- <tr> -->
+                           <strong>
+                              <span>INVOICE NO</span>
+                           </strong>
+                           <p t-if="doc.name != '/'" t-field="doc.name" class="m-0" />
+
+                           <br></br>
+
+                           <strong>
+                              <span>DATE</span>
+                           </strong>
+                           <p t-field="doc.invoice_date" class="m-0" />
+                           <br></br>
+
+                           <strong>
+                              <span>PAYMENT TERM</span>
+                           </strong>
+                           <p t-field="doc.invoice_payment_term_id" class="m-0" />
+
+                           <br></br>
+                           <strong><span>DELIVERY TERM </span></strong>
+                           <br></br>
+
+                           <t t-foreach="doc.container_ids" t-as="pack">
+                                 <tr>
+                                    <td>
+                                      <span>CIF</span> <span t-esc="pack.Port_arrival"/> <span>TO</span>  <span t-esc="pack.shipping_port"/>
+                                   </td>
+                                 </tr>
+                                  
+                              </t>
+                     
+                        
+                     </div>
+                  </div>
+                  <br></br>
+                  <table class="table table-sm table-borderless" style="page-break-inside: avoid;">
+                     <thead style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black;">
+                         <tr class="knk">
+                             <td name="th_description" style="height: 40px;  vertical-align: middle;">
+                                 ITEM NO
+                             </td>
+                             
+                             <td name="th_priceunit"  style="height: 40px;  vertical-align: middle;">
+                                 DESCRIPTION
+                             </td>
+                             <td name="th_quantity"  style="height: 40px;  vertical-align: middle;">
+                                 TOTAL QUANTITY                          </td>
+ 
+                             <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                 UNIT PRICE
+                             </td>
+                             <td name="th_priceunit" style="height: 40px;  vertical-align: middle;">
+                                AMOUNT(USD)
+                             </td>
+                            
+                             
+                         </tr>
+                     </thead>
+
+                      <tbody class="knk">
+                      <!-- compute the array that contains HS CODE without duplicate-->
+                      <t t-set="numberArray" t-value="[]" />
+                      <t t-foreach="doc.invoice_line_ids.sorted(key=lambda r: r.product_id.hscode_id.code)" t-as="line">
+                          <t t-if="line.product_id.hscode_id.name not in numberArray">
+                              <t t-set="numberArray" t-value="numberArray+[line.product_id.hscode_id.name]"/>
+                          </t>
+                      </t>
+
+                      <t t-set="total_amount" t-value="0"/>
+                      <t t-set="total_quantity" t-value="0"/>
+                      <t t-foreach="numberArray" t-as="arr">
+                          <t t-set="description" t-value="'foo'"/>
+                          <t t-set="quantity" t-value="0"/>
+                          <t t-set="unit_price" t-value="0"/>
+                          <t t-set="total_amount_set" t-value="0"/>
+                          <t t-set="total_quantity_set" t-value="0"/>
+                          <t t-set="total_unitprice_set" t-value="0"/>
+
+
+                          <t t-foreach="doc.invoice_line_ids.sorted(key=lambda r: r.product_id.hscode_id.code)" t-as="ml">
+                              <t t-if="arr == ml.product_id.hscode_id.name">
+                                  <t t-set="description" t-value="ml.product_id.hscode_id.description"/>
+                                  <t t-set="quantity" t-value="quantity+ml.quantity"/>
+                                  <t t-set="unit_price" t-value="unit_price+ml.price_unit"/>
+                                  <t t-set="total_amount_set" t-value="total_amount_set+ml.price_subtotal"/>
+                                  <t t-set="total_quantity_set" t-value="quantity+quantity"/>
+                                  <!-- <t t-set="total_unitprice_set" t-value=" total_amount_set / quantity + total_amount_set / quantity"/> -->
+
+
+                              </t>
+                          </t>
+                          <tr>
+                                <td>
+                                     <span t-esc="arr"/>
+                                </td>
+                                <td>
+                                     <span t-esc="description"/>
+                                </td>
+
+                                <td>
+                                     <span t-esc="quantity"/>
+                                </td>
+
+                                 <td>
+                                    <span t-esc="total_amount_set / quantity"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="total_amount_set"/>
+                                    <t t-set="total_amount" t-value="total_amount+total_amount_set"/>
+                                </td>
+                          </tr>
+                      </t>
+                      <tr style="background-color: #ff8c00;">
+                        <td colspan="1" style="border: solid 1px black ">TOTAL CIF</td>
+                        <td colspan="1" style="border: solid 1px black"></td>
+                        <td style="border: solid 1px black">
+                           <u><b><span t-esc="total_quantity_set"/> <span t-field="ml.currency_id.name"/></b></u>
+                       </td>
+
+                       <td style="border: solid 1px black">
+                        <u><b></b></u>
+                    </td>
+
+                       <td style="border: solid 1px black">
+                           <u><b><span t-esc="total_amount"/> <span t-field="ml.currency_id.name"/></b></u>
+                       </td>
+                      
+
+ 
+                     </tr>
+                  </tbody>
+                     
+               </table>
+
+               <br></br>
+               <br></br>
+               <br></br>
+               <tr>
+                   <td  colspan="5" class="text-start">
+                     <u> <strong><span>Say Total Amount is</span> <span t-esc="doc.amount_word(doc.amount_total)"/> Only (<span t-esc="total_amount"/>)  <span t-field="ml.currency_id.name"/></strong></u>
+                  </td> 
+               </tr>
+               
+               </div>
+            </t>
+         </div>
+      </t>
+   </template>
+
+</odoo>
