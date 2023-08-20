@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- Sales Form -->
+        <record id="sale_view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+
+            <xpath expr="//button[@id='action_confirm']" position="replace">
+
+            </xpath>
+
+            <xpath expr="//button[@name='action_confirm']" position="replace">
+                <button name="action_confirm" data-hotkey="v"
+                string="Confirm" type="object" context="{'validate_analytic': True}"
+                groups="prosys_invoice_invisable_workflow.group_workflow_sale_order_confirmation"
+                attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+                  
+            </xpath>
+
+        </field>
+        </record>
+
+
+
+        <record id="purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+    
+    
+                <xpath expr="//button[@id='bid_confirm'][1]" position="replace">
+                    <button name="button_confirm" type="object" states="sent" groups="prosys_invoice_invisable_workflow.group_workflow_purchase_oder_confirmation" string="Confirm dddddsOrder" context="{'validate_analytic': True}" class="oe_highlight" id="bid_confirm" data-hotkey="v"/>
+                </xpath>
+    
+                <xpath expr="//button[@name='button_confirm'][2]" position="replace">
+                    <button name="button_confirm" type="object" states="draft" groups="prosys_invoice_invisable_workflow.group_workflow_purchase_oder_confirmation" context="{'validate_analytic': True}" string="Confirm Order" id="draft_confirm"/>
+                      
+                </xpath>
+    
+            </field>
+            </record>
+
+    </data>
+</odoo>
