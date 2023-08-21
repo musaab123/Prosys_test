@@ -31,10 +31,45 @@
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">prosys_swage_template.report_swage_custom_invoice</field>
             <field name="report_file">prosys_swage_template.report_swage_custom_invoice</field>
-            <field name="print_report_name">'VAT Invoice -%s' %(object.partner_id.name)</field>
             <field name="binding_model_id" ref="account.model_account_move"/>
             <field name="binding_type">report</field>
         </record>
+
+
+
+        <record id="action_report_swage_bill" model="ir.actions.report">
+            <field name="name">Swage Bill Template</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_bill</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_bill</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <record id="action_report_swage_delevry_slip_invoice" model="ir.actions.report">
+            <field name="name">Sale Delivery Slip</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_delivery_slip</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_delivery_slip</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+        <record id="action_report_swage_delevry_slip_bill" model="ir.actions.report">
+            <field name="name">Purchase Delivery Slip</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_delivery_slip_bill</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_delivery_slip_bill</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
 
 
 

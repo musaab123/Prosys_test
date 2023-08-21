@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	     <template id="external_layout_seti">
+	     <template id="external_layout_seti_purchase">
         <t t-if="o and 'company_id' in o">
         <t t-set="company" t-value="o.company_id"/>
         </t>
@@ -8,11 +8,15 @@
         <t t-set="company" t-value="res_company"/>  
         </t>
 
-        <div class="header" >
-            <table style="border:0pt solid grey;width:100%;font-size:12px;" width="100%">
+        <div class="header" style="direction: initial;">
+            <table style="border: 1pt solid white; font-size: 12px;" width="100%">
+                <!-- <link rel="stylesheet" href="/saudi_einvoice_knk/static/src/css/style.css"/> -->
                 <link rel="stylesheet" href="/prosys_swage_template/static/src/css/style.css"/>
                 <tr>
-                    <td  width="50%">
+   
+                <tr t-if="lang == 'en_US'">
+                    <!-- English Header -->
+                    <td colspan="2" width="30%">
                         <strong><span style="padding-left:5px;" t-field="company.name"/></strong><br/>
                         <t t-if="company.street">
                             <span style="padding-left:5px;" t-field="company.street"/><br/>
@@ -26,19 +30,53 @@
                         <t t-if="company.country_id">
                             <span style="padding-left:5px;" t-field="company.country_id.name"/><br/>
                         </t>
-                        
                     </td>
-
-
-
-
                     
+                      
+   
+   <td  colspan="3" width="30%" style= "position: relative; left:500px;"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
                     
-                    <td  width="50%" class="text-end" >
-                                 <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; padding-top:30px;" alt="Logo"/>
-                    </td>
+                    <!-- Hide the Arabic header -->
+                    <td colspan="2" width="40%" class="enx" style="display: none;"></td>
                 </tr>
-
+                
+                <tr t-else="lang == 'ar_001'">
+                    <!-- Hide the English header -->
+                    <td colspan="2" width="30%" style="display: none;"></td>
+                    
+                    <!-- Arabic Header -->
+                    
+                    <td  colspan="3" width="30%" class="text-left"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
+                    
+                    <td colspan="2" width="40%" style= "position: relative; left:350px;" >
+                      <strong>
+                         <span class=" text-right arabic"  t-field="company.arabic_name"/></strong><br/>
+                      <t t-if="company.street">
+                         <span class="text-right arabic"  t-field="company.arabic_street"/><br/>
+                      </t>
+                      <t t-if="company.street2">
+                         <span class="text-right arabic"  t-field="company.arabic_street2"/><br/>
+                      </t>
+                      <t t-if="company.city">
+                         <span class="text-right arabic"  t-field="company.arabic_city"/><br/>
+                      </t>
+                      <t t-if="company.arabic_country">
+                         <span class="text-right arabic"  t-field="company.arabic_country"/><br/>
+                      </t>
+   
+                        <t t-if="company.vat">
+                         <span class="text-right arabic" t-field="company.vat"/><br/>
+                      </t>
+                          <t t-if="company.arabic_web">
+                         <span class="text-right arabic" t-field="company.arabic_web"/><br/>
+                      </t>
+                          <t t-if="company.arabic_company_dis">
+                         <span class="text-right arabic" t-field="company.arabic_company_dis"/><br/>
+                      </t>
+                   </td>
+                </tr>
+   
+            </tr>
             </table>
         </div>
         
@@ -65,7 +103,7 @@
     </template>
 
 	<template id="swag_purchaseorder_custom_template">
-		<t t-call="prosys_swage_template.external_layout_seti">
+		<t t-call="prosys_swage_template.external_layout_seti_purchase">
 			<t t-foreach="doc" t-as="o">
 				<div class="page" style="">
 					<link rel="stylesheet" href="/prosys_packing_list_custom/static/src/css/style.css"/>
@@ -74,7 +112,15 @@
 					<table style="border:1pt solid grey;width:100%;
    						 height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm">
 							<tr>
-								<td style="padding:1pt;margin:0pt;font-weight: bold;text-align:center;background-color:#DCDCDC;"><span class="text-right arabic">purchase order /  امر شراء  </span></td> 
+								<td style="padding:1pt;margin:0pt;font-weight: bold;text-align:center;background-color:#DCDCDC;">
+                                    <span class="mt-4">
+                                        <h2 t-if="o.state in ['draft', 'sent', 'to approve']">Request for Quotation</h2>
+                                        <h2 t-if="o.state in ['purchase', 'done']">Purchase Order </h2>
+                                        <h2 t-if="o.state == 'cancel'">Cancelled Purchase Order </h2>
+                                    </span>
+                                </td> 
+                               
+                    
 							</tr>
 					</table>
 					<br></br>
@@ -90,17 +136,35 @@
 			            <div class="col-4">
 			          
                               
-                           <strong>Sale Order No: </strong>
-                           <td class="text-start">
-                              <span t-field="o.name"/> 
-                           </td>
+                        
+                           <span class="mt-4">
+                            <span t-if="o.state in ['draft', 'sent', 'to approve']">Request for Quotation <span t-field="o.name"/></span>
+                            <span t-if="o.state in ['purchase', 'done']">Purchase Order :<span t-field="o.name"/></span>
+                            <span t-if="o.state == 'cancel'">Cancelled Purchase Order :<span t-field="o.name"/></span>
+                           </span>
+            
                               <br></br> 
+                              <br></br> 
+
 
                            <strong>Order Date: </strong>
                            <td class="text-start">
                               <span t-field="o.date_order"/> 
                            </td>
                               <br></br> 
+                              <br></br> 
+
+
+                              <strong>Expected Arrival: </strong>
+                              <td class="text-start">
+                                 <span t-field="o.date_planned"/> 
+                              </td>
+                                 <br></br> 
+                                 <br></br> 
+
+
+                                
+                              
                                  
 
                               <strong>Mobile</strong>
@@ -108,16 +172,22 @@
                                  <span t-field="doc.partner_id.mobile"/>
                               </td>
                               <br></br>  
+                              <br></br>  
+
                               <strong>Phone</strong>
                                <td t-if="doc.partner_id.phone" class="text-start">
                                  <span t-field="doc.partner_id.phone"/>
                               </td>
                               <br></br>  
+                              <br></br>  
+
                               <strong>Email</strong>
                               <td t-if="doc.partner_id.email" class="text-start">
                                <span t-field="doc.partner_id.email"/>
                             </td>
                               <br></br>  
+                              <br></br>  
+
               
                              
 
@@ -163,13 +233,16 @@
                                     Product
                                 </td>
                                 <td name="th_quantity" class="text-start">
-                                    Expected Arrival
+                                    Description
                                 </td>
                                 <td name="th_priceunit" class="text-center">
                                     Quantity
                                 </td>
                                 <td name="th_priceunit" class="text-end">
                                     Price
+                                </td>
+                                <td name="th_priceunit" class="text-end">
+                                    Tax
                                 </td>
                                 <td name="th_priceunit" class="text-end">
                                     Amount
@@ -192,7 +265,7 @@
                                             <span t-field="line.product_id.name" />
                                         </td>
                                         <td name="td_taxes">
-                                            <span t-field="line.date_planned" />
+                                            <span t-field="line.name" />
                                         </td>
                                         <td class="text-end">
                                             <span t-field="line.product_qty" />
@@ -200,6 +273,9 @@
                                         </td>
                                         <td class="text-end">
                                             <span t-field="line.price_unit" />
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-field="line.taxes_id" />
                                         </td>
                                         <td class="text-end">
                                               <span t-field="line.price_subtotal"

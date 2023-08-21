@@ -120,8 +120,15 @@ class ResCompany(models.Model):
     arabic_zip = fields.Char('Arabic Zip')
     arabic_web = fields.Char('Arabic Website')
     arabic_company_dis = fields.Char('Arabic  Company description')
+    date_creation = fields.Date('Created Date', invisable=True, default=fields.Date.today())
 
 
 
+
+class AccountMove(models.Model):
+    _inherit = 'stock.picking'
+
+    # invoice_date_supply = fields.Datetime('Date Of Supply')
+    date_creation = fields.Date('Created Date', invisable=True, default=fields.Date.today())
    
 

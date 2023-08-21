@@ -10,14 +10,19 @@
     """,
     "author": "Prosys",
     "website": "",
-    "depends":['sale','purchase','prosys_po_so_data','product_barcode_sequence','product_hs_code_inventory','product_factory_inventory','product_brand_inventory'],
+    "depends":['sale','purchase','prosys_po_so_data','product_brand_inventory'],
     "data": [
 
         # 'security/group_company_employee.xml',
         'reports/report.xml',
         'reports/swag_sale_order_template.xml',
         'reports/swag_purchase_order_template.xml',
-        'reports/swag_invoice_custom_template.xml'
+        'reports/swag_invoice_custom_template.xml',
+        'reports/swage_bill_custom_template.xml',
+        'reports/sale_delivery_slip_custom.xml',
+        'reports/purchase_delivery_slip_custom.xml',
+        'views/res_company_view.xml',
+
        
     
     ],

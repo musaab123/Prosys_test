@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* orange_report
+# 	* prosys_swage_template
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0-20230727\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 10:07+0000\n"
-"PO-Revision-Date: 2023-08-13 10:07+0000\n"
+"POT-Creation-Date: 2023-08-21 07:46+0000\n"
+"PO-Revision-Date: 2023-08-21 07:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,801 +15,553 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_ksa_invoice_services
-msgid " Ksa Invoice Services To Supplier"
-msgstr "فاتورة خدمات المورد (السعودية)"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_ksa_purchase_invoice
-msgid " Ksa Purchase Invoice(ksa)"
-msgstr "فاتورة مشتريات السعودية"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_ksa_sale_order_custom_inherit
-msgid " Ksa Sale Order (ksa)"
-msgstr "امر مبيعات السعودية"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_modern_utility_invoice
-msgid " Ksa Utility Invoice ( Ksa)"
-msgstr "فاتورة الخدمات العامة السعودية"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_china_modern_invoice_orange_cus
-msgid " Modern Invoice Orange(china)"
-msgstr "فاتورة الميعات الصين"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_ksa_sale_order_custom_inherit_sudia_ksa
-msgid " Modern Sale Orange(China)"
-msgstr "امر بيع شركة الصين"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_utility_invoice_pdf
-msgid " Utility Invoice"
-msgstr "فاتورة خدمات عامة"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_utility_invoice_china
-msgid " Utility Invoice (China)"
-msgstr "فاتوﻻة خدمات شرمة الصين"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid ""
 "<br/>\n"
+"                                <br/>\n"
 "\n"
-"                                        <span><strong>Delivery Address </strong></span>"
-msgstr "عنوان التوصيل"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_ksa_header_footer
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_session_header_footer
-msgid "<i class=\"fa fa-at\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
-msgstr "الايميل"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_ksa_header_footer
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_session_header_footer
-msgid "<i class=\"fa fa-building-o\" role=\"img\" aria-label=\"Fiscal number\"/>"
-msgstr "رقم مالي"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_ksa_header_footer
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_session_header_footer
-msgid "<i class=\"fa fa-globe\" role=\"img\" aria-label=\"Website\" title=\"Website\"/>"
-msgstr "الموقع"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_ksa_header_footer
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_session_header_footer
-msgid "<i class=\"fa fa-phone\" role=\"img\" aria-label=\"Phone\" title=\"Phone\"/>"
-msgstr "الهاتف"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid ""
-"<span class=\"text-center he\" style=\"font-size: 1.5em;\"> Post Paid "
-"Sales</span>"
-msgstr "مبيعات أجلة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid ""
-"<span class=\"text-center he\" style=\"font-size: 1.5em;\">Post Paid "
-"Purchases</span>"
-msgstr "مشتريات أجلة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid ""
-"<span class=\"text-center he\" style=\"font-size: 1.5em;\">Pre Paid "
-"Purchases</span>"
-msgstr "مشتريات نقدية"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "<span class=\"text-center\" style=\"font-size: 1.5em;\">Pre Paid Sale</span>"
-msgstr "مبيعات نقدية"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid ""
-"<span style=\"color:#ff8c00;\">\n"
-"\t\t\t\t\t\t\t\t\tScheduled Date\n"
-"\t\t\t\t\t\t\t\t</span>"
-msgstr "التاريخ المقرر"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "<span style=\"color:#ff8c00;\">Incoterm</span>"
-msgstr "الشرط التجاري"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "<span style=\"color:#ff8c00;\">Invoice Number</span>"
-msgstr "رقم الفاتورة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "<span style=\"color:#ff8c00;\">Order</span>"
-msgstr "طلب"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "<span style=\"color:#ff8c00;\">Payment Terms</span>"
-msgstr "شروط الدفع"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "<span style=\"color:#ff8c00;\">Salesperson</span>"
-msgstr "مسئول المبيعات"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "<span style=\"color:#ff8c00;\">Status</span>"
-msgstr "الحالة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-msgid ""
-"<span>\n"
-"\t\t\t\t\t\t\t\t\t\t\t\tVat Number :\n"
-"\t\t\t\t\t\t\t\t\t\t\t</span>"
-msgstr "الرقم"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "<span><strong>Customer Address </strong></span>"
-msgstr "عنوان العميل"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "<span><strong>Vendor Address </strong></span>"
-msgstr "عنوان المورد"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "<span><strong>Warehouse Address </strong></span>"
-msgstr "عنوان المستودع"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "<span>Invoice Date</span>"
+"\t\t\t            \t\t<strong>Invoice Date: </strong>"
 msgstr "تاريخ الفاتورة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "<span>Vat Number : </span>"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"\n"
+"\t\t\t            \t\t<strong>Bransh</strong>"
+msgstr "الفرع"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"\n"
+"\t\t\t            \t\t<strong>Invoice Date: </strong>"
+msgstr "تاريخ الفاتورة"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"\n"
+"\t\t\t            \t\t<strong>Payment Terms: </strong>"
+msgstr "شروط الدفع"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"\n"
+"\n"
+"\t\t\t            \t\t<strong>Payment Terms: </strong>"
+msgstr "شروط الدفع"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"                                <strong>VAT No </strong>"
 msgstr "الرقم الضريبي"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid ""
-"<strong class=\"mr16\">\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSubtotal\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t\t\t</strong>"
-msgstr "المجموع الفرعي"
+"<br/>\n"
+"                            <strong style=\" margin:auto;\">Shipping Company :</strong>"
+msgstr "شركة الشحن"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "<strong class=\"mr16\">Subtotal</strong>"
-msgstr "المجموع الفرعي"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
 msgid ""
-"<strong style=\"color:#ff8c00;\">\n"
-"\t\t\t\t\t\t\t\t\tIncoterm\n"
-"\t\t\t\t\t\t\t\t</strong>"
-msgstr "الشرط التجاري"
+"<br/> \n"
+"                                 <br/> \n"
+"\n"
+"\n"
+"                                \n"
+"                              \n"
+"                                 \n"
+"\n"
+"                              <strong>Mobile</strong>"
+msgstr "الموبايل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
 msgid ""
-"<strong style=\"color:#ff8c00;\">\n"
-"\t\t\t\t\t\t\t\t\tOrder Deadline\n"
-"\t\t\t\t\t\t\t\t</strong>"
+"<br/> \n"
+"                              <br/> \n"
+"\n"
+"\n"
+"                              <strong>Expected Arrival: </strong>"
+msgstr "زمن الوصول"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid ""
+"<br/> \n"
+"                              <br/> \n"
+"\n"
+"\n"
+"                           <strong>Order Date: </strong>"
 msgstr "تاريخ الطلب"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid ""
-"<strong style=\"color:#ff8c00;\">\n"
-"\t\t\t\t\t\t\t\t\tResponsible  employee \n"
-"\t\t\t\t\t\t\t\t</strong>"
-msgstr "الموظف المسئول"
+"<br/> \n"
+"                              <br/> \n"
+"                                 \n"
+"\n"
+"                              <strong>Mobile</strong>"
+msgstr "الموبايل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid ""
-"<strong style=\"color:#ff8c00;\">\n"
-"\t\t\t\t\t\t\t\t\tYour Order Reference:\n"
-"\t\t\t\t\t\t\t\t</strong>"
-msgstr "مرجع الطلب"
+"<br/> \n"
+"                              <br/>  \n"
+"\n"
+"                              <strong>Email</strong>"
+msgstr "الايميل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-msgid "<strong style=\"color:#ff8c00;\"> Delivery Date </strong>"
-msgstr "تاريخ التوصيل"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid ""
+"<br/>  \n"
+"                              <br/>  \n"
+"\n"
+"                              <strong>Email</strong>"
+msgstr "الايميل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "<strong style=\"color:#ff8c00;\"> Invoice Date </strong>"
-msgstr "تاريخ الفاتورة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid ""
+"<br/>  \n"
+"                              <br/>  \n"
+"\n"
+"                              <strong>Phone</strong>"
+msgstr "الهاتف"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-msgid "<strong style=\"color:#ff8c00;\">Distributer Car Number</strong>"
-msgstr "رقم سيارة المخرج"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_test
+msgid "<i class=\"text-white fa fa-at\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgstr ""
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-msgid "<strong style=\"color:#ff8c00;\">Distributer Name</strong>"
-msgstr "اسم المخرج"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_slip
+msgid ""
+"<i class=\"text-white fa fa-building-o\" role=\"img\" aria-label=\"Fiscal number\"/>\n"
+"                        <strong>Date: </strong>"
+msgstr "التاريخ"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-msgid "<strong style=\"color:#ff8c00;\">From City</strong>"
-msgstr "من مدينة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_test
+msgid ""
+"<i class=\"text-white fa fa-building-o\" role=\"img\" aria-label=\"Fiscal "
+"number\"/><strong>Date: </strong>"
+msgstr "التاريخ"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "<strong style=\"color:#ff8c00;\">Incoterm </strong>"
-msgstr "الشرط التجاري"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_test
+msgid ""
+"<i class=\"text-white fa fa-globe\" role=\"img\" aria-label=\"Website\" "
+"title=\"Website\"/>"
+msgstr ""
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "<strong style=\"color:#ff8c00;\">Payment Terms</strong>"
-msgstr "شروط الدفع"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_slip
+msgid ""
+"<i class=\"text-white fa fa-phone\" role=\"img\" aria-label=\"Phone\" title=\"Phone\"/>\n"
+"                        <strong>User Name: </strong>"
+msgstr "اسم المستخدم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "<strong style=\"color:#ff8c00;\">Quotation Date</strong>"
-msgstr "تاريخ الفاتورة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_test
+msgid ""
+"<i class=\"text-white fa fa-phone\" role=\"img\" aria-label=\"Phone\" "
+"title=\"Phone\"/><strong>User Name: </strong>"
+msgstr "اسم المستخدم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "<strong style=\"color:#ff8c00;\">Salesperson</strong>"
-msgstr "مسئول المبيعات"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "<span class=\"text-right arabic\">Tax Invoice / فاتورة ضريبية </span>"
+msgstr "فاتورة ضريبية"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-msgid "<strong style=\"color:#ff8c00;\">To City </strong>"
-msgstr "الى مدينة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                            <strong>Delivery Address </strong>\n"
+"                                        </span>"
+msgstr "عنوان التوصيل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "<strong>CBM</strong>"
-msgstr "المتر المكعب"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                            <strong>Vendor Address </strong>\n"
+"                                        </span>"
+msgstr "عنوان المورد"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "<strong>Delivered</strong>"
-msgstr "الكمية المرسلة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                            <strong>Warehouse Address </strong>\n"
+"                                        </span>"
+msgstr "عنوان المخزن"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "<strong>Lot/Serial Number</strong>"
-msgstr "الرقم"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                        <strong>Customer Address </strong>\n"
+"                                    </span>"
+msgstr "عنوان العميل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "<strong>Ordered</strong>"
-msgstr "الكمية المستلمة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                    Shipping Date\n"
+"                                </span>"
+msgstr "تاريخ الشحن"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "<strong>Product</strong>"
-msgstr "المنتج"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid "<span>Invoice Number</span>"
+msgstr "رقم الفاتورة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "<strong>Shipping Address:</strong>"
-msgstr "عنوان الشحن"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid "<span>Order</span>"
+msgstr "الطلب"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-msgid "<strong>Shipping address:</strong>"
-msgstr "عنوان الشحن"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid "<span>Status</span>"
+msgstr "الحالة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "<strong>weight</strong>"
-msgstr "المنتج"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid ""
+"<strong class=\"mr16\">\n"
+"                                                Subtotal\n"
+"                                            </strong>"
+msgstr "الاجمالي"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-msgid "AMOUNT INVOICED"
-msgstr "المبلغ المتبغي"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "الاجمالي"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "<strong style=\" margin:auto;\">Shipping document number :</strong>"
+msgstr "رقم وثيقة الشحن"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "<strong>Invoice Number: </strong>"
+msgstr "رقم الفاتورة"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Amount"
 msgstr "الاجمالي"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_company_dis
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_company_dis
 msgid "Arabic  Company description"
 msgstr "وصف الشركة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic Address"
-msgstr "عنوان الشركة"
+msgstr "العنوان"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_city
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_city
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic City"
 msgstr "المدينة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic Company description"
 msgstr "وصف الشركة"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_country
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_country
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic Country"
-msgstr "القطر"
+msgstr "الدولة"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_name
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_name
 msgid "Arabic Name"
-msgstr ""
+msgstr "الاسم"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_state
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_state
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic State"
-msgstr "الولاية"
+msgstr "المدينة"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_street
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_street
 msgid "Arabic Street"
 msgstr "الشارع"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic Street 2..."
-msgstr ""
+msgstr "الشارع الثاني"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic Street..."
-msgstr ""
+msgstr "الشارع"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_street2
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_street2
 msgid "Arabic Street2"
-msgstr ""
+msgstr "الشارع الثاني"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_web
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_web
 msgid "Arabic Website"
 msgstr "الموقع"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
 msgid "Arabic ZIP"
-msgstr ""
+msgstr "الرقم"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_res_company__arabic_zip
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__arabic_zip
 msgid "Arabic Zip"
+msgstr "الرقم"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.view_company_form_knk
+msgid "Arabic website"
 msgstr ""
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.view_company_form_knk
-msgid "Arabic website"
-msgstr "الموقع"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"Cancelled\n"
+"                                    Invoice"
+msgstr "فاتورة ملغية"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-msgid "Arrival Date"
-msgstr "وقت الوصول"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-msgid "Bill Date"
-msgstr "تاريخ الفاتورة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-msgid "Bill Number"
-msgstr "رقم الفاتورة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "CBM"
-msgstr "حجم المتر المكعب"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
 msgid "Cancelled Invoice"
-msgstr "الغاء الفاتورة"
+msgstr "فاتورة ملغية"
 
-#. module: orange_report
-#: model:ir.model,name:orange_report.model_res_company
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid "Cancelled Purchase Order"
+msgstr "امر شراء ملغي"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid "Cancelled Purchase Order :"
+msgstr "امر شراء ملغي"
+
+#. module: prosys_swage_template
+#: model:ir.model,name:prosys_swage_template.model_res_company
 msgid "Companies"
 msgstr "الشركات "
 
-#. module: orange_report
-#: model:ir.model,name:orange_report.model_res_partner
+#. module: prosys_swage_template
+#: model:ir.model,name:prosys_swage_template.model_res_partner
 msgid "Contact"
 msgstr "جهة الاتصال"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Container Number"
-msgstr "رقم الحاوية"
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_account_bank_statement_line__date_creation
+#: model:ir.model.fields,field_description:prosys_swage_template.field_account_move__date_creation
+#: model:ir.model.fields,field_description:prosys_swage_template.field_account_payment__date_creation
+#: model:ir.model.fields,field_description:prosys_swage_template.field_purchase_order__date_creation
+#: model:ir.model.fields,field_description:prosys_swage_template.field_res_company__date_creation
+#: model:ir.model.fields,field_description:prosys_swage_template.field_sale_order__date_creation
+#: model:ir.model.fields,field_description:prosys_swage_template.field_stock_picking__date_creation
+msgid "Created Date"
+msgstr "تاريخ الانشاء"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Container Size"
-msgstr "مقاس الحاوية"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Container weight"
-msgstr "وزن الحاوية"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
 msgid "Credit Note"
-msgstr "اشعار دائن"
+msgstr "اشعار الدائن"
 
-#. module: orange_report
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__out_refund
+#. module: prosys_swage_template
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__out_refund
 msgid "Customer Credit Note"
-msgstr "اشعار العميل الدائن"
+msgstr "اشعار الدائن للعميل"
 
-#. module: orange_report
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__out_invoice
+#. module: prosys_swage_template
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__out_invoice
 msgid "Customer Invoice"
 msgstr "فاتورة العميل"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_account_bank_statement_line__invoice_date_supply
-#: model:ir.model.fields,field_description:orange_report.field_account_move__invoice_date_supply
-#: model:ir.model.fields,field_description:orange_report.field_account_payment__invoice_date_supply
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_account_bank_statement_line__invoice_date_supply
+#: model:ir.model.fields,field_description:prosys_swage_template.field_account_move__invoice_date_supply
+#: model:ir.model.fields,field_description:prosys_swage_template.field_account_payment__invoice_date_supply
 msgid "Date Of Supply"
 msgstr "تاريخ التزويد"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Deliver Port"
-msgstr "ميناء التوصيل"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid "Delivered"
+msgstr "تم التوصيل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Delivery Date"
-msgstr "تاريخ التوصيل"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "Delivery Slip"
-msgstr "وثيقة التوصيل"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-msgid "Delivery Slip Customer"
-msgstr "وثيقة استلام العميل"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "Delivery Slip Vindor"
-msgstr "وثيقة استلام المورد"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
 msgid "Description"
 msgstr "الوصف"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Discount"
-msgstr "الخضم"
+msgstr "الخصم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-msgid "Distributer Car Number"
-msgstr "رقم سيارة المخرج"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"Draft\n"
+"                                    Invoice"
+msgstr "فاتورة مسودة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-msgid "Distributer Name"
-msgstr "اسم المخرج"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
 msgid "Draft Invoice"
-msgstr "مسودة فاتورة"
+msgstr "فاتورة مسودة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-msgid "Expected Arrival"
-msgstr "وقت الوصول المتوقع"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "Final Total"
+msgstr "الالجمالي النهائي"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Incoterm"
-msgstr "الشرط التجاري"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+msgid "Invoice"
+msgstr "الفاتورة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-msgid "Invoice For Services Shipped To The Supplier"
-msgstr "فاتورة الخدمات شحن للمورد"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-msgid "Invoice For Services Shipped To The Supplier (KSA)"
-msgstr "فاتورة خدمات شحن المورد (السعودية)"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Invoice Number"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid ""
+"Invoice\n"
+"                                    Number"
 msgstr "رقم الفاتورة"
 
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_invoice_services
-msgid "Invoice Services To Supplier"
-msgstr "خدمات الفاتورة للمورد"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_china_invoice_services_to_supplier
-msgid "Invoice Services To Supplier(china)"
-msgstr "فاتورة خدمة المورد شركة الصين"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "Invoicing Address:"
-msgstr "عنوان القوترة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "Invoicing and Shipping Address:"
-msgstr "عنوان الفواتير والشحن"
-
-#. module: orange_report
-#: model:ir.model,name:orange_report.model_account_move
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__entry
+#. module: prosys_swage_template
+#: model:ir.model,name:prosys_swage_template.model_account_move
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__entry
 msgid "Journal Entry"
 msgstr "قيد اليومية"
 
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_ksa_invoice_services_to_supplier
-msgid "Ksa Invoice Services To Supplier (Ksa)"
-msgstr "فاتورة خدمات المورد السعودية"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_ksa_account_purchase
-msgid "Ksa Purchase Invoice "
-msgstr "فاتورة مشتريات (السعودية)"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_ksa_account
-msgid "Ksa Sale Invoice "
-msgstr "فاتورة مبيعات (السعودية)"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_ksa_sale_custom_invoice
-msgid "Ksa Sale Invoice (ksa)"
-msgstr "فاتورة مبيعات السعودية"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_sale_ksa_company
-msgid "Ksa Sale Order "
-msgstr "طلب مبيعات(السعودية)"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_ksa_utility_invoice_pdf
-msgid "Ksa Utility Invoice"
-msgstr "فاتورة الخدمات العامة(السعودية)"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_ksa_purchase_pdf_custom
-msgid "Ksa purchase Order"
-msgstr "امر مشتريات(السعودية)"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_ksa_purchase_order
-msgid "Ksa purchase Order(ksa purchase)_"
-msgstr "امر شراء شركة السعودية"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_ksa_header_footer
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_session_header_footer
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_test
 msgid "Logo"
 msgstr "الشعار"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "Lot/Serial Number"
-msgstr "الرقم التسلسلي"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "Number Of Brand"
+msgstr "عدد الماركات"
 
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_modern_delivery_customer
-msgid "Modern Delivery Customer"
-msgstr "الاستلام المخزني للعميل"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Order :"
+msgstr "الطلب"
 
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_delevry_slip_pdf_ksa_customer
-msgid "Modern Delivery Customer(stock customer)"
-msgstr "سند الاستلام العميل"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid "Ordered"
+msgstr "تم الطلب"
 
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_delivery_orange
-msgid "Modern Delivery Orange"
-msgstr "الاستلام المخزني"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_delevry_slip_pdf_custom
-msgid "Modern Delivery Orange(stock)"
-msgstr "سند الاستلام المخزني"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_modern_delivery_vindor
-msgid "Modern Delivery Vindor"
-msgstr "الاستلام المخزني للمورد"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_delevry_slip_pdf_ksa
-msgid "Modern Delivery Vindor (stock vindor)"
-msgstr "سند الاستلام المخزني للمورد"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_account
-msgid "Modern Invoice Orange"
-msgstr "تقرير الفواتير الحديث"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_purchase
-msgid "Modern Sale Orange"
-msgstr "تقرير اوامر البيغ الحديث"
-
-#. module: orange_report
-#: model:ir.actions.report,name:orange_report.action_report_prosys_purchase_pdf_custom
-msgid "Modern purchase Orange"
-msgstr "تقرير اوامر الشراء الحديث"
-
-#. module: orange_report
-#: model:res.groups,name:orange_report.group_modern_purchase_orange
-msgid "Modern purchase Orange (china)"
-msgstr "فاتورة مشتريات شركة الصين"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-msgid "Order"
-msgstr "طلب"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
 msgid "Packaging"
 msgstr "الشد"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
 msgid "Packaging Quantity"
 msgstr "كمية الشد"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_ksa_header_footer
-#: model_terms:ir.ui.view,arch_db:orange_report.custom_session_header_footer
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_test
 msgid ""
 "Page:\n"
 "                    <span class=\"page\"/>\n"
@@ -817,314 +569,259 @@ msgid ""
 "                    <span class=\"topage\"/>"
 msgstr ""
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Payment Reference"
-msgstr "مرجع الدفعة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.external_layout_seti_sale_slip
+msgid "Page: <span class=\"page\"/> of <span class=\"topage\"/>"
+msgstr ""
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Payment Terms"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "Payment terms"
 msgstr "شروط الدفع"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Policy Number"
-msgstr "رقم البوليصة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid "Post Paid Purchases"
-msgstr "مشتريات أجلة"
+msgstr "مشتريات الدفع الآجل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid "Post Paid Sales"
-msgstr "مبيعات أجلة"
+msgstr "مبيعات الدفع الآجل"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid "Pre Paid Purchases"
-msgstr "مشتريات نقدية"
+msgstr "مشتريات مسبقة الدفع"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid "Pre Paid Sale"
-msgstr "مبيعات نقدية"
+msgstr "مبيعات مسبقة الدفع"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Price"
 msgstr "السعر"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Pro-Forma Invoice"
+msgstr "فاتورة مبدئية"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Pro-Forma Invoice #"
+msgstr "فاتوره مبدئية"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Product"
 msgstr "المنتج"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-msgid "Product Barcode"
-msgstr "باركود المنتج"
+#. module: prosys_swage_template
+#: model:ir.actions.report,name:prosys_swage_template.action_report_swage_delevry_slip_bill
+msgid "Purchase Delivery Slip"
+msgstr "وثيقة تسليم المشتريات"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-msgid "Public Utility Invoice"
-msgstr "فاتورة خدمات عامة"
-
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Public Utility Invoice (KSA)"
-msgstr "فاتورة خدمات العامة (السعودية)"
-
-#. module: orange_report
-#: model:ir.model,name:orange_report.model_purchase_order
+#. module: prosys_swage_template
+#: model:ir.model,name:prosys_swage_template.model_purchase_order
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
 msgid "Purchase Order"
 msgstr "أمر شراء"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-msgid "Purchase Order Date"
-msgstr "تاريخ امر الشراء"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid "Purchase Order :"
+msgstr "امر شراء"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-msgid "Purchase Order Number"
-msgstr "رقم امر الشراء"
-
-#. module: orange_report
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__in_receipt
+#. module: prosys_swage_template
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__in_receipt
 msgid "Purchase Receipt"
-msgstr "ايصال مشتريات"
+msgstr "ايصال مستريات"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Quantity"
 msgstr "الكمية"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-msgid "Quotation #"
-msgstr "فاتورة #"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Quotation"
+msgstr "عرض سعر"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report_pdf
-msgid "Request for Quotation #"
-msgstr "طلب فاتورة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Quotation :"
+msgstr "عرض السعر"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-msgid "Responsible  Employee"
-msgstr "الموظف المسئول"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid "Request for Quotation"
+msgstr "طلب عرض السعر"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-msgid "Responsible  employee"
-msgstr "الموظف المسئول"
+#. module: prosys_swage_template
+#: model:ir.actions.report,name:prosys_swage_template.action_report_swage_delevry_slip_invoice
+msgid "Sale Delivery Slip"
+msgstr "وثيثة تسليم المبيعات"
 
-#. module: orange_report
-#: model:ir.model,name:orange_report.model_sale_order
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Sale Order"
+msgstr "امر بيع"
+
+#. module: prosys_swage_template
+#: model:ir.model,name:prosys_swage_template.model_sale_order
 msgid "Sales Order"
-msgstr "أمر بيع"
+msgstr "أمر البيع"
 
-#. module: orange_report
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__out_receipt
+#. module: prosys_swage_template
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__out_receipt
 msgid "Sales Receipt"
 msgstr "ايصال مبيعات"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-msgid "Salesperson"
-msgstr "مسئول مبيعات"
-
-#. module: orange_report
+#. module: prosys_swage_template
 #. odoo-python
-#: code:addons/orange_report/models/saudi_invoice.py:0
+#: code:addons/prosys_swage_template/models/saudi_invoice.py:0
 #, python-format
 msgid "Send Invoice"
-msgstr "ارسال الفاتورة"
+msgstr "ارسل الفاتورة"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Shipping Company Name"
-msgstr "اسم شركو الشحن"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+msgid ""
+"Stock\n"
+"                                    exchange"
+msgstr "صرف مخزني"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_customer_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_ksa_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Shipping Port"
-msgstr "ميناء الشحن"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
+msgid "Stock Receipt"
+msgstr "ايصال المخزن"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "Tax Invoice"
-msgstr "فاتورة ضريبية"
+#. module: prosys_swage_template
+#: model:ir.actions.report,name:prosys_swage_template.action_report_sale_ksa_company
+msgid "Swag Sale Order "
+msgstr "امر مبيعات سواج"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model:ir.actions.report,name:prosys_swage_template.action_report_swag_purchase_pdf_custom
+msgid "Swag purchase Order"
+msgstr "امر مشتريات سواج"
+
+#. module: prosys_swage_template
+#: model:ir.actions.report,name:prosys_swage_template.action_report_swage_bill
+msgid "Swage Bill Template"
+msgstr "فاتورة مورد سواج"
+
+#. module: prosys_swage_template
+#: model:ir.actions.report,name:prosys_swage_template.action_report_swage_invoice
+msgid "Swage Invoice Template"
+msgstr "فاتورة عميل سواج"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Taxes"
 msgstr "الضرائب"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_purchase_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Total"
-msgstr "الاجمالي"
+msgstr "المجموع"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
 msgid "Total After Discount"
 msgstr "الاجمالي بعد الخصم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "Total After Taxes"
-msgstr "الاجمالي بعد الضريبة"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "Total Before Discount"
+msgstr "الاجمالي قبل الخصم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Total Amount Due"
-msgstr "اجمالي المبلغ المتبغي"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "Total Descount"
+msgstr "مجموع الخصم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "Total Discount"
 msgstr "مجموع الخصم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "Total Taxes"
-msgstr "مجوع الضرائب"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "Total Quantity"
+msgstr "اجمالي الكمية"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_ksa_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_services_to_Supplier_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_invoice_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_utility_ksa_invoice_pdf
-msgid "Total Without Taxes"
-msgstr "الاجمالي بدون ضرائب"
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
+msgid "Total after Discount"
+msgstr "اجمالي بعد الخصم"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_bill_report_pdf
-msgid "Total/B/Taxes/Discount"
-msgstr "الاجمالي قبل الضريبة و الخصم"
+#. module: prosys_swage_template
+#: model:ir.model,name:prosys_swage_template.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
 
-#. module: orange_report
-#: model:ir.model.fields,field_description:orange_report.field_purchase_order__move_type
+#. module: prosys_swage_template
+#: model:ir.model.fields,field_description:prosys_swage_template.field_purchase_order__move_type
 msgid "Type"
-msgstr "نوع"
+msgstr "النوع
+"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
-msgid "Untaxed Total"
-msgstr "المجموع غير شامل الضرائب"
-
-#. module: orange_report
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__in_invoice
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__in_invoice
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
 msgid "Vendor Bill"
 msgstr "فاتورة مورد"
 
-#. module: orange_report
-#: model:ir.model.fields.selection,name:orange_report.selection__purchase_order__move_type__in_refund
-#: model_terms:ir.ui.view,arch_db:orange_report.delevry_slip_pdf_custom
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_invoice_report_pdf
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_invoice_report_pdf
+#. module: prosys_swage_template
+#: model:ir.model.fields.selection,name:prosys_swage_template.selection__purchase_order__move_type__in_refund
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_custom_delivery_slip_bill
 msgid "Vendor Credit Note"
-msgstr "اشعار المورد الدائن"
+msgstr "اشعار دائن مورد"
 
-#. module: orange_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_ksa_sale_report
-#: model_terms:ir.ui.view,arch_db:orange_report.prosys_purchase_report
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.swag_saleorder_custom_template
 msgid "description"
 msgstr "الوصف"
+
+#. module: prosys_swage_template
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:prosys_swage_template.report_swage_invoice_document
+msgid "payment method"
+msgstr "طريقة الدفع"
