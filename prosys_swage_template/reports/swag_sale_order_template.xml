@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	     <template id="external_layout_seti_sale">
+        <t t-if="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id"/>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+        <t t-set="company" t-value="res_company"/>  
+        </t>
+
+        <div class="header" style="direction: initial;">
+         <table style="border: 1pt solid white; font-size: 12px;" width="100%">
+             <!-- <link rel="stylesheet" href="/saudi_einvoice_knk/static/src/css/style.css"/> -->
+             <link rel="stylesheet" href="/prosys_swage_template/static/src/css/style.css"/>
+             <tr>
+
+             <tr t-if="lang == 'en_US'">
+                 <!-- English Header -->
+                 <td colspan="2" width="30%">
+                     <strong><span style="padding-left:5px;" t-field="company.name"/></strong><br/>
+                     <t t-if="company.street">
+                         <span style="padding-left:5px;" t-field="company.street"/><br/>
+                     </t>
+                     <t t-if="company.street2">
+                         <span style="padding-left:5px;" t-field="company.street2"/><br/>
+                     </t>
+                     <t t-if="company.city">
+                         <span style="padding-left:5px;" t-field="company.city"/><br/>
+                     </t>
+                     <t t-if="company.country_id">
+                         <span style="padding-left:5px;" t-field="company.country_id.name"/><br/>
+                     </t>
+                 </td>
+                 
+                   
+
+<td  colspan="3" width="30%" style= "position: relative; left:500px;"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
+                 
+                 <!-- Hide the Arabic header -->
+                 <td colspan="2" width="40%" class="enx" style="display: none;"></td>
+             </tr>
+             
+             <tr t-else="lang == 'ar_001'">
+                 <!-- Hide the English header -->
+                 <td colspan="2" width="30%" style="display: none;"></td>
+                 
+                 <!-- Arabic Header -->
+                 
+                 <td  colspan="3" width="30%" class="text-left"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
+                 
+                 <td colspan="2" width="40%" style= "position: relative; left:350px;" >
+                   <strong>
+                      <span class=" text-right arabic"  t-field="company.arabic_name"/></strong><br/>
+                   <t t-if="company.street">
+                      <span class="text-right arabic"  t-field="company.arabic_street"/><br/>
+                   </t>
+                   <t t-if="company.street2">
+                      <span class="text-right arabic"  t-field="company.arabic_street2"/><br/>
+                   </t>
+                   <t t-if="company.city">
+                      <span class="text-right arabic"  t-field="company.arabic_city"/><br/>
+                   </t>
+                   <t t-if="company.arabic_country">
+                      <span class="text-right arabic"  t-field="company.arabic_country"/><br/>
+                   </t>
+
+                     <t t-if="company.vat">
+                      <span class="text-right arabic" t-field="company.vat"/><br/>
+                   </t>
+                       <t t-if="company.arabic_web">
+                      <span class="text-right arabic" t-field="company.arabic_web"/><br/>
+                   </t>
+                       <t t-if="company.arabic_company_dis">
+                      <span class="text-right arabic" t-field="company.arabic_company_dis"/><br/>
+                   </t>
+                </td>
+             </tr>
+
+         </tr>
+         </table>
+     </div>
+     
+        
+        <div class="article o_report_layout_standard">
+            <t t-raw="0" />
+        </div>
+        <div class="footer o_background_footer">
+            <div class="text-center" style="font-size:14px;"  >
+                <ul class="list-inline">
+                    <li t-if="company.phone" class="list-inline-item"><i class="text-white fa fa-phone" role="img" aria-label="Phone" title="Phone"/><strong>User Name: </strong><span t-field="user.name"/></li>
+                    <li t-if="company.email" class="list-inline-item"><i class="text-white fa fa-at" role="img" aria-label="Email" title="Email"/> <span class="text-white" t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item"><i class="text-white fa fa-globe" role="img" aria-label="Website" title="Website"/> <span class="text-white" t-field="company.website"/></li>
+                    <li  class="list-inline-item"><i class="text-white fa fa-building-o" role="img" aria-label="Fiscal number"/><strong>Date: </strong><span t-esc="o.date_creation"/></li>
+                </ul>
+                <!-- <div t-field="company.report_footer"/> -->
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    of
+                    <span class="topage"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+	<template id="swag_saleorder_custom_template">
+		<t t-call="prosys_swage_template.external_layout_seti_sale">
+			<t t-foreach="doc" t-as="o">
+				<div class="page" style="">
+					<link rel="stylesheet" href="/prosys_packing_list_custom/static/src/css/style.css"/>
+					<t t-set="company" t-value="res_company"/>
+					<div class="font">
+					<table style="border:1pt solid grey;width:100%;
+   						 height: 23px;color:black; margin-top:10pt;" class="table-condensed table-sm">
+							<tr>
+                       
+								<td style="padding:1pt;margin:0pt;font-weight: bold;text-align:center;background-color:#DCDCDC;">
+
+                           <h2 class="mt-4">
+                              <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice # </span>
+                              <span t-elif="doc.state in ['draft','sent']">Quotation</span>
+                              <span t-else="">Sale Order</span>
+                              <!-- <span t-field="doc.name"/> -->
+                          </h2>
+
+                        </td> 
+							</tr>
+					</table>
+					<br></br>
+					<br></br>
+					<br></br>
+
+			        <div class="row">
+                        <div name="invoice_address" class="col-4">
+                            <address t-field="o.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                            <div t-if="o.partner_id.vat" class="mt16"><t t-esc="o.company_id.country_id.vat_label or 'TIN'"/>: <span t-field="o.partner_id.vat"/></div>
+                        </div>
+			            <div class="col-4">
+			          
+                              
+                           <!-- <strong>Sale Order No: </strong>
+                           <td class="text-start">
+                              <span t-field="o.name"/> 
+                           </td> -->
+
+                           <span class="mt-4">
+                              <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice  </span>
+                              <span t-elif="doc.state in ['draft','sent']">Quotation :</span>
+                              <span t-else="">Order :</span>
+                              <span t-field="doc.name"/>
+                           </span>
+
+                              <br></br> 
+                              <br></br> 
+
+
+                           <strong>Order Date: </strong>
+                           <td class="text-start">
+                              <span t-field="o.date_order"/> 
+                           </td>
+                              <br></br> 
+                              <br></br> 
+                                 
+
+                              <strong>Mobile</strong>
+                            <td t-if="doc.partner_id.mobile" class="text-start">
+                                 <span t-field="doc.partner_id.mobile"/>
+                              </td>
+
+                              <br></br>  
+                              <br></br>  
+
+                              <strong>Phone</strong>
+                               <td t-if="doc.partner_id.phone" class="text-start">
+                                 <span t-field="doc.partner_id.phone"/>
+                              </td>
+                              <br></br> 
+                              <br></br>  
+
+                              <strong>Email</strong>
+                              <td t-if="doc.partner_id.email" class="text-start">
+                               <span t-field="doc.partner_id.email"/>
+                            </td>
+                              <br></br>  
+              
+			          
+						</div>
+                        <div class="col-4" >
+                            <div style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black; border-left: 3px solid black; border-right: 3px solid #ff8c00;">
+                                <br></br>
+                                <br></br>
+                                <br></br>
+
+                                        <span t-field="doc.name" t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:300px;height:50px;'}"/>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                    </div>
+                            
+			                 <!-- <img t-if="doc.get_qr_code()"
+								style="display:block;"
+								t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', doc.get_qr_code(), 110, 110)"/> -->
+			            </div>
+                    </div>
+					<br></br>
+					<br></br>
+
+                
+
+
+                <div class="col-12 knk arabic">
+                  <table class="table table-sm table-borderless" style="page-break-inside: avoid;">
+                     <thead style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black;">
+                        <tr class="knk">
+                           <td name="th_description" class="text-start p-3">Product</td>
+                           <td name="th_description" class="text-start p-3">description</td>
+
+                           <td name="th_quantity" class="text-end">Quantity</td>
+                           <!-- <td name="th_quantity" class="text-end">Packaging</td>
+                           <td name="th_quantity" class="text-end">Packaging Quantity</td> -->
+
+
+                           <td name="th_priceunit" class="text-end">Price</td>
+                           <td name="th_priceunit" class="text-end">Discount</td>
+                           <td name="th_priceunit" class="text-end">Taxes</td>
+                           <td name="th_priceunit" class="text-end">Amount</td>
+
+
+                          
+                        </tr>
+                     </thead>
+                     
+                  <t t-set="discount_total" t-value="0"/>
+                  <t t-set="total_amount" t-value="0"/>
+                  <!-- <t t-set="tax_total" t-value="0"/> -->
+
+
+                     <tbody class="knk arabic">
+                        <t t-set="current_subtotal" t-value="0"/>
+                        <t t-foreach="doc.order_line" t-as="line">
+                           <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" />
+                           <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"/>
+                           <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+                            <t t-set="discount_total" t-value="discount_total + line.discount"/>
+                            <t t-set="total_amount" t-value="total_amount + line.price_subtotal"/>
+					 				<!-- <t t-set="tax_total" t-value="tax_total +  line.tax_id"/> -->
+
+
+
+                              <t t-if="not line.display_type">
+                                 <td name="td_name"><span t-field="line.product_template_id"/></td>
+                                 <td name="td_priceunit" class="text-end">
+                                    <span t-field="line.name"/>
+                                 </td>
+                                 <td name="td_quantity" class="text-end">
+                                    <span t-field="line.product_uom_qty"/>
+                                 </td>
+                                 <!-- <td name="td_quantity" class="text-end">
+                                    <span t-field="line.product_packaging_id"/>
+                                 </td>
+
+                                 <td name="td_quantity" class="text-end">
+                                    <span t-field="line.product_packaging_qty"/>
+                                 </td> -->
+                             
+                             
+                                 <td name="td_priceunit" class="text-end">
+                                    <span t-field="line.price_unit"/>
+                                 </td>
+                                 <td class="text-end">
+                                    <span t-field="line.discount"/>
+                                 </td>
+                                 <td name="td_taxes" class="text-end">
+                                    <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+                                 </td>
+                                 <td t-if="not line.is_downpayment" name="td_subtotal" class="text-end o_price_total">
+                                    <span t-field="line.price_subtotal" />
+                                    <span t-field="line.price_total"/>
+                                 </td>
+                              </t>
+                              <t t-elif="line.display_type == 'line_section'">
+                                 <td name="td_section_line" colspan="99">
+                                    <span t-field="line.name"/>
+                                 </td>
+                                 <t t-set="current_section" t-value="line"/>
+                                 <t t-set="current_subtotal" t-value="0"/>
+                              </t>
+                              <t t-elif="line.display_type == 'line_note'">
+                                 <td name="td_note_line" colspan="99">
+                                    <span t-field="line.name"/>
+                                 </td>
+                              </t>
+                           </tr>
+                           <t t-if="current_section and (line_last or doc.order_line[line_index+1].display_type == 'line_section') and not line.is_downpayment">
+                              <tr class="is-subtotal text-end">
+                                 <td name="td_section_subtotal" colspan="99">
+                                    <strong class="mr16">Subtotal</strong>
+                                    <span
+                                       t-out="current_subtotal"
+                                       t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'
+                                       />
+                                 </td>
+                              </tr>
+                           </t>
+                        </t>
+
+                        <tr class="p-5">
+                           <td>Total Discount</td> 
+                            <td colspan="6"  class="text-end arabic"><span t-esc="discount_total" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/></td>
+                           
+                           </tr>
+                           <tr>
+                              <td>Total</td> 
+                             <td  colspan="6" class="text-end arabic"><span t-esc="total_amount"/></td>
+                        </tr>
+
+                        <tr>
+                           <td>Total after Discount</td> 
+                          <td  colspan="6" class="text-end arabic"><span t-esc="total_amount - discount_total"/></td>
+                     </tr>
+
+<!-- 
+                     <tr>
+                        <td>Tax Total </td> 
+                       <td  colspan="6" class="text-end arabic"><span t-esc="tax_total"/></td>
+                  </tr> -->
+
+
+
+                     </tbody>
+                  </table>
+
+                    <br></br>
+                    <br></br>
+
+                    <!-- <div class ="row">
+                        <div class ="col-12 d-flex justify-content-center">
+                            <img t-if="doc.get_qr_code()"
+                            t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', doc.get_qr_code(), 140, 140)"/> 
+                        </div>
+                    </div>  -->
+                   
+
+                 </div>
+					
+					</div>
+				</div>
+			</t>
+		</t>
+	</template>
+	
+	<template id="prosys_swag_sale_orde_report">
+	    <t t-call="web.html_container">
+	        <t t-foreach="docs" t-as="doc">
+	            <t t-call="prosys_swage_template.swag_saleorder_custom_template"/>
+	        </t>
+	    </t>
+	</template>
+</odoo>

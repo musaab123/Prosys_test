@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     
+
+        <record id="action_report_sale_ksa_company" model="ir.actions.report">
+            <field name="name">Swag Sale Order </field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.prosys_swag_sale_orde_report</field>
+            <field name="report_file">prosys_swage_template.prosys_swag_sale_orde_report</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+
+        </record>
+        
+        <record id="action_report_swag_purchase_pdf_custom" model="ir.actions.report">
+            <field name="name">Swag purchase Order</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.prosys_swag_purchase_report</field>
+            <field name="report_file">prosys_swage_template.prosys_swag_purchase_report</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+
+        </record>
+
+        <record id="action_report_swage_invoice" model="ir.actions.report">
+            <field name="name">Swage Invoice Template</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_invoice</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_invoice</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+        <record id="action_report_swage_bill" model="ir.actions.report">
+            <field name="name">Swage Bill Template</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_bill</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_bill</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+        <record id="action_report_swage_delevry_slip_invoice" model="ir.actions.report">
+            <field name="name">Sale Delivery Slip</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_delivery_slip</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_delivery_slip</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+        <record id="action_report_swage_delevry_slip_bill" model="ir.actions.report">
+            <field name="name">Purchase Delivery Slip</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">prosys_swage_template.report_swage_custom_delivery_slip_bill</field>
+            <field name="report_file">prosys_swage_template.report_swage_custom_delivery_slip_bill</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+
+    </data> 
+
+</odoo>
