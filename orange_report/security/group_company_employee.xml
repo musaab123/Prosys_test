@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+        <record id="group_china_sale_order" model="res.groups">
+            <field name="name">Sale Order Permition (china)</field>
+        </record>
+
+
+        <record id="group_china_purchase_order" model="res.groups">
+            <field name="name">Purchase Order Permition (china)</field>
+        </record>
+
+        <record id="group_china_stock_vendor" model="res.groups">
+            <field name="name">Stock Vindor Permition(china)</field>
+        </record>
+
+
+        <record id="group_china_stock_customer" model="res.groups">
+            <field name="name"> Stock Customer Permition (china)</field>
+        </record>
+
+
+
+        <record id="group_china_sale_invoice" model="res.groups">
+            <field name="name">Sale Invoice(china)</field>
+        </record>
+
+        <record id="group_china_purchase_custom_inh" model="res.groups">
+            <field name="name">Purchase Invoice(china)</field>
+        </record>
+
+        <record id="group_china_invoice_service_to_supplier_customer_sale" model="res.groups">
+            <field name="name"> Sale Invoice To Supplier (china)</field>
+        </record>
+
+        <record id="group_china_invoice_service_to_supplier_vendor_sale" model="res.groups">
+            <field name="name"> Purchase Invoice To Supplier (china)</field>
+        </record>
+
+        <record id="group_china_utility_invoice_sale" model="res.groups">
+            <field name="name"> Utility Invoice Sale (china)</field>
+        </record>
+
+        <record id="group_china_utility_invoice_purchase" model="res.groups">
+            <field name="name"> Utility Invoice Purchase (china)</field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+        <record id="group_ksa_sale_order" model="res.groups">
+            <field name="name"> Sale Order Permition (ksa)</field>
+        </record>
+        
+        <record id="group_ksa_purchase_order" model="res.groups">
+            <field name="name">Purchase Order(ksa)</field>
+        </record>
+
+        <record id="group_ksa_stock_vendor" model="res.groups">
+            <field name="name">Stock Vindor Permition(Ksa)</field>
+        </record>
+
+
+        <record id="group_ksa_stock_customer" model="res.groups">
+            <field name="name"> Stock Customer Permition (Ksa)</field>
+        </record>
+
+        <record id="group_ksa_sale_invoice_template" model="res.groups">
+            <field name="name">Sale Invoice(Ksa)</field>
+        </record>
+
+        <record id="group_ksa_purchase_invoice_template" model="res.groups">
+            <field name="name">Purchase Invoice Template(Ksa)</field>
+        </record>
+
+        <record id="group_ksa_invoice_to_supplaier_customer" model="res.groups">
+            <field name="name">Invoice To Supplier Customer(ksa)</field>
+        </record>
+
+        <record id="group_ksa_invoice_to_supplaier_vindor" model="res.groups">
+            <field name="name">Invoice To Supplier Vendor(ksa)</field>
+        </record>
+
+
+
+        <record id="group_ksa_utitlity_invoice_customer" model="res.groups">
+            <field name="name">Utility Invoice Customer(ksa)</field>
+        </record>
+
+        <record id="group_ksa_utility_vindor" model="res.groups">
+            <field name="name">Utility Invoice Vindor(ksa)</field>
+        </record>
+
+
+
+
+
+
+       
+        
+        
+    </data>
+</odoo>
