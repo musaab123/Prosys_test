@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+         <menuitem id="factory_product_sale"
+                   name="Factories"
+                   parent="sale.product_menu_catalog"
+                   sequence="4"
+                   action="product_factory_action"/>
+    </data>
+</odoo>
