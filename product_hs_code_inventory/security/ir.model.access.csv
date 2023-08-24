@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_hs,access_product_hs,model_product_hs,,1,1,1,1
-
-
-
-
-
-
-
