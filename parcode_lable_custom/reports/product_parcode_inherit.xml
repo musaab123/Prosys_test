@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="prosys_sale_report" inherit_id="product.report_simple_label2x7">
+        <xpath expr="//div[@class='text-end']" position="replace">
+            <div class="o_label_extra_data">
+                <t t-out="extra_html" />
+            </div>
+            <t t-set="tax_total" t-value="0" />
+            <t t-set="price_include" t-value="False" />
+
+
+            <t t-foreach="product.taxes_id" t-as="t">
+                <t t-set="tax_total" t-value="tax_total + (product.list_price * t.amount / 100)" />
+
+                <t t-if="t.price_include">
+                    <t t-set="price_include" t-value="True" />
+                </t>
+
+                <t t-else="">
+
+                </t>
+
+            </t>
+
+            <t t-if="price_include">
+                <small t-field="product.list_price" />
+                <span>SAR</span>
+            </t>
+
+            <t t-else="">
+                <t t-set="total_price" t-value="product.list_price + tax_total" />
+                <strong t-esc="total_price" />
+                <span>SAR</span>
+            </t>
+
+        </xpath>
+
+        <xpath expr="//div[@class='o_label_extra_data']" position="after">
+            <t
+                t-foreach="product.packaging_ids.filtered(lambda x: x.qty != 0).sorted(key=lambda x: x.qty)"
+                t-as="z">
+                <span>Packaging cartoon :</span>
+                <span t-field="z.qty" />
+            </t>
+        </xpath>
+    </template>
+
+
+
+
+    
+
+    <template id="prosys_parcode_template_inh" inherit_id="product.report_simple_label4x7">
+        <xpath expr="//div[@class='o_label_name']" position="replace">
+            <small t-field="product.display_name"  style="font-size:12px;"/>
+            <br></br>
+
+        </xpath>
+        <br></br>
+
+        <xpath expr="//div[@class='text-end']" position="replace">
+
+            <div style="margin-top:12px;">
+                <t t-foreach="product.packaging_ids.filtered(lambda x: x.qty != 0).sorted(key=lambda x: x.qty)" t-as="z">
+                    <small style="font-size:12px;">Packaging cartoon :</small>
+                    <small t-field="z.qty"  style="font-size:12px;"/>
+                </t>
+           </div>
+
+            <t t-set="tax_total" t-value="0" />
+            <t t-set="price_include" t-value="False" />
+
+            <t t-foreach="product.taxes_id" t-as="t">
+                <t t-set="tax_total" t-value="tax_total + (product.list_price * t.amount / 100)" />
+
+                <t t-if="t.price_include">
+                    <t t-set="price_include" t-value="True" />
+                </t>
+
+                <t t-else="">
+
+                </t>
+            </t>
+
+            <t t-if="price_include">
+                <small t-field="product.list_price" style="font-size:12px;  text-align: center !important;"/>
+                <small style="font-size:12px;  text-align: center !important;">SAR</small>
+            </t>
+
+            <t t-else="">
+                <t t-set="total_price" t-value="product.list_price + tax_total" />
+                <small t-esc="total_price" style="font-size:12px;  text-align: center !important;"/>
+                <small style="font-size:12px; text-align: center !important;">SAR</small>
+            </t>
+
+         
+        </xpath>
+
+       
+
+
+    </template>
+
+
+</odoo>
