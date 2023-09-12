@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.attendance</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Attendance" id="attendance" string="Attendance" data-key="sh_hr_attendance_geolocation" >
+                        <h2>Distance Management</h2>
+                        <div class="row mt16 o_settings_container" id="attendance_setting">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">The Distance Allowed For Attendees</span>
+                                    <div class="text-muted content-group mt16">
+                                        <span>Distance</span>
+                                        <field name="distance_id" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="attendance_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'sh_hr_attendance_geolocation', 'bin_size': False}</field>
+        </record>
+
+        <menuitem id="attend_config_settings_menu" name="Settings"
+            parent="hr_attendance.menu_hr_attendance_settings" sequence="0" 
+            action="attendance_config_settings_action"
+            groups="base.group_system"/>
+    </data>
+</odoo>
