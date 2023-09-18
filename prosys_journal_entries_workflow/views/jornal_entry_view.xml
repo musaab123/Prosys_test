@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Journal Entries  -->
+        <record id="accoune_move_form_inherit" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <!-- <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="first_post" />
+                </xpath> -->
+                <xpath expr="//button[@name='action_post'][1]" position="replace">
+                    <button name="action_post" string="Last Post" class="oe_highlight"
+                                type="object" groups="prosys_journal_entries_workflow.jornal_entery_first_post" data-hotkey="v"
+                                context="{'validate_analytic': True}"
+                                
+                                attrs="{'invisible': [ ('state', 'in', ('posted','draft', 'cancel'))]}"/>
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_post'][1]" position="before">
+                    <button name="status_to_first_post" string="First Post" class="oe_highlight"
+                    type="object" groups="prosys_journal_entries_workflow.jornal_entery_last_post" data-hotkey="v"
+                    context="{'validate_analytic': True}"
+                    attrs="{'invisible': [ ('state', 'in', ('first_post','posted', 'cancel'))]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

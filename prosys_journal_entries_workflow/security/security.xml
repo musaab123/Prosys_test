@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- sale order groups -->
+       
+    <record id="module_jornal_catogery" model="ir.module.category">
+        <field name="name">Jornal Management</field>
+        <field name="description">Catogry For Jornal</field>
+        <field name="sequence">2</field>
+
+    </record>
+
+
+        <record id="jornal_entery_first_post" model="res.groups">
+            <field name="name">First Post</field>
+            <field name="category_id" ref="module_jornal_catogery"/>
+           
+        </record>
+
+
+        <record id="jornal_entery_last_post" model="res.groups">
+            <field name="name">Last Post</field>
+            <field name="category_id" ref="module_jornal_catogery"/>
+
+        </record>
+
+
+      
+       
+    </data>
+</odoo>
