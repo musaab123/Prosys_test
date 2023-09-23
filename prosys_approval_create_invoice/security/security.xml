@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- sale order groups -->
+       
+    <!-- <record id="module_create_invoice" model="ir.module.category">
+        <field name="name">Create Invoice Management</field>
+        <field name="description">Catogry Create Invoice</field>
+        <field name="sequence">2</field>
+
+    </record> -->
+
+
+        <record id="create_invoice_approval_custom" model="res.groups">
+            <field name="name">Create Invoice</field>
+            <!-- <field name="category_id" ref="module_create_invoice"/> -->
+           
+        </record>
+
+    </data>
+</odoo>
