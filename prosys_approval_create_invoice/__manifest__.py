@@ -9,8 +9,8 @@
     'license': 'LGPL-3',
     'depends': ['sale', 'purchase','account'],
     'data': [
-        'security/security.xml',
-        'views/prosys_create_invoice.xml',
+        # 'security/security.xml',
+        # 'views/prosys_create_invoice.xml',
 
 
         
