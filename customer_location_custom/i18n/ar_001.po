@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* customer_location_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20230727\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-28 04:54+0000\n"
+"PO-Revision-Date: 2023-09-28 04:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: customer_location_custom
+#: model_terms:ir.ui.view,arch_db:customer_location_custom.account_move_inherit_form
+#: model_terms:ir.ui.view,arch_db:customer_location_custom.view_sale_order_form_inherit
+msgid "Customer Location"
+msgstr "موقع العميل"
+
+#. module: customer_location_custom
+#. odoo-javascript
+#: code:addons/customer_location_custom/static/src/xml/attendance.xml:0
+#, python-format
+msgid "Enter your message below"
+msgstr "ادخل رسالتك اسفل"
+
+#. module: customer_location_custom
+#: model_terms:ir.ui.view,arch_db:customer_location_custom.view_sale_order_form_inherit
+msgid "Google Map"
+msgstr "خرائط قوقل"
+
+#. module: customer_location_custom
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_bank_statement_line__google_map_link
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_move__google_map_link
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_payment__google_map_link
+#: model:ir.model.fields,field_description:customer_location_custom.field_sale_order__google_map_link
+msgid "Google Map Link"
+msgstr "رابط خرائط قوقل"
+
+#. module: customer_location_custom
+#: model:ir.model,name:customer_location_custom.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: customer_location_custom
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_bank_statement_line__latitude
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_move__latitude
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_payment__latitude
+#: model:ir.model.fields,field_description:customer_location_custom.field_sale_order__latitude
+msgid "Latitude"
+msgstr "خط العرض"
+
+#. module: customer_location_custom
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_bank_statement_line__longitude
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_move__longitude
+#: model:ir.model.fields,field_description:customer_location_custom.field_account_payment__longitude
+#: model:ir.model.fields,field_description:customer_location_custom.field_sale_order__longitude
+msgid "Longitude"
+msgstr " خط العرض"
+
+#. module: customer_location_custom
+#. odoo-javascript
+#: code:addons/customer_location_custom/static/src/js/my_attendances.js:0
+#, python-format
+msgid "Reload Sale Order Form"
+msgstr "اعد تحميل الصفحة"
+
+#. module: customer_location_custom
+#: model:res.groups,name:customer_location_custom.get_customer_location_group
+msgid "Sale Manager Location"
+msgstr "مدير المبيعات"
+
+#. module: customer_location_custom
+#: model:ir.model,name:customer_location_custom.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"

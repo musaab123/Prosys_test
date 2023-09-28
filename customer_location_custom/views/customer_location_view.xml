@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_preview_sale_order']" position="before">
+                <button name="open_google_map" type="object" class="btn-primary" string="Google Map"
+                 icon="fa-map-marker"  groups="customer_location_custom.get_customer_location_group"/>
+
+                </xpath>
+
+
+                <xpath expr="//page[@name='other_information']/group[2]" position="after">
+                    <group  string="Customer Location">
+                        <group>
+    
+                            <field name="latitude" groups="customer_location_custom.get_customer_location_group"/>
+                            <field name="longitude" groups="customer_location_custom.get_customer_location_group"/>
+                            <field name="google_map_link" groups="customer_location_custom.get_customer_location_group"/>
+    
+                          
+                        </group>
+                    </group>
+                </xpath>                    
+            </field>
+        </record>
+    </data>
+</odoo>
