@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+    <record id="restrect_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Restrect" id="restrect" string="Restrect" data-key="prosys_restrict_out_of_stock" >
+                    <h2>Restrict Product Sale When Stock is Low</h2>
+                    <div class="row mt16 o_settings_container" id="restrect_setting">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="text-muted content-group mt16">                                
+                                    <div >
+                                        <label string="Restrict Product Sale Without Stock" for="restrect_sale" />
+                                        <field name="restrect_sale" class="text-center" style="width: 40%;" />
+    
+                                    </div>
+
+                                       
+                                        <div class="row mt16">
+                                            <label string="Allowed User" for="restrict_sale_user_ids"/>
+                                            <field name="restrict_sale_user_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" domain="['|',('company_id', '=', company_id),('company_id', '=', False)]"/>
+                                        </div>                                 
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>
