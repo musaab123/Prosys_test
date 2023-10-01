@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* garazd_product_label_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-30 16:33+0000\n"
+"PO-Revision-Date: 2023-09-30 16:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: garazd_product_label_purchase
+#: model:ir.actions.act_window,name:garazd_product_label_purchase.action_print_label_from_purchase
+msgid "Custom Product Labels"
+msgstr "طباعة الباركود"
+
+#. module: garazd_product_label_purchase
+#: model:ir.model.fields,field_description:garazd_product_label_purchase.field_print_product_label__label_ids
+msgid "Labels for Products"
+msgstr "باركود المنتجات"
+
+#. module: garazd_product_label_purchase
+#: model:ir.model,name:garazd_product_label_purchase.model_print_product_label_line
+msgid "Line with a Product Label Data"
+msgstr "المنتج مع بيانات الباركود الخاصة به"
+
+#. module: garazd_product_label_purchase
+#: model:ir.model.fields,field_description:garazd_product_label_purchase.field_print_product_label_line__purchase_id
+msgid "Purchase"
+msgstr "المشتريات"
+
+#. module: garazd_product_label_purchase
+#: model:ir.model,name:garazd_product_label_purchase.model_print_product_label
+msgid "Wizard to print Product Labels"
+msgstr "ويزارد طباعة الباركود"
