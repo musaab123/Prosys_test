@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prosys_price_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20230727\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-25 10:06+0000\n"
+"PO-Revision-Date: 2023-09-25 10:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: prosys_price_sale
+#: model:res.groups,name:prosys_price_sale.low_price_sale
+msgid "Can Sale"
+msgstr "امكانية البيع"
+
+#. module: prosys_price_sale
+#: model:ir.model.fields,field_description:prosys_price_sale.field_sale_order__can_sale
+msgid "Sale"
+msgstr "البيع باقل سعر"
+
+#. module: prosys_price_sale
+#: model:ir.model,name:prosys_price_sale.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
