@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="prosys_restrect_out_stock" model="ir.ui.view">
+            <field name="name">product template form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[2]" position="inside">
+                   <group>
+                    <field name="unavailable_qty"/>
+                   </group>
+                </xpath>
+            </field>
+        </record>
+     
+
+    </data>
+</odoo>
