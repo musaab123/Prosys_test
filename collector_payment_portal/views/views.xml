@@ -66,11 +66,21 @@
                 <xpath expr="//field[@name='currency_id']" position="before">
                 <field name="paid_amount"/>
                 <field name="collecter_id"/>
-
-                
             </xpath>
         </field>
     </record>
+
+    <record id="view_he_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pin']" position="before">
+                <field name="is_sales_person"/>
+            </xpath>
+        </field>
+    </record>
+
 
  <record id="cash_collecter_id_inherit" model="ir.ui.view">
         <field name="name">account.payment.inherit</field>

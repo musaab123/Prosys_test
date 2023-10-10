@@ -15,6 +15,8 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 from datetime import datetime
 from odoo.tools import groupby as groupbyelem
 
+
+
 DummyAttendance = namedtuple('DummyAttendance', 'hour_from, hour_to, dayofweek, day_period, week_type')
 
 
@@ -23,13 +25,19 @@ class PortalColloctor(CustomerPortal):
 
     def _prepare_home_portal_values(self, counters):
         values = super()._prepare_home_portal_values(counters)
-        
-        domain = []
-       
-        payment_count = request.env['account.payment'].sudo().search_count(domain) 
-              
-        values['payment_count'] = payment_count
+
+        if 'payment_count' in counters:
+
+            sales = request.env['account.payment'].sudo().search([('user_id','=',request.env.user.id)])
+            values['payment_count'] = len(sales)
         return values
+        
+        # domain = []
+       
+        # payment_count = request.env['account.payment'].sudo().search_count(domain) 
+              
+        # values['payment_count'] = payment_count
+        # return values
 
     def _get_searchbar_petty_cash_inputs(self):
         return {
@@ -170,8 +178,8 @@ class PortalColloctor(CustomerPortal):
             error_list.append("Name Field is requerd")
    
         domain=[]
-        collecter_id = request.env['res.users'].sudo().search(domain)
-        partner_id = request.env['res.partner'].sudo().search(domain)
+        collecter_id = request.env['res.users'].sudo().search([('id', '=', request.uid)])
+        partner_id = request.env['res.partner'].sudo().search([('collecter_ids', '=', collecter_id.id)])
 
         
         values = {
@@ -185,7 +193,13 @@ class PortalColloctor(CustomerPortal):
         }
         return request.render("collector_payment_portal.portal_apply_colloctor_payment", values)
 
+    # @http.route(['/my/account_payment'], type='http', auth="user", website=True)
+    # def account_payment(self, **kw):
+    #     user = http.request.env.user
+    #     is_collector = user.employee_id.is_collector if user.employee_id else False
+    #     return http.request.render('collector_payment_portal.portal_my_home_account_payment', {'is_collector': is_collector})
 
+    
     
     @http.route(['/save/payment'], type='http', auth="user", website=True)
     def save_petty(self, **post):
@@ -199,11 +213,12 @@ class PortalColloctor(CustomerPortal):
             value.append(post[key])
             print("keeeeey",key, "vaaaaaalue", value)
        
-       
+
         vals = {
             # 'employee_id': request.env.user.employee_id.id,
             'partner_id': post.get('partner_id'),
-            'collecter_id': post.get('collecter_id'),
+            # 'collecter_id': post.get('collecter_id'),
+            'collecter_id': request.uid,
             'date': post.get('date'),
             'amount': post.get('amount'),
             'ref': post.get('ref'),

@@ -48,11 +48,11 @@ class SeasonPivotInvoicing(models.Model):
 
     season_id = fields.Many2one('product.season', string='Season')
 
-    def _select(self):
-        res = super(SeasonPivotInvoicing, self)._select()
-        query = res.split('template.categ_id                                           AS product_categ_id,', 1)
-        res = query[0] + 'template.categ_id as product_categ_id,template.season_id as season_id,' + query[1]
-        return res
+    # def _select(self):
+    #     res = super(SeasonPivotInvoicing, self)._select()
+    #     query = res.split('template.categ_id                                           AS product_categ_id,', 1)
+    #     res = query[0] + 'template.categ_id as product_categ_id,template.season_id as season_id,' + query[1]
+    #     return res
     
    
    

@@ -13,15 +13,21 @@
     'category': 'Accounting/Colloctor Payment',
     'author': 'Prosys',
     'company': 'PROSYS',
-    'depends': ['base','account', 'portal', 'account_inherit',],
+    'depends': ['base','account', 'portal', 'sale','payment','hr', 'website'],
     'data': [
+       
+        # 'data/iron.xml',
+        'reports/conductors.xml',
+        'reports/conductor_header_footer.xml',
+        'views/views.xml',
+        'views/templates.xml',
         'views/portal_account_payment_templates.xml',
         
     ],
     'assets': {
         'web.assets_backend': [
-            '/account_inherit/static/src/**/*',
-            '/account_inherit/static/src/xml/**/*',
+            '/collector_payment_portal/static/src/**/*',
+            '/collector_payment_portal/static/src/xml/**/*',
         ],
         'web.assets_frontend': [
             '/collector_payment_portal/static/src/js/attendance_portal.js',

@@ -3,12 +3,16 @@
     <template id="portal_my_home_account_payment" name="Show Account PAyment" customize_show="True" inherit_id="portal.portal_my_home" priority="100">
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <!-- <t t-if="request.env.user.employee_id"> -->
-                <t t-call="portal.portal_docs_entry">
-                    <t t-set="title">Account Payment</t>
-                    <t t-set="url" t-value="'/my/payment'" />
-                    <t t-set="placeholder_count" t-value="'payment_count'"/>
+                <t t-if="request.env.user.employee_id.is_sales_person">
+                    <t t-call="portal.portal_docs_entry">
+                        <t t-set="title">Account Payment</t>
+                        <t t-set="url" t-value="'/my/payment'" />
+                        <t t-set="placeholder_count" t-value="'payment_count'"/>
+                    </t>
                 </t>
-            <!-- </t> -->
+               
+                
+                
         </xpath>
     </template>
 
@@ -123,7 +127,7 @@
                         <label class="col-form-label" for="collecter_id"><b>Colloctor:</b></label>
                     </div>
                     <div class="form-group col-xl-6">
-                        <select id="collecter_id" name="collecter_id" class="form-control" required='True'  disabled="disabled">
+                        <select id="collecter_id" name="collecter_id" class="form-control" required='True'  >
                             <t t-foreach="collecter_id" t-as="coll">
                                 <option t-att-value="coll.id" t-att-selected="coll.id == user.id">
                                     <span t-esc="coll.name"/>

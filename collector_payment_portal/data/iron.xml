@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="cron_update_collector_group" model="ir.cron">
+            <field name="name">Update Collector Group</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="function">update_collector_group</field>
+            <field name="priority">1</field>
+        </record>
+    </data>
+</odoo>
