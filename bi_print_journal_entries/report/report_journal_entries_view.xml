@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="journal_entry_template_report_view">
+			<t t-call="web.html_container">
+				<div class="article o_report_layout_standard" t-att-data-oe-model=""
+					t-att-data-oe-id="">
+					<t t-call="bi_print_journal_entries.custom_ksa_header_footer" />
+					<t t-foreach="docs" t-as="doc">
+						<div class="page arabic">
+
+
+							<br></br>
+							<br></br>
+
+
+							<h2 class="text-center mb32">
+								<u>
+									<strong>Journal Entry</strong>
+								</u>
+
+							</h2>
+							<br></br>
+							<br></br>
+
+							<div class="row">
+
+								<table class="table table-sm table-borderless"
+									style="page-break-inside: avoid;">
+									<tbody
+										style="border-top: 3px solid #BF5700; border-bottom: 3px solid #BF5700;">
+										<tr style="background-color:#C5D6BC">
+											<td>
+												<strong>Journal Entry : </strong>
+											</td>
+											<td>
+												<p t-field="doc.name" />
+											</td>
+											<td>
+												<strong>Journal :</strong>
+											</td>
+											<td>
+												<p t-field="doc.journal_id" />
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+
+							</div>
+							<br></br>
+
+							<div class="row">
+
+								<table class="table table-sm table-borderless"
+									style="page-break-inside: avoid;">
+									<tbody
+										style="border-top: 3px solid #BF5700; border-bottom: 3px solid #BF5700;">
+										
+										<tr style="background-color:#C5D6BC">
+											<td>
+												<strong>Date :</strong>
+											</td>
+											<td>
+												<p t-field="doc.date" />
+											</td>
+											<td>
+												<strong>Reference :</strong>
+											</td>
+											<td>
+												<p t-field="doc.ref" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+
+
+							<div class="row arabic">
+
+
+								<div class="col-12 knk arabic">
+									<table class="table table-sm table-borderless"
+										style="page-break-inside: avoid;">
+										<thead
+											style="border-top: 3px solid #BF5700; border-bottom: 3px solid #BF5700;">
+											<tr style="background-color:#C5D6BC">
+												<td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Partner</strong>
+												</td>
+												<td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Account</strong>
+												</td>
+												<td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Label</strong>
+												</td>
+
+
+												<td name="th_quantity" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Due Date</strong>
+												</td>
+												<td name="th_quantity" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Analytic Account</strong>
+												</td>
+
+												<td name="th_quantity" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Taxes(%)</strong>
+												</td>
+
+
+												<td name="th_priceunit" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Debit</strong>
+												</td>
+
+												<td name="th_priceunit" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Credit</strong>
+												</td>
+
+											</tr>
+										</thead>
+
+										<t t-set="total" t-value="0.0" />
+										<t t-set="total1" t-value="0.0" />
+										<tbody>
+											<t t-set="total" t-value="0.0" />
+											<t t-set="total1" t-value="0.0" />
+											<t t-foreach="doc.line_ids" t-as="line">
+												<tr>
+													<td>
+														<span t-field="line.partner_id" />
+													</td>
+													<td>
+														<span t-field="line.account_id" />
+													</td>
+													<td>
+														<span t-field="line.name" />
+													</td>
+													<td>
+														<span t-field="line.date_maturity" />
+													</td>
+													<td>
+														<span>
+															<div
+																t-foreach="line.analytic_distribution"
+																t-as="distribution">
+																<t
+																	t-esc="line.env['account.analytic.account'].browse(int(distribution))[0].name" />
+																: <t
+																	t-esc="line.analytic_distribution.get(distribution)" />
+															</div>
+														</span>
+													</td>
+													<td>
+														<span t-field="line.tax_ids" />
+													</td>
+													<td>
+														<span t-field="line.debit" />
+													</td>
+													<td>
+														<span t-field="line.credit" />
+													</td>
+												</tr>
+												<t t-set="total" t-value="total + line.debit" />
+												<t t-set="total1" t-value="total1 + line.credit" />
+											</t>
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+
+
+												<td style="background-color:#C5D6BC">
+													<strong>Total:</strong>
+												</td>
+
+												<td style="background-color:#C5D6BC" width="10%">
+													<strong>
+														<span>
+															<t t-esc="total" />
+														</span>
+													</strong>
+												</td>
+
+												<td style="background-color:#C5D6BC" width="10%">
+													<strong>
+														<span>
+															<t t-esc="total1" />
+														</span>
+													</strong>
+												</td>
+
+											</tr>
+										</tbody>
+
+
+									</table>
+
+
+								</div>
+
+
+							</div>
+
+
+						</div>
+
+					</t>
+
+
+				</div>
+
+			</t>
+		</template>
+
+	</data>
+</odoo>

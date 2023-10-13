@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="payment_custom_template_report_view">
+			<t t-call="web.html_container">
+				<div class="article o_report_layout_standard" t-att-data-oe-model=""
+					t-att-data-oe-id="">
+					<t t-call="bi_print_journal_entries.custom_ksa_header_footer" />
+					<t t-foreach="docs" t-as="doc">
+						<div class="page arabic">
+
+
+							<br></br>
+							<br></br>
+
+
+							<h2 class="text-center mb32">
+								<u>
+									<strong>Account Payment Receipt</strong>
+								</u>
+
+
+
+							</h2>
+
+                            <h2 class="text-center mb32">
+									<strong> Payment No</strong>
+                                <span> <p t-field="doc.name" /> </span>
+
+							</h2>
+							<br></br>
+							<br></br>
+
+							<div class="row">
+
+								<!-- <table class="table table-sm table-borderless"
+									style="page-break-inside: avoid;">
+									<tbody
+										style="border-top: 3px solid #BF5700; border-bottom: 3px solid #BF5700;">
+										<tr>
+											<td>
+												<strong>Journal Entry : </strong>
+											</td>
+											<td>
+												<p t-field="doc.name" />
+											</td>
+											<td>
+												<strong>Journal :</strong>
+											</td>
+											<td>
+												<p t-field="doc.journal_id" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Date :</strong>
+											</td>
+											<td>
+												<p t-field="doc.date" />
+											</td>
+											<td>
+												<strong>Reference :</strong>
+											</td>
+											<td>
+												<p t-field="doc.ref" />
+											</td>
+										</tr>
+									</tbody>
+								</table> -->
+							</div>
+
+
+							<div class="row arabic">
+
+
+								<div class="col-12 knk arabic">
+									<table class="table table-sm table-borderless"
+										style="page-break-inside: avoid;">
+										<thead
+											style="border-top: 3px solid #BF5700; border-bottom: 3px solid #BF5700;">
+											<tr style="background-color:#C5D6BC">
+												<td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Customer</strong>
+												</td>
+                                                <td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>journal</strong>
+												</td>
+
+												<td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Payment Method</strong>
+												</td>
+												<td name="th_description" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Destination Journal</strong>
+												</td>
+
+
+												<td name="th_quantity" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Date</strong>
+												</td>
+												<td name="th_quantity" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Amount</strong>
+												</td>
+
+												<td name="th_quantity" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Memo</strong>
+												</td>
+
+
+
+												<td name="th_priceunit" class=" arabic"
+													style="height: 40px;  vertical-align: middle;">
+													<strong>Payment Type</strong>
+												</td>
+
+											</tr>
+										</thead>
+
+										
+										<tbody>
+											
+											<!-- <t t-foreach="doc.line_ids" t-as="line"> -->
+												<tr>
+													<td>
+														<span t-field="doc.partner_id" />
+													</td>
+                                                    <td>
+														<span t-field="doc.journal_id" />
+													</td>
+													<td>
+														<span t-field="doc.payment_method_line_id" />
+													</td>
+													<td>
+														<span t-field="doc.destination_journal_id" />
+													</td>
+													<td>
+														<span t-field="doc.date" />
+													</td>
+													
+													<td>
+														<span t-field="doc.amount" />
+													</td>
+													<td>
+														<span t-field="doc.ref" />
+													</td>
+													<td>
+														<span t-field="doc.payment_type" />
+													</td>
+												</tr>
+												
+											<!-- </t> -->
+											
+										</tbody>
+
+
+									</table>
+
+
+								</div>
+
+
+							</div>
+
+
+						</div>
+
+					</t>
+
+
+				</div>
+
+			</t>
+		</template>
+
+	</data>
+</odoo>
