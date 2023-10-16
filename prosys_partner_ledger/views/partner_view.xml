@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_main_template_inherit" inherit_id="account_reports.main_template">
+            <xpath expr="//div[@class='o_account_reports_header']" position="before">
+                <t t-call="prosys_partner_ledger.custom_ksa_header_footer" />
+
+            </xpath>
+        </template>
+    </data>
+</odoo>
