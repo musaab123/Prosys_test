@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="conductors_details_report_template">
+        <t t-call="web.html_container">
+            <div class="article o_report_layout_standard" t-att-data-oe-model="" t-att-data-oe-id="">
+                <t t-call="collector_payment_portal.custom_ksa_header_footer" />
+                <!-- <t t-call="web.external_layout"> -->
+                <div class="page arabic"
+                    t-attf-style="background-image:url('/orange_report/static/src/img/ooo.jpg'); width:300mm; height:340mm;   position: relative; top:20px;">
+                    <link rel="stylesheet" href="/orange_report/static/src/css/style.css" />
+                    <div class="page">
+
+                        <table
+                            style="border:1pt solid #ff8c00;width:100%;
+                        height: 23px;color:black; margin-top:10pt;"
+                            class="table-condensed table-sm">
+                            <tr>
+                                <h4
+                                    style="padding:1pt;margin:0pt;text-align:center;background-color:#ff8c00;">Cash
+                                    Collecters Report</h4>
+                            </tr>
+                        </table>
+
+                        <br />
+
+                        <style>
+                            #customers {
+                            font-family: Arial, Helvetica, sans-serif;
+                            border-collapse: collapse;
+                            width: 100%;
+                            }
+
+                            #customers td, #customers th {
+                            border: 1px solid #ddd;
+                            padding: 8px;
+                            }
+
+                            #customers tr:nth-child(even){background-color: #ff8c00;}
+
+                            #customers tr:hover {background-color: #ddd;}
+
+                            #customers th {
+                            padding-top: 12px;
+                            padding-bottom: 12px;
+                            text-align: left;
+                            background-color: #ff8c00;
+                            }
+                        </style>
+
+                        <table id="customers">
+                            <thead>
+                                <tr>
+                                    <th>Number</th>
+                                    <th>Customer</th>
+                                    <th>Invoice Date</th>
+                                    <th>Due Date</th>
+                                    <th>Collector</th>
+                                    <th>Amount Due</th>
+                                    <th>Amount Paid</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+
+                            <t t-set="amount_total" t-value="0" />
+                            <t t-set="paid_amount_total" t-value="0" />
+                            <t t-set="total_blanace" t-value="0" />
+                            <tbody>
+                                <t t-foreach="docs" t-as="doc">
+                                    <t t-set="amount_total"
+                                        t-value="amount_total + doc.amount_total_signed" />
+                                    <t t-set="paid_amount_total"
+                                        t-value="paid_amount_total + doc.paid_amount" />
+                                    <t t-set="total_blanace"
+                                        t-value="total_blanace + (doc.amount_total_signed - doc.paid_amount)" />
+
+                                    <tr>
+                                        <td>
+                                            <t t-esc="doc.name" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.partner_id.name" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.invoice_date" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.invoice_date_due" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.collecter_id.name" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.amount_total_signed" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.paid_amount" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.amount_total_signed - doc.paid_amount" />
+                                        </td>
+                                    </tr>
+
+                                </t>
+
+
+                                <tr style="background-color: #ff8c00;">
+                                    <td colspan="1" style="border: solid 1px black ">TOTALS</td>
+                                    <td colspan="1" style="border: solid 1px black"></td>
+                                    <td colspan="1" style="border: solid 1px black"></td>
+                                    <td colspan="1" style="border: solid 1px black"></td>
+                                    <td colspan="1" style="border: solid 1px black"></td>
+
+                                    <td style="border: solid 1px black">
+                                        <u>
+                                            <b>
+                                                <span t-esc="amount_total" />
+                                            </b>
+                                        </u>
+                                        <u>
+                                            <b></b>
+                                        </u>
+                                    </td>
+
+                                    <td style="border: solid 1px black">
+                                        <u>
+                                            <b>
+                                                <span t-esc="paid_amount_total" />
+                                            </b>
+                                        </u>
+                                    </td>
+
+
+                                    <td style="border: solid 1px black">
+                                        <u>
+                                            <b>
+                                                <span t-esc="total_blanace" />
+                                            </b>
+                                        </u>
+                                    </td>
+
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </t>
+
+        
+    </template>
+
+
+    <record id="action_report_condoctor_management" model="ir.actions.report">
+        <field name="name">Cash Collecters Management</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">collector_payment_portal.conductors_details_report_template</field>
+        <field name="report_file">collector_payment_portal.conductors_details_report_template</field>
+        <field name="binding_model_id" ref="account.model_account_move" />
+        <field name="binding_type">report</field>
+
+    </record>
+
+
+</odoo>
