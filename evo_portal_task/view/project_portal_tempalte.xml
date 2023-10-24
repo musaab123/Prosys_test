@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<template id="portal_my_home_documents" inherit_id="portal.portal_breadcrumbs">
+			<xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+				<li t-if="page_name == 'my_tasks_docs'" t-attf-class="breadcrumb-item">Documents</li>
+			</xpath>
+		</template>
+
+		<template id="my_tasks_documents_template_id" name="Tasks Documents">
+			<t t-call="portal.portal_layout">
+			<t t-call="portal.portal_table">
+					<thead>
+						<tr>
+							<th>Document Name</th>
+							<th>Download Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<t t-foreach="documents" t-as="document">
+							<tr class="active">
+								<td>
+									<t t-out="document.name"/>
+								</td>
+								<td>
+									<a t-attf-href="/web/content/#{document.id}?download=true&amp;access_token=#{document.access_token}" target="_blank">
+										<span t-esc="document.name" class="fa fa-download"/>
+									</a>
+								</td>
+							</tr>
+						</t>
+					</tbody>
+				</t>
+			</t>
+		</template>
+
+		<template id="portal_my_task_temp_id" inherit_id="project.portal_my_task" name="Portal: My Task with Timesheets">
+			<xpath expr="//ul[contains(@class, 'flex-column')]" position="inside">
+				<li class="nav-item" id="nav-chat">
+					<a t-attf-href="/my/tasks/documents/#{ task.id }">
+						Documents
+					</a>
+				</li>
+			</xpath>
+
+			<xpath expr="//ul[contains(@class, 'flex-lg-column')]" position="inside">
+				<li t-if="task.user_ids or task.partner_id or task.assigned_customer_ids" class="list-group-item flex-grow-1">
+					<div class="col-12 col-md-12 pb-2" t-if="task.assigned_customer_ids">
+						<strong class="text-center">Assigned Customers</strong>
+						<t t-foreach="task.assigned_customer_ids" t-as="customer">
+							<div class="d-flex mb-3 flex-nowrap">
+								<img class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(customer.avatar_1024)" alt="Contact"/>
+								<div class="ms-2">
+									<div t-esc="customer" t-options='{"widget": "contact", "fields": ["name"]}'/>
+									<a t-attf-href="tel:{{customer.phone}}" t-if="customer.phone"><div t-esc="customer" t-options='{"widget": "contact", "fields": ["phone"]}'/></a>
+									<a t-if="customer.email" class="text-break" t-attf-href="mailto:{{customer.email}}">
+										<div t-out="customer" t-options='{"widget": "contact", "fields": ["email"]}'/>
+									</a>
+								</div>
+							</div>
+						</t>
+					</div>
+				</li>
+			</xpath>
+		</template>
+
+	<template id="portal_my_task" inherit_id="project.portal_my_task" name="Portal: My Task with Timesheets">
+		 <xpath expr="//div[@id='card_header']" position="replace">
+		 	<div id="card_header" class="card-header bg-white" data-anchor="true">
+                            <div class="row g-0">
+                                <div class="col-12">
+                                    <h5 class="d-flex mb-1 mb-md-0 row">
+                                        <div class="col-6">
+                                            <t t-call="project.portal_my_tasks_priority_widget_template"/>
+                                            <span t-field="task.name" class="text-truncate"/>
+                                            <small class="text-muted d-none d-md-inline"> (#<span t-field="task.id"/>)</small>
+                                        </div>
+                                        <div class="col-3">
+											<a role="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalaccept" href="#">Change Stage</a>  
+											<a role="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tasktimesheet" href="#">Timesheet</a>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                            <small class="text-end">Stage:</small>
+                                            <span t-field="task.stage_id.name" class=" badge rounded-pill text-bg-info" title="Current stage of this task"/>
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div role="dialog" class="modal fade" id="modalaccept">
+                        <div class="modal-dialog" t-if="task">
+                            <form id="accept" action="/task/change_stage_task" method="POST" t-att-data-order-id="task.id" t-att-data-token="" class="js_accept_json modal-content js_website_submit_form">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <header class="modal-header">
+                                    <h4 class="modal-title">Change Stage</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </header>
+								<div class="form-group row form-field o_website_form_custom" style='margin-top:10px;margin-left:10px;'>
+									<div class="col-lg-3 col-md-4">
+										Stage:
+									</div>
+									<div class="col-lg-7 col-md-8">
+										<select name="stage_id" t-attf-class="form-select">
+							                <option value="">Stage...</option>
+							                <t t-foreach="task.portal_task_type_ids or []" t-as="stage">
+							                    <option t-att-value="stage.id" t-att-selected="stage.id">
+							                        <t t-esc="stage.name" />
+							                    </option>
+							                </t>
+							            </select>
+									</div>
+									<input type="hidden" name="task_id" t-att-value="task.id"/>
+								</div>
+								<div class="form-group row" style='margin-top:10px;'>
+									<br/><br/>
+								</div>
+								<div class="form-group row" style='margin-top:10px;margin-bottom:10px;'>
+									<div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+										<button type="submit" name="task_change_state" class="btn btn-primary">Change</button>
+									</div>
+								</div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div role="dialog" class="modal fade" id="tasktimesheet">
+                        <div class="modal-dialog" t-if="task">
+                            <form id="accept" action="/task/change_stage_task" method="POST" t-att-data-order-id="task.id" t-att-data-token="" class="js_accept_json modal-content js_website_submit_form">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <header class="modal-header">
+                                    <h4 class="modal-title">Timesheet</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </header>
+                                <t t-set='user_id' t-value='request.env.user'/>
+                                <input type="hidden" name="user_id" t-att-value="user_id.id"/>
+								<input type="hidden" name="task_id" t-att-value="task.id"/>
+                                <t t-set='employee_id' t-value="request.env['hr.employee'].sudo().search([('user_id','=',user_id.id)])"/>
+								<div class="form-group row form-field o_website_form_custom" style='margin-top:10px;margin-left:10px;'>
+									<div class="col-lg-3 col-md-4">
+										Employee:
+									</div>
+									<div class="col-lg-7 col-md-8">
+										<input type="text" name="employee_name" t-att-value='employee_id.name' readonly=''/>
+										<input type="hidden" name="employee_id" t-att-value='employee_id.id'/>
+									</div>
+								</div>
+								<div class="form-group row form-field o_website_form_custom" style='margin-top:10px;margin-left:10px;'>
+									<div class="col-lg-3 col-md-4">
+										Date:
+									</div>
+									<div class="col-lg-7 col-md-8">
+										<input type="date" name="timesheet_date" />
+									</div>
+									<input type="hidden" name="task_id" t-att-value="task.id"/>
+								</div>
+								<div class="form-group row form-field o_website_form_custom" style='margin-top:10px;margin-left:10px;'>
+									<div class="col-lg-3 col-md-4">
+										Time:
+									</div>
+									<div class="col-lg-7 col-md-8">
+										<input type="text" name="timesheet_time" t-options='{"widget": "float_time"}'/>
+									</div>
+									<input type="hidden" name="task_id" t-att-value="task.id"/>
+								</div>
+								<div class="form-group row" style='margin-top:10px;'>
+									<br/><br/>
+								</div>
+								<div class="form-group row" style='margin-top:10px;margin-bottom:10px;'>
+									<div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+										<button type="submit" name="task_change_state" class="btn btn-primary">Add</button>
+									</div>
+								</div>
+                            </form>
+                        </div>
+                    </div>
+
+		 
+		 </xpath>
+
+		<xpath expr="//div[@id='card_body']" position="inside">
+			<div class="form-group row">
+				<script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+				<script>
+					tinymce.init({
+						selector: "textarea#customer_description",
+						plugins: "advlist autolink lists link image charmap print preview anchor",
+						toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+					});
+				</script>
+				
+				
+				<!-- <form id="accept" action="/task/client/comments" role="form" method="POST" t-att-data-order-id="task.id" t-att-data-token="" class="js_accept_json modal-content js_website_submit_form">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+					<input type="hidden" name="task_ids" t-att-value="task.id"/>
+					<strong><lable class="col-sm-4 col-form-label" for="customer_description">Enter Your Comment</lable></strong><br/>
+					<div class="col-sm-12">
+						 <t t-set='task_ids' />
+						<input type="html" name="customer_description" options="{'collaborate': true}" id="customer_description" class="form-control" placeholder="Enter your comments"/>
+					</div>
+					<div class="col-sm-10">
+						<br></br>
+						<button type="submit" class="btn btn-primary">Send Comment</button>
+					</div><br></br>
+				</form> -->
+			</div>
+
+			<div t-if="not is_html_empty(task.customer_description)" t-attf-class="col-12 col-lg-7 mb-4 mb-md-0 {{'col-lg-7' if task.attachment_ids else 'col-lg-12'}}">
+				<hr class="mb-1"/>
+				<div class="d-flex my-2">
+					<strong>Customer comments</strong>
+				</div>
+				<div class="py-1 px-2 bg-100 small" t-field="task.customer_description"/>
+			</div>
+		</xpath>
+	</template>
+
+</odoo>
