@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="building_service_ac_form" model="ir.ui.view">
+            <field name="name">building.ac.form</field>
+            <field name="model">building.ac</field>
+            <field name="arch" type="xml">
+                <form string="Ac Services">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <!-- <field name="number"/> -->
+                            </group>
+                    </sheet>
+            </form>
+        </field>
+        </record>
+
+        <record id="building_service_search_view" model="ir.ui.view">
+            <field name="name">building.ac.search</field>
+            <field name="model">building.ac</field>
+            <field name="arch" type="xml">
+                <search string="Ac Services">
+                    <group expand="1" string="Group By">
+                        <filter string="Name" name="ref" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- sales team commission tree-->
+        <record id="building_service_tree_view" model="ir.ui.view">
+            <field name="name">building.ac.tree</field>
+            <field name="model">building.ac</field>
+            <field name="arch" type="xml">
+                <tree string="Ac Services" delete="0">
+                    <field name="name"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+        <record id="building_ac_service_act_window_form" model="ir.actions.act_window">
+            <field name="name">Ac Services</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">building.ac</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data yet!
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Ac Services"
+                  id="building_ac_service_menu"
+                  parent="itsys_real_estate.menu_settings"
+                  action="building_ac_service_act_window_form" sequence="100"/>
+
+      
+    </data>
+</odoo>

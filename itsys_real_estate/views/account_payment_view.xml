@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_payment_real_estate_form_inherit" model="ir.ui.view">
+            <field name="name">account.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_number" attrs="{'readonly':[('state','=','posted')]}"/>
+                    <field name="analytic_account_id" attrs="{'readonly':[('state','=','posted')]}"/>
+                    <field name="rent_contract_id" attrs="{'readonly':[('state','=','posted')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_bank_id']" position="after">
+                    <field name="from_date" attrs="{'readonly':[('state','=','posted')]}"/>
+                    <field name="from_hijri_date" attrs="{'readonly':[('state','=','posted')]}"/>
+                    <field name="to_date" attrs="{'readonly':[('state','=','posted')]}"/>
+                    <field name="counted_days" force_save="1"/>
+                    <field name="statement_auto" readonly="1" force_save="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

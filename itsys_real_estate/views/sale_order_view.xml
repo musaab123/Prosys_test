@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sale_order_real_estate_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="rent_contract_id"/>
+                    <field name="building_units"/>
+                    <field name="owner_id"/>
+                    <field name="statement" force_save="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

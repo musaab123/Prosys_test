@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="inherit_building_form_inherit" model="ir.ui.view">
+            <field name="name">building.form</field>
+            <field name="model">building</field>
+            <field name="inherit_id" ref="itsys_real_estate.building_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/div[@name='button_box']" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                                name="get_units_count"
+                                class="oe_stat_button"
+                                icon="fa-book"
+                                attrs="{'invisible': [('units_count', '=', 0)]}">
+                            <field name="units_count" widget="statinfo" string="Units"/>
+                        </button>
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='agent_phone']" position="after">
+                    <field name="units_count" invisible="1"/>
+                    <field name="license_code"/>
+                    <field name="license_date"/>
+                    <field name="registration_date_on_recorder_of_deeds"/>
+                    <field name="license_authorization"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_real_estate_form_inherit" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="itsys_real_estate.building_unit_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='is_furnished']" position="before">
+                    <field name="property_service_ids" widget="many2many_tags"/>                    
+                    
+                </xpath>
+
+                <xpath expr="//field[@name='active']" position="replace">
+                    <field name="put_on_hold"/>
+                </xpath>
+
+                <xpath expr="//field[@name='west']" position="after">
+                    <field name="license_code"/>
+                    <field name="license_date"/>
+                    <field name="registration_date_on_recorder_of_deeds"/>
+                    <field name="license_authorization"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

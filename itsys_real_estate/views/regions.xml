@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- regions -->
+        <record id="regions_tree_view" model="ir.ui.view">
+            <field name="name">regions.tree</field>
+            <field name="model">regions</field>
+            <field name="arch" type="xml">
+                <tree string="regions">
+                    <field name="complete_name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="regions_form_view" model="ir.ui.view">
+            <field name="name">regions.form</field>
+            <field name="model">regions</field>
+            <field name="arch" type="xml">
+                <form string="regions">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="region_id"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                            <group>
+                                <label for="build_number" string="Real Estate National Address"/>
+                                    <div class="o_address_format">
+                                            <field name="build_number" placeholder="Bulding number..." class="o_address_street" />
+                                            <field name="branch_number" placeholder="Branch number..." class="o_address_street" />
+                                            <field name="email_code" placeholder="additional code" class="o_address_city" />
+                                            <field name="district" class="o_address_state" placeholder="District" options="{'no_open': True, 'no_quick_create': True}"/>
+                                            <field name="street_name" placeholder="Street Name" class="o_address_zip" />
+                                            <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+
+                                    </div>
+
+                               
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Geolocation">
+                                    <field name="latlng_ids" >
+                                        <tree editable="bottom">
+                                         
+                                            <field name="lat" />
+                                            <field name="lng" />
+                                            <field name="url" invisible="1"/>
+
+                                            <field name="unit_id" />
+                                            <field name="state" />
+                                           
+                                        </tree>
+                                    </field>
+                                <field name="map" widget="place_autocomplete_multi" class="oe_inline" />
+
+                            </page>
+                        </notebook>
+                      
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="regions_form_action" model="ir.actions.act_window">
+            <field name="name">Regions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">regions</field>
+            <field name="view_id" ref="regions_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new region
+                </p>
+            </field>
+            <!--<field name="search_view_id" ref="view_regions_search"/>-->
+        </record>
+        <menuitem action="regions_form_action" id="menu_regions_form_action" parent="itsys_real_estate.menu_building_list" sequence="2" />
+    </data>
+</odoo>

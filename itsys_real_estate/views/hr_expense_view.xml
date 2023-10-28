@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_expense_real_estate_form_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.form</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="paid_by_partner" widget="radio"/>
+                    <field name="partner_id" attrs="{'invisible': [('paid_by_partner', '=', 'normal')]}"/>
+                    <field name="rent_contract_id" attrs="{'invisible': [('paid_by_partner', '=', 'normal')]}"/>
+                    <field name="building_units" attrs="{'invisible': [('paid_by_partner', '=', 'normal')]}"/>
+                    <field name="partner_number" attrs="{'invisible': [('paid_by_partner', '=', 'normal')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='analytic_distribution']" position="after">
+                    <field name="statement" attrs="{'invisible': [('paid_by_partner', '=', 'normal')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_expense_sheet_real_estate_form_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.form</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="partner_id" readonly="1" force_save="1"/>
+                    <field name="rent_contract_id" readonly="1" force_save="1"/>
+                    <field name="building_units" readonly="1" force_save="1"/>
+                    <field name="partner_number" readonly="1" force_save="1"/>
+                    <field name="statement" readonly="1" force_save="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

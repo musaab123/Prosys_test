@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_address_custom" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//span[@name='address_name']/b" position="replace">
+                    <b>National Address</b>
+            </xpath>
+
+            <xpath expr="//field[@name='street2']" position="attributes">
+                <attribute name="invisible">1</attribute>
+
+        </xpath>
+        <xpath expr="//field[@name='state_id']" position="attributes">
+            <attribute name="invisible">1</attribute>
+
+    </xpath>
+
+    <xpath expr="//field[@name='city']" position="attributes">
+        <attribute name="invisible">1</attribute>
+
+</xpath>
+<xpath expr="//field[@name='street']" position="attributes">
+    <attribute name="invisible">1</attribute>
+
+</xpath>
+
+
+            <xpath expr="//field[@name='street2']" position="after">
+                <field name="build_number" placeholder="Bulding number..." class="o_address_street" />
+                <field name="branch_number" placeholder="Branch number..." class="o_address_street" />
+                <field name="email_code" placeholder="additional code" class="o_address_city" />
+                <field name="district" class="o_address_state" placeholder="District" options="{'no_open': True, 'no_quick_create': True}"/>
+                <field name="street_name" placeholder="Street Name" class="o_address_zip" />
+
+        </xpath>
+        </field>
+    </record>
+</odoo>
