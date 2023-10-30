@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_add_task_wizard,add.task.wizard,model_add_task_wizard,,1,1,1,1
+access_change_active_wizard,change.active.wizard,model_change_active_wizard,,1,1,1,1
+access_line_task_wizard,line.task.wizard,model_line_task_wizard,,1,1,1,1
+access_picking_active_wizard,picking.active.wizard,model_picking_active_wizard,,1,1,1,1
+
+
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="model_project_task_field_description" model="ir.model.fields">
+            <field name="name">Description</field>
+            <field name="model" ref="model_project_task"/>
+        </record>
+        <record id="project_task_description_translations" model="ir.translation">
+            <field name="name">model.project.task,field_description</field>
+            <field name="res_id" ref="model_project_task_field_description"/>
+            <field name="lang">ar_001</field>
+            <field name="src">project.task,description</field>
+            <field name="value">Description</field>
+        </record>
+    </data>
+</odoo>
