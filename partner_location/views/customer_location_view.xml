@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_res_inherit_partner_geo_form" model="ir.ui.view">
+            <field name="name">res.partner.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='geo_location']" position="inside">
+                    <group name="name" string="Ggoogle Link">
+                        <field name="google_map_link"  widget="url"/>
+
+                    </group>
+                   <div class="col-6">
+                        <div id="get_partner_location"  
+                        
+                        style=" background-color: #0077b6;
+                        color: #fff;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                        border-radius: 10px;
+                        padding: 5px 10px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        transition: background-color 0.3s ease;">
+                            <i class="fa fa-map-marker fa-lg"></i> 
+                        </div>
+                   </div>
+
+                </xpath>
+
+                <!-- <xpath expr="//page[@name='geo_location']//field[@name='date_localization']" position="after">
+                    <field name="google_map_link"  widget="url"/>
+                </xpath> -->
+            </field>
+        </record>
+        </data>
+</odoo>
+
+      
+  
