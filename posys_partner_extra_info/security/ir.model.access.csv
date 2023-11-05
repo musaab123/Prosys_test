@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_clint_activty,access_clint_activty,model_clint_activty,,1,1,1,1
+access_product_made,access_product_made,model_product_made,,1,1,1,1
+access_jop_postion,access_jop_postion,model_jop_postion,,1,1,1,1
+
+
+
+
+
+
+
+
