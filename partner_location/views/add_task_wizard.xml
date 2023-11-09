@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.server" id="action_project_task_add_task_custom">
+           <field name="name">Add Project Task</field>
+           <field name="model_id" ref="project.model_project_task"/>
+           <field name="binding_model_id" ref="project.model_project_task"/>
+           <field name = "binding_view_types" >list, form</field>
+           <field name="state">code</field>
+           <field name="code">
+               action = records.action_add_project_task()
+           </field>
+        </record>
+
+        <record id="view_add_tasks_wizard_form" model="ir.ui.view">
+            <field name="name">add.tasks.wizard.form</field>
+            <field name="model">add.tasks.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add Task">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="project_id"/>
+                                <field name="name"/>
+                                <field name="sale_lines_id"/>
+                                <field name="partner_id"/>
+
+                            </group>
+                            <group>
+                                <field name="date_from" widget="datetime"/>
+                                <field name="date_to" widget="datetime"/>
+                                <field name="recurring_task"/>
+                            </group>
+
+                            <!--ffffffffffffffffffffffffffffffffff add ffffffffffffffffffffffffffffffffffff -->
+                            <group>
+                                        
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="add_sale_task" string="Add Task" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        
+
+        <record id="action_add_project_task_wizard" model="ir.actions.act_window">
+            <field name="name">Add Task</field>
+            <field name="res_model">add.tasks.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_add_tasks_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_add_project_task" parent="project.menu_main_pm" 
+    name="Add Task" action="action_add_project_task_wizard" sequence="20"/>
+
+ 
+
+    </data>
+</odoo>
