@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="setu_customer_rating_res_partner_form_view_extended" model="ir.ui.view">
+            <field name="name">setu.customer.rating.res.partner.form.view.extended</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div[@name='button_box']" position="inside">
+                    <button name="open_partner_rating_history" string="Rating History" type="object"
+                            class="oe_stat_button" icon="fa-bars"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Customer Rating" name="customer_rating"
+                          attrs="{'invisible':[('parent_id','!=',False)]}">
+                        <group>
+                            <field name="parent_id" invisible="1"/>
+                            <field name="total_score" readonly="1" attrs="{'invisible':[('parent_id','!=',False)]}"/>
+                            <field name="customer_rating_id" string="Rating" readonly="1"
+                                   attrs="{'invisible':[('parent_id','!=',False)]}"/>
+                            <field name="customer_score_id" string="Score Details" readonly="1"
+                                   attrs="{'invisible':[('parent_id','!=',False)]}"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="setu_customer_rating_res_partner_kanban_view_extended" model="ir.ui.view">
+            <field name="name">setu.customer.rating.res.partner.kanban.view.extended</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban/field[@name='id']" position="after">
+                    <field name="customer_rating_avg"/>
+                </xpath>
+                <xpath expr="//field[@name='type']" position="after">
+                    <t t-if="record.parent_id.raw_value">
+                    </t>
+                    <t t-else="">
+                        <field name="customer_rating_id"/>
+                    </t>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_kanban_global_click')]/div[hasclass('oe_kanban_details')]/div[hasclass('o_kanban_record_bottom')]/div[hasclass('oe_kanban_bottom_left')]" position="replace">
+                    <div class="oe_kanban_bottom_left o_row">
+                        <t t-if="record.parent_id.raw_value">
+                        </t>
+                        <t t-else="">
+                            <!--<div class="o_kanban_inline_block badge-pill badge" style="font-family: auto !important;">
+                                <a string="Rating" name="view_to_customer_score" type="object">
+                                    <field name="customer_rating_id" readonly="1"/>
+                                </a>
+                            </div>-->
+                            <div style="margin-top: 5px;width: max-content;">
+                                <div class="o_kanban_inline_block badge-pill badge" style="margin-right: 5px;">
+                                    <a string="Rating" name="view_to_customer_score" type="object">
+                                        <field name="customer_rating_id" readonly="1"/>
+                                    </a>
+                                </div>
+
+                                <field name="customer_rating_avg" widget="priority" help="Customer Rating"/>
+                                <!--<span t-attf-class="stars-container stars-#{record.priority.raw_value}"
+                                      style="font-size:25px;">★★★★★
+                                </span>-->
+                            </div>
+                        </t>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="setu_customer_rating_res_partner_tree_view_extended" model="ir.ui.view">
+            <field name="name">setu.customer.rating.res.partner.tree.view.extended</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <field name="customer_rating_avg" string="Customer Rating" widget="customer_star_rating"/>
+                    <field name="customer_rating_id"/>
+                    <field name="total_score"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

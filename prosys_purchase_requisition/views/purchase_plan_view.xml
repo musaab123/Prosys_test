@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<record id="purchase_plan_tree" model="ir.ui.view">
+        <field name="name">purchase.plan.tree</field>
+        <field name="model">purchase.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="name"/>
+                 <field name="date"/>
+                 <field name="company_id"/>
+                 <field name="state"/>
+           </tree>
+          </field>
+   </record>
+
+<record id="purchase_plan_form" model="ir.ui.view">
+        <field name="name">purchase.plan.form</field>
+        <field name="model">purchase.plan</field>
+        <field name="arch" type="xml">
+         
+         <form>
+                <header>
+                    <field name="state" widget='statusbar'
+                           statusbar_visible='new,running'/>
+                         <button name="action_running" class="oe_highlight"
+                            states="new" string="Confirm"
+                            type="object"
+                            help="Approve Purchase Plan"
+                            groups="prosys_purchase_requisition.employee_requisition_manager"/>
+
+                        <button name="action_lock" class="oe_highlight"
+                            states="running" string="Lock"
+                            type="object"
+                            help="Approve Purchase Plan"
+                            groups="prosys_purchase_requisition.employee_requisition_manager"/>
+
+
+                         <button name="action_cancel" class="oe_highlight"
+                            states="purchase_order_created" string="Cancel"
+                            type="object"
+                            groups="prosys_purchase_requisition.employee_requisition_manager"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object"
+                                name="get_purchase_order"
+                                icon="fa-book"
+                                attrs="{'invisible': [('purchase_count', '=', 0)]}">
+                            <field string="Purchase Order"
+                                   name="purchase_count" widget="statinfo"/>
+                        </button>
+                      
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="New"/>
+                        </h1>
+                    </div>
+                        <group>
+                            <field name="date"/>
+                            <field name="description"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+
+                        <group string="Plan">
+                            <field name="purchase_plan_planned_ids" 
+                                attrs="{'readonly':[('state','not in',['new'])]}">
+                                   <tree editable="bottom">
+                                   <field name="product_category_type"/>
+                                   <field name="product_id" attrs="{'invisible':[('product_category_type','!=','product')]}"/>
+                                   <field name="category_id" attrs="{'invisible':[('product_category_type','!=','category')]}"/>
+                                   <field name="product_qty"/>
+                                   <field name="unit_cost"/>
+                                   <field name="amount"/>
+                            </tree>
+
+                            </field>
+                        </group>
+
+                     <group string="Actual">
+                            <field name="purchase_plan_actual_ids"  
+                                attrs="{'readonly':[('state','not in',['new'])]}">
+                                   <tree editable="bottom">
+                                   <field name="product_category_type"/>
+                                   <field name="product_id" attrs="{'invisible':[('product_category_type','!=','product')]}"/>
+                                   <field name="category_id" attrs="{'invisible':[('product_category_type','!=','category')]}"/>
+                                   <field name="product_qty"/>
+                                   <field name="unit_cost"/>
+                                   <field name="amount"/>
+                            </tree>
+                            </field>
+                        </group>
+
+
+                          <group string="Diff">
+                            <field name="purchase_plan_diff_ids" 
+                             attrs="{'readonly':[('state','not in',['new'])]}">
+                             <tree editable="bottom">
+                               <field name="product_category_type"/>
+                                   <field name="product_id" attrs="{'invisible':[('product_category_type','!=','product')]}"/>
+                                   <field name="category_id" attrs="{'invisible':[('product_category_type','!=','category')]}"/>
+                                   <field name="product_qty"/>
+                                   <field name="unit_cost"/>
+                                   <field name="amount"/>
+                            </tree>
+                            </field>
+                        </group>
+                            
+                     <group string="Perentage">
+                            <field name="purchase_plan_perentage_ids"  
+                                attrs="{'readonly':[('state','not in',['new'])]}" >
+
+                             <tree editable="bottom">
+                                   <field name="product_category_type"/>
+                                   <field name="product_id" attrs="{'invisible':[('product_category_type','!=','product')]}"/>
+                                   <field name="category_id" attrs="{'invisible':[('product_category_type','!=','category')]}"/>
+                                   <field name="product_qty"/>
+                                   <field name="unit_cost"/>
+                                   <field name="amount"/>
+                            </tree>
+                            </field>
+                        </group>
+
+
+
+                 </sheet>
+          </form>
+   </field>
+</record>
+
+
+
+
+
+    <!--  Purchase Plan view -->
+    <record id="purchase_plan_action" model="ir.actions.act_window">
+        <field name="name">Purchase Plan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.plan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new record!
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

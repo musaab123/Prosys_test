@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <record id="setu_customer_score_tree_view" model="ir.ui.view">
+            <field name="name">setu.customer.score.tree.view</field>
+            <field name="model">setu.customer.score</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Score" create="false" edit="false" delete="false">
+                    <field name="partner_id"/>
+                    <field name="company_id"/>
+                    <field name="customer_rating_id"/>
+                    <field name="total_score"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_customer_score_form_view" model="ir.ui.view">
+            <field name="name">setu.customer.score.form.view</field>
+            <field name="model">setu.customer.score</field>
+            <field name="arch" type="xml">
+                <form string="Customer Score" create="false" edit="false" delete="false">
+                    <sheet>
+                        <div style="margin-left:50%;margin-top:130px;">
+                            <field nolabel="1" name="total_score" style="font-size:100px;"/>
+                            <span style="margin-left:0 !important; font-size:20px;">/
+                                <field name="max_available_score"/>
+                            </span>
+                        </div>
+                        <div class="oe_title" style="margin-top:-270px;">
+                            <label for="partner_id"/>
+                            <h1>
+                                <field name="partner_id" placeholder="Title"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <group string="Rating">
+                                <field name="customer_rating_id"/>
+                            </group>
+
+                        </group>
+                        <group string="Score Details">
+                            <group>
+                                <field name="avg_monthly_sales_score"/>
+                                <field name="avg_monthly_refund_score"/>
+                                <field name="amount_invoice_paid_score"/>
+                                <field name="qty_invoice_paid_score"/>
+                            </group>
+                            <group>
+                                <field name="amount_invoices_due_after_60_days_score"/>
+                                <field name="qty_invoices_due_after_60_days_score"/>
+                                <field name="average_payment_days_score"/>
+                            </group>
+                        </group>
+                        <notebook attrs="{'invisible':[('sale_ids','=',[]),('credit_notes','=',[]),('invoice_done_after_due_date_ids','=',[]),('invoices_due_after_60_days','=',[])]}">
+                            <page name="sales" string="Sales Ref" attrs="{'invisible':[('sale_ids','=',[])]}">
+                                <field name="sale_ids"/>
+                            </page>
+                            <page string="Refund Ref" attrs="{'invisible':[('credit_notes','=',[])]}">
+                                <field name="credit_notes"/>
+                            </page>
+                            <page string="Invoices Done After Due Date"  attrs="{'invisible':[('invoice_done_after_due_date_ids','=',[])]}">
+                                <field name="invoice_done_after_due_date_ids"/>
+                            </page>
+                            <page string="Invoices Due After X Days" attrs="{'invisible':[('invoices_due_after_60_days','=',[])]}">
+                                <field name="invoices_due_after_60_days"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+         <record id="setu_customer_score_search_view" model="ir.ui.view">
+            <field name="name">setu.customer.score.search.view</field>
+            <field name="model">setu.customer.score</field>
+            <field name="arch" type="xml">
+                <search string="Customer Score">
+                    <field name="partner_id"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Company" name="group_by_company" domain="[]"   context="{'group_by':'company_id'}"/>
+                        <filter string="Rating" name="group_by_partner_rating" domain="[]"  context="{'group_by':'customer_rating_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="setu_customer_score_graph_view" model="ir.ui.view">
+            <field name="name">setu.customer.score.graph.view</field>
+            <field name="model">setu.customer.score</field>
+            <field name="arch" type="xml">
+                <graph string="Customer Score" type="bar">
+                    <field name="partner_id" type="row"/>
+                    <field name="total_score" type="measure"/>
+                    <field name="customer_rating_id"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record id="setu_customer_score_action" model="ir.actions.act_window">
+            <field name="name">Customer Scores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">setu.customer.score</field>
+            <field name="domain">[('company_id','in',allowed_company_ids)]</field>
+            <field name="context">{'search_default_group_by_company':1,'search_default_group_by_partner_rating':1}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There are no Customer Scores.
+                </p>
+            </field>
+        </record>
+
+        <menuitem  id="setu_customer_score_main_menu" name="Scores" parent="setu_customer_rating.setu_customer_rating_main_menu" action="setu_customer_score_action" sequence="1"  />
+
+    </data>
+</odoo>

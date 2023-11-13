@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+
+
+     <!-- inherit view of hr location -->
+    <record id="hr_location_form_inherit" model="ir.ui.view">
+        <field name="name">hr.work.location.inherit.view</field>
+        <field name="model">hr.work.location</field>
+        <field name="inherit_id"
+               ref="hr.hr_work_location_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group[1]/group[2]" position="inside">
+
+                <field name="location_id"/>
+                <field name="manager_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="hr_location_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.work.location.inherit.view</field>
+        <field name="model">hr.work.location</field>
+        <field name="inherit_id"
+               ref="hr.hr_work_location_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+
+                <field name="location_id"/>
+                <field name="manager_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
