@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="setu_customer_rating_tree_view" model="ir.ui.view">
+            <field name="name">setu.customer.rating.tree.view</field>
+            <field name="model">setu.customer.rating</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Rating" editable="bottom">
+                    <field name="from_score"/>
+                    <field name="to_score"/>
+                    <field name="rating"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_customer_rating_form_view" model="ir.ui.view">
+            <field name="name">setu.customer.rating.form.view</field>
+            <field name="model">setu.customer.rating</field>
+            <field name="arch" type="xml">
+                <form string="Customer Rating" editable="bottom" create="0">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_customer"
+                                    style="width: max-content;" type="object" class="oe_stat_button">
+                                <field name="total_customers_ratio" widget="percentpie" string="Customer"/>
+                            </button>
+                            <button name="open_orders"
+                                    style="width: max-content;" type="object" class="oe_stat_button">
+                                <field name="total_orders_ratio" widget="percentpie" string="Order"/>
+                            </button>
+                            <button name="open_orders"
+                                    style="width: max-content;" type="object" class="oe_stat_button">
+                                <field name="total_revenue_ratio" widget="percentpie" string="Revenue"/>
+                            </button>
+                        </div>
+                        <div class="oe_label">
+                            <h1>
+                                <field placeholder="Rating" name="rating" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="from_score" required="1"/>
+                                <field name="company_id" required="1" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="to_score" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <template id="customer_rating_upper_panel" name="prosys_customer_rating.upper_panel">
+            <div class="alert alert-info"
+                 t-attf-style="{{'background-color:rgba(235, 52, 52,0.2);' if not state else ''}}" role="alert">
+                <a t-esc="message"/>
+                <t t-if="state==False and has_rules==True">
+                    <button class="link-button"
+                            style="border-radius:0px;   padding:1px 8px;  background-color:rgba(135,90,123,0.7);margin-left:10px;border:none;">
+                        <a target="_blank" style="color:white;font-weight:400;" t-attf-href="#{link}">OPEN RULES</a>
+                    </button>
+                </t>
+                <t t-if="has_rules==True">
+                    <button class="link-button"
+                            style="border-radius:5px; padding:1px 8px;background-color:rgba(135,90,123,0.7);margin-left:10px;  border:none;">
+                        <a class="o_click_evaluate_customer_rating" style="color:white;font-weight:500;"
+                           t-attf-href="/prosys_customer_rating/evaluate">EVALUATE NOW
+                        </a>
+                    </button>
+                </t>
+            </div>
+        </template>
+
+        <record id="setu_customer_rating_kanban_view" model="ir.ui.view">
+            <field name="name">setu.customer.rating.kanban.view</field>
+            <field name="model">setu.customer.rating</field>
+            <field name="arch" type="xml">
+                <kanban class="o_event_kanban_view" create="0" edit="0"
+                        banner_route="/prosys_customer_rating/customer_rating_upper_panel"
+                        default_order="id desc"
+                >
+                    <field name="rating"/>
+                    <field name="company_currency"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_res_partner_kanban" style="width:250px;
+                            box-shadow: 1px 1px 1px 1px #888888;
+                                        -ms-flex: none !important;
+                                        -moz-flex: none !important;
+                                        -webkit-box-flex: none !important;
+                                        -webkit-flex: none !important;
+                                        border: 1px solid rgba(119,119,119,0.3);transition: all 0.1s ease 0.1s"
+                                 onMouseOver="this.style.border='1.2px solid rgba(128,128,128,1)'"
+                                 onMouseOut="this.style.border='1px solid rgba(128,128,128,0.3)'">
+                                <div class="oe_kanban_details" style="margin-top:15px;">
+                                    <strong class="o_kanban_record_title oe_partner_heading">
+                                        <h2 style="color:#875A7B;font-size:30px" class="text-center"
+                                            title="Customer Rating">
+                                            <strong>
+                                                <field name="rating"/>
+                                            </strong>
+                                        </h2>
+                                        <br/>
+                                        <h5 style="color:grey;margin-top:-10px;" class="text-center ">
+                                            <field name="company_id"/>
+                                        </h5>
+                                        <h4 style="color:#875A7B;font-weight:bold" class="text-center" name="revenue">
+                                            Revenue:
+                                            <field name="total_revenue" widget="monetary"
+                                                   options="{'currency_field': 'company_currency'}"/>
+                                        </h4>
+                                    </strong>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div name="links" style="margin-top:20px;">
+                                        <div class="row" style="margin:auto">
+                                            <a name="open_customer" type="object"
+                                               style="font-weight:bold; font-size:14px">
+                                                <field name="total_customers_ratio" widget="percentpie"
+                                                       string="Total Customer Ratio"/>
+                                            </a>
+                                        </div>
+                                        <div class="row justify-content-center" style="margin:auto">
+                                            <a name="open_orders" type="object"
+                                               style="font-weight:bold; font-size:14px;">
+                                                <field name="total_orders_ratio" widget="percentpie"
+                                                       string="Total Orders Ratio"/>
+                                            </a>
+                                        </div>
+                                        <div class="row justify-content-center" style="margin:auto">
+                                            <a name="open_orders" type="object"
+                                               style="font-weight:bold; font-size:14px">
+                                                <field name="total_revenue_ratio" widget="percentpie"
+                                                       string="Total Revenue Ratio"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="setu_customer_rating_search_view" model="ir.ui.view">
+            <field name="name">setu.customer.rating.search.view</field>
+            <field name="model">setu.customer.rating</field>
+            <field name="arch" type="xml">
+                <search string="Customer Ratings">
+                    <group expand="1" string="Group By">
+                        <filter string="Company" name="group_by_company" domain="[]"
+                                context="{'group_by':'company_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="setu_customer_rating_action" model="ir.actions.act_window">
+            <field name="name">Customer Ratings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">setu.customer.rating</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'user_create':1}</field>
+            <field name="domain">[('company_id','=',allowed_company_ids[0])]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There are no Rating Rules for current active company. Go to <strong style="color:#875A7B;">
+                    Configuration/Create Score
+                    Rules
+                </strong> to create Rating Rules for current active company.
+                </p>
+            </field>
+        </record>
+
+        <record id="setu_customer_rating_kanban_action" model="ir.actions.act_window">
+            <field name="name">Customer Ratings Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">setu.customer.rating</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('company_id','=',allowed_company_ids[0])]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There are no Rating Rules for current active company. Go to <strong style="color:#875A7B;">
+                    Configuration/Create Score
+                    Rules
+                </strong> to create Rating Rules for current active company.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="setu_customer_rating_dashboard_menu" name="Dashboard" action="setu_customer_rating_kanban_action"
+                  parent="prosys_customer_rating.setu_customer_rating_main_menu" sequence="0"/>
+    </data>
+</odoo>

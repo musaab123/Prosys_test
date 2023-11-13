@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="setu_rating_partner_history_management_form_view" model="ir.ui.view">
+        <field name="name">setu.rating.partner.history.form.view</field>
+        <field name="model">setu.rating.history.management.report</field>
+        <field name="arch" type="xml">
+            <form string="Rating History">
+                <sheet>
+                    <group>
+                        <group string="Select Parameters">
+                            <field name="company_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                            <field name="partner_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group string="Select Date Range">
+                        <group>
+                            <field name="start_date"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button class="oe_highlight" type="object" string="Generate Report" name="generate_report"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="setu_rating_partner_history_management_action" model="ir.actions.act_window">
+        <field name="name">Rating History Management Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">setu.rating.history.management.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem id="setu_rating_menu_history_management_report" name="History Management Report"
+              parent="prosys_customer_rating.setu_partner_rating_history_main_menu"
+              sequence="10"
+              action="setu_rating_partner_history_management_action"/>
+</odoo>
