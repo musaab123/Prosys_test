@@ -1,6 +1,0 @@
-Date         :  30th Oct 2023
-Version      : '16.0' (in __manifest__.py)
-Odoo Version : 16
-Done by : Udit Ramani
-Tested by : Udit Ramani
-Description : Initial push of the app.

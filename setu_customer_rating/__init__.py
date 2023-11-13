@@ -1,7 +1,0 @@
-# # -*- coding: utf-8 -*-
-#
-from . import models
-from . import wizard
-from . import reports
-from . import controller
-from .hooks import create_rating_table
