@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_res_inherit_partner_geo_form" model="ir.ui.view">
+            <field name="name">res.partner.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='geo_location']" position="inside">
+                    <group name="name" string="Ggoogle Link">
+                        <field name="google_map_link" widget="url" />
+
+                    </group>
+                    <div class="col-6">
+
+                        <div id="get_partner_location_test"
+                            style="
+                    color: #01575b; 
+                    align-items: center;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;">
+                            <strong> Get Location</strong>
+                            <strong> </strong>
+                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                        </div>
+
+
+                    </div>
+
+                </xpath>
+
+                <!-- <xpath expr="//page[@name='geo_location']//field[@name='date_localization']"
+                position="after">
+                    <field name="google_map_link"  widget="url"/>
+                </xpath> -->
+            </field>
+        </record>
+
+
+        <!-- <record id="view_res_inherit_users_geo_form" model="ir.ui.view">
+            <field name="name">res.users.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='preferences']" position="inside">
+                    <group name="name" string="Ggoogle Link">
+                        <field name="google_map_link_id" widget="url" />
+                        <field name="in_latitude" widget="url" />
+                        <field name="in_longitude" widget="url" />
+
+
+                    </group>
+                    <div class="col-6">
+
+                        <div id="get_user_location_test"
+                            style="
+                    color: #01575b; 
+                    align-items: center;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;">
+                            <strong> Get Location</strong>
+                            <strong> </strong>
+                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                        </div>
+
+                    </div>
+
+                </xpath>
+
+            </field>
+        </record> -->
+
+
+
+
+
+    </data>
+</odoo>
+
+      
+  

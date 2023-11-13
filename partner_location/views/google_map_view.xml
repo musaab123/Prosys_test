@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="partner_location_action_profile">
+            <field name="name">Customer</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,map</field>
+        </record>
+
+        <record id="partner_location_view_map" model="ir.ui.view">
+            <field name="name">res.partner.view.map</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <map res_partner="partner_id"></map>
+            </field>
+        </record>
+
+        <record id="account.res_partner_action_customer" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form,map</field>
+        
+        </record>
+    
+
+        <!-- <record id="view_partner_map" model="ir.ui.view">
+            <field name="name">res.partner.map.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <page string="Map">
+                        <field name="name" widget="map" options="{'map_center': 'partner_id', 'map_zoom': 10}"/>
+                    </page>
+                </field>
+            </field>
+        </record> -->
+
+    
+
+
+    </data>
+</odoo>

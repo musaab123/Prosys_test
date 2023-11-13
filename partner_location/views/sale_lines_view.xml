@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="customer_sale_lines_id_test_demo" model="ir.ui.view">
+            <field name="name">Sale Lines</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='geo_location']//group[1]" position="before">
+                    <label for="sale_lines_id" string="Sale Lines"/>
+                    <field name="sale_lines_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale_lines_action_custom" model="ir.actions.act_window">
+            <field name="name">Sale Lines</field>
+            <field name="res_model">sale.lines</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="product_jop_postion_view" model="ir.ui.view">
+            <field name="name">Sale Lines</field>
+            <field name="model">sale.lines</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Jop Postion"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="jop_postion_group_by" model="ir.ui.view">
+            <field name="name">res.partner.search.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <filter string="Sale Lines" name="Sale Lines" context="{'group_by':'sale_lines_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- crm search view -->
+        <record id="crm_lead_group_by" model="ir.ui.view">
+            <field name="name">crm.lead.search.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <filter string="Sale Lines" name="Sale Lines" context="{'group_by':'sale_lines_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- field servises -->
+        <record id="field_services_group_by" model="ir.ui.view">
+            <field name="name">project.task.search.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="industry_fsm.project_task_view_search_fsm"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <filter string="Sale Lines" name="Sale Lines" context="{'group_by':'sale_lines_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale_lines_action_custom" model="ir.actions.act_window">
+            <field name="name">Sale Lines</field>
+            <field name="res_model">sale.lines</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="customer_jop_postion_custom"
+                  name="Sale Lines"
+                  action="sale_lines_action_custom"
+                  parent="account.menu_finance_receivables"
+                  sequence="95"/>
+
+
+    </data>
+</odoo>

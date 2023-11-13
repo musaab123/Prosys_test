@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_lines,access_sale_lines,model_sale_lines,,1,1,1,1
+access_change_sale_wizard,change.sale.wizard,model_change_sale_wizard,,1,1,1,1
+
+
+
+
+
+
+
+
+
