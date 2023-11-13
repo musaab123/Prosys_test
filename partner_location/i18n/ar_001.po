@@ -1,0 +1,190 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_location
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20230727\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-09 12:36+0000\n"
+"PO-Revision-Date: 2023-11-09 12:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_location
+#: model_terms:ir.ui.view,arch_db:partner_location.view_res_inherit_partner_geo_form
+msgid ""
+"<strong> Get Location</strong>\n"
+"                            <strong> </strong>\n"
+"                            <i class=\"fa fa-refresh\" aria-hidden=\"true\"/>"
+msgstr "موقعك الحالي"
+
+#. module: partner_location
+#: model_terms:ir.ui.view,arch_db:partner_location.customer_sale_lines_id
+msgid "Add Tasks"
+msgstr "اضف مهمه"
+
+#. module: partner_location
+#: model_terms:ir.ui.view,arch_db:partner_location.change_sale_line_wizard_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: partner_location
+#: model:ir.model,name:partner_location.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__create_uid
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__create_date
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.actions.act_window,name:partner_location.partner_location_action_profile
+#: model:ir.model.fields,field_description:partner_location.field_res_partner__partner_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__display_name
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__display_name
+msgid "Display Name"
+msgstr "عرض الاسم"
+
+#. module: partner_location
+#. odoo-javascript
+#: code:addons/partner_location/static/src/xml/attendance.xml:0
+#, python-format
+msgid "Enter your message below"
+msgstr "ادخل رسالتك اسفل"
+
+#. module: partner_location
+#. odoo-javascript
+#: code:addons/partner_location/static/src/js/res_partner_custom.js:0
+#, python-format
+msgid "Geolocation error: "
+msgstr ""
+
+#. module: partner_location
+#. odoo-javascript
+#: code:addons/partner_location/static/src/js/res_partner_custom.js:0
+#, python-format
+msgid "Geolocation is not supported by this browser."
+msgstr ""
+
+#. module: partner_location
+#: model_terms:ir.ui.view,arch_db:partner_location.view_res_inherit_partner_geo_form
+msgid "Ggoogle Link"
+msgstr "رابط الموقع"
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_res_partner__google_map_link
+#: model:ir.model.fields,field_description:partner_location.field_res_users__google_map_link
+msgid "Google Map Link"
+msgstr "رابط الموقع على الخريطه"
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__id
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__id
+msgid "ID"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_project_task__is_genrate_sale_line_id
+msgid "Is Genrate"
+msgstr "هل مولد"
+
+#. module: partner_location
+#: model_terms:ir.ui.view,arch_db:partner_location.product_jop_postion_view
+msgid "Jop Postion"
+msgstr "المسمى الوظيفي"
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard____last_update
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__write_uid
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__write_date
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.model,name:partner_location.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "عميل مهتم/فرصة "
+
+#. module: partner_location
+#: model:ir.model.fields,field_description:partner_location.field_sale_lines__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: partner_location
+#. odoo-javascript
+#: code:addons/partner_location/static/src/js/res_partner.js:0
+#, python-format
+msgid "Reload Sale Order Form"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.actions.act_window,name:partner_location.sale_lines_action_custom
+#: model:ir.model.fields,field_description:partner_location.field_change_sale_wizard__sale_lines_id
+#: model:ir.model.fields,field_description:partner_location.field_crm_lead__sale_lines_id
+#: model:ir.model.fields,field_description:partner_location.field_project_task__sale_lines_id
+#: model:ir.model.fields,field_description:partner_location.field_res_partner__sale_lines_id
+#: model:ir.model.fields,field_description:partner_location.field_res_users__sale_lines_id
+#: model:ir.ui.menu,name:partner_location.customer_jop_postion_custom
+#: model_terms:ir.ui.view,arch_db:partner_location.crm_lead_group_by
+#: model_terms:ir.ui.view,arch_db:partner_location.customer_sale_lines_id_test_demo
+#: model_terms:ir.ui.view,arch_db:partner_location.field_services_group_by
+#: model_terms:ir.ui.view,arch_db:partner_location.jop_postion_group_by
+msgid "Sale Lines"
+msgstr "خطوط المبيعات"
+
+#. module: partner_location
+#. odoo-python
+#: code:addons/partner_location/models/update_sale_line.py:0
+#: model:ir.actions.act_window,name:partner_location.action_change_sale_line_wizard
+#: model_terms:ir.ui.view,arch_db:partner_location.change_sale_line_wizard_form
+#, python-format
+msgid "Set Sale Line"
+msgstr "تغيير خط المبيعات"
+
+#. module: partner_location
+#: model:ir.model,name:partner_location.model_project_task
+msgid "Task"
+msgstr "المهمة"
+
+#. module: partner_location
+#: model:ir.actions.server,name:partner_location.action_res_partner_change_sale_lines
+msgid "Update Sale Lines"
+msgstr "تغيير خط المبيعات"
+
+#. module: partner_location
+#: model:ir.model,name:partner_location.model_change_sale_wizard
+msgid "change.sale.wizard"
+msgstr ""
+
+#. module: partner_location
+#: model:ir.model,name:partner_location.model_sale_lines
+msgid "sale.lines"
+msgstr ""
