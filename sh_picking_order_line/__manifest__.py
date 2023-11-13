@@ -28,7 +28,7 @@ Add Filter In Internal Transfer, Group By IO, Show Outgoing Order Lines App,
 Display  Delivery Order Lines, Show Shipment Line Views Odoo
 """,
     "version": "16.0.1",
-    "depends": ["stock","project","evo_portal_task"],
+    "depends": ["stock","project","prosys_project_team"],
     "application": True,
     "data": [
             'security/ir.model.access.csv',

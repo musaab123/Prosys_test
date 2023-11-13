@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- <data>
+    <data>
         <record id="model_project_task_field_description" model="ir.model.fields">
             <field name="name">Description</field>
             <field name="model" ref="model_project_task"/>
@@ -12,5 +12,5 @@
             <field name="src">project.task,description</field>
             <field name="value">Description</field>
         </record>
-    </data> -->
+    </data>
 </odoo>
