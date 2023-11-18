@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sh_sale_excel.access_excel_extended,access_excel_extended,sh_sale_excel.model_excel_extended,base.group_user,1,1,1,1
+sh_sale_excel.access_invoice_extended,access_invoice_extended,sh_sale_excel.model_invoice_extended,base.group_user,1,1,1,1
+sh_sale_excel.access_purchase_extended,access_purchase_extended,sh_sale_excel.model_purchase_extended,base.group_user,1,1,1,1
+
+
