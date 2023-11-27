@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_seti_sale_slip">
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id" />
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company" />
+        </t>
+
+        <div class="header" style="direction: initial;">
+            <table style="border: 1pt solid white; font-size: 12px;" width="100%">
+                <!-- <link rel="stylesheet" href="/saudi_einvoice_knk/static/src/css/style.css"/> -->
+                <link rel="stylesheet" href="/exo_swage_template_report/static/src/css/style.css"/>
+                <tr>
+   
+                <tr t-if="lang == 'en_US'">
+                    <!-- English Header -->
+                    <td colspan="2" width="30%">
+                        <strong><span style="padding-left:5px;" t-field="company.name"/></strong><br/>
+                        <t t-if="company.street">
+                            <span style="padding-left:5px;" t-field="company.street"/><br/>
+                        </t>
+                        <t t-if="company.street2">
+                            <span style="padding-left:5px;" t-field="company.street2"/><br/>
+                        </t>
+                        <t t-if="company.city">
+                            <span style="padding-left:5px;" t-field="company.city"/><br/>
+                        </t>
+                        <t t-if="company.country_id">
+                            <span style="padding-left:5px;" t-field="company.country_id.name"/><br/>
+                        </t>
+                    </td>
+                    
+                      
+   
+   <td  colspan="3" width="30%" style= "position: relative; left:500px;"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
+                    
+                    <!-- Hide the Arabic header -->
+                    <td colspan="2" width="40%" class="enx" style="display: none;"></td>
+                </tr>
+                
+                <tr t-else="lang == 'ar_001'">
+                    <!-- Hide the English header -->
+                    <td colspan="2" width="30%" style="display: none;"></td>
+                    
+                    <!-- Arabic Header -->
+                    
+                    <td  colspan="3" width="30%" class="text-left"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
+                    
+                    <td colspan="2" width="40%" style= "position: relative; left:350px;" >
+                      <strong>
+                         <span class=" text-right arabic"  t-field="company.arabic_name"/></strong><br/>
+                      <t t-if="company.street">
+                         <span class="text-right arabic"  t-field="company.arabic_street"/><br/>
+                      </t>
+                      <t t-if="company.street2">
+                         <span class="text-right arabic"  t-field="company.arabic_street2"/><br/>
+                      </t>
+                      <t t-if="company.city">
+                         <span class="text-right arabic"  t-field="company.arabic_city"/><br/>
+                      </t>
+                      <t t-if="company.arabic_country">
+                         <span class="text-right arabic"  t-field="company.arabic_country"/><br/>
+                      </t>
+   
+                        <t t-if="company.vat">
+                         <span class="text-right arabic" t-field="company.vat"/><br/>
+                      </t>
+                          <t t-if="company.arabic_web">
+                         <span class="text-right arabic" t-field="company.arabic_web"/><br/>
+                      </t>
+                          <t t-if="company.arabic_company_dis">
+                         <span class="text-right arabic" t-field="company.arabic_company_dis"/><br/>
+                      </t>
+                   </td>
+                </tr>
+   
+            </tr>
+            </table>
+        </div>
+
+        <div class="article o_report_layout_standard">
+            <t t-raw="0" />
+        </div>
+        <div class="footer o_background_footer">
+            <div class="text-center" style="font-size:14px;">
+                <ul class="list-inline">
+                    <li t-if="company.phone" class="list-inline-item">
+                        <i class="text-white fa fa-phone" role="img" aria-label="Phone"
+                            title="Phone" />
+                        <strong>User Name: </strong>
+                        <span t-field="user.name" />
+                    </li>
+                    <li t-if="company.email" class="list-inline-item">
+                        <i class="text-white fa fa-at" role="img" aria-label="Email" title="Email" />
+                        <span class="text-white" t-field="company.email" />
+                    </li>
+                    <li t-if="company.website" class="list-inline-item">
+                        <i class="text-white fa fa-globe" role="img" aria-label="Website"
+                            title="Website" />
+                        <span class="text-white" t-field="company.website" />
+                    </li>
+                    <li class="list-inline-item">
+                        <i class="text-white fa fa-building-o" role="img" aria-label="Fiscal number" />
+                        <strong>Date: </strong>
+                        <span t-field="company.date_creation" />
+                    </li>
+                </ul>
+                <!-- <div t-field="company.report_footer"/> -->
+                <div t-if="report_type == 'pdf'" class="text-muted"> Page: <span class="page" /> of <span
+                        class="topage" />
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="report_swage_custom_delivery_slip">
+        <t t-call="web.html_container">
+            <div class="article o_report_layout_standard" t-att-data-oe-model="" t-att-data-oe-id="">
+                <t t-call="exo_swage_template_report.external_layout_seti_sale_slip" />
+                <t t-foreach="docs" t-as="o">
+                    <!-- <t t-call="web.external_layout"> -->
+                    <div class="page arabic"
+                        t-attf-style="background-image:url('/orange_report/static/src/img/ooo.jpg'); width:300mm; height:340mm;   position: relative;">
+                        <link rel="stylesheet" href="/orange_report/static/src/css/style.css" />
+                        <br>
+                        </br>
+                        <table
+                            style="border:1pt solid #ff8c00;width:100%; height: 23px;color:black; margin-top:10pt;"
+                            class="table-condensed table-sm">
+                            <tr>
+
+                                <h2
+                                    style="padding:1pt;margin:0pt;text-align:center;background-color:#ffd8b3;">Delivery Slip
+                                </h2>
+                                <!-- </div> -->
+
+                            </tr>
+                        </table>
+
+                        <!-- <div class="row arabic"> -->
+
+
+                        <div class="row">
+                            <div name="invoice_address" class="col-4">
+                                <div t-if="o.picking_type_id.code=='outgoing' and o.partner_id">
+                                    <span>
+                                        <strong>Customer Address </strong>
+                                    </span>
+                                </div>
+                                <div t-if="o.partner_id" name="partner_header">
+                                    <div t-field="o.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": True, "phone_icons": True}' />
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div name="div_outgoing_address">
+                                 
+
+                                    <div t-if="o.should_print_delivery_address()">
+                                      
+
+                                        <span>
+                                            <strong>Delivery Address </strong>
+                                        </span>
+                                        <div t-field="o.move_ids[0].partner_id"
+                                            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' />
+                                    </div>
+                                    <div
+                                        t-elif="o.picking_type_id.code != 'internal' and o.picking_type_id.warehouse_id.partner_id">
+                                        <span>
+                                            <strong>Warehouse Address </strong>
+                                        </span>
+                                        <div t-field="o.picking_type_id.warehouse_id.partner_id"
+                                            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' />
+                                    </div>
+                                </div>
+                                <div name="div_incoming_address">
+                                    <div t-if="o.picking_type_id.code=='incoming' and o.partner_id">
+                                        <span>
+                                            <strong>Vendor Address </strong>
+                                        </span>
+                                    </div>
+                                    <div t-if="o.picking_type_id.code=='internal' and o.partner_id">
+                                        <span>
+                                            <strong>Warehouse Address </strong>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div
+                                    style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black; border-left: 3px solid black; border-right: 3px solid #ff8c00;">
+                                    <br></br>
+                                    <br></br>
+                                    <br></br>
+
+                                    <span t-field="o.name"
+                                        t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:300px;height:50px;'}" />
+                                    <br></br>
+                                    <br></br>
+                                    <br></br>
+                                    <br></br>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+
+
+
+                        <div class="row arabic">
+                            <div class=" col-3 ">
+                                <span>Order</span>
+                                <p t-field="o.origin" />
+
+                            </div>
+                            <div class="col-3">
+                                <span>Invoice Number</span>
+
+                                <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Invoice
+                                    Number</span>
+                                <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft
+                                    Invoice</span>
+                                <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled
+                                    Invoice</span>
+                                <span t-if="o.move_type == 'out_refund'">Credit Note</span>
+                                <span t-if="o.move_type == 'in_refund'">Vendor Credit Note</span>
+                                <span t-if="o.move_type == 'in_invoice'">Vendor Bill</span>
+                                <p t-field="o.name" />
+                            </div>
+                            <div class="col-3 ">
+                                <span>Status</span>
+                                <p t-field="o.state" class="m-0" />
+                            </div>
+
+                            <div class="col-3">
+                                <span>
+                                    Shipping Date
+                                </span>
+                                <p t-field="o.scheduled_date" class="m-0" />
+                            </div>
+                        </div>
+
+
+                        <br></br>
+
+
+                        <table
+                            style="border:1pt solid #ff8c00;width:100%; height: 23px;color:black; margin-top:10pt;"
+                            class="table-condensed table-sm">
+                            <tr>
+
+                                <h2
+                                    style="padding:1pt;margin:0pt;text-align:center;background-color:#ffd8b3;">
+                                    <span t-field="o.name" />
+                                </h2>
+
+                            </tr>
+                        </table>
+
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+
+
+
+                        <div class="col-12 knk arabic">
+                            <table class="table table-sm table-borderless"
+                                style="page-break-inside: avoid;">
+                                <thead
+                                    style="border-top: 3px solid #ff8c00; border-bottom: 3px solid black;">
+                                    <tr class="knk">
+                                        <td name="th_description"
+                                            style="height: 40px;  vertical-align: middle;">
+                                            Product
+                                        </td>
+
+                                        <td name="th_priceunit"
+                                            style="height: 40px;  vertical-align: middle;">
+                                            Ordered
+                                        </td>
+                                        <td name="th_priceunit"
+                                        style="height: 40px;  vertical-align: middle;">
+                                        Delivered
+                                    </td>
+                                        <td name="th_priceunit"
+                                            style="height: 40px;  vertical-align: middle;">
+                                            Packaging
+                                        </td>
+                                        <td name="th_priceunit"
+                                            style="height: 40px;  vertical-align: middle;">
+                                            Packaging Quantity
+                                        </td>
+
+                                        <!-- <td name="th_quantity"
+                                            style="height: 40px;  vertical-align: middle;">
+                                            Lot/Serial Number
+                                        </td>
+
+                                        <td name="th_priceunit"
+                                            style="height: 40px;  vertical-align: middle;">
+                                            Product Barcode
+                                        </td> -->
+
+                                    </tr>
+                                </thead>
+
+                                <tbody class="knk">
+                                    <t t-foreach="o.move_ids_without_package" t-as="ml">
+                                        <tr>
+                                            <td>
+                                                <span t-field="ml.product_id.display_name" />
+                                                <br />
+                                                <span t-field="ml.product_id.description_picking" />
+                                                <br />
+
+                                                <span t-field="ml.product_id.description_picking" />
+                                            </td>
+                                            <td>
+                                                <span t-field="ml.product_uom_qty"/>
+                                                <span t-field="ml.product_uom"/>
+                                              
+                                            </td>
+
+                                            <td>
+                                                <span t-field="ml.quantity_done"/>
+                                                <span t-field="ml.product_uom"/>
+                                              
+                                            </td>
+
+                                            
+                                            <td>
+                                                <span class="arabic"
+                                                    t-esc="ml.product_packaging_id.name" />
+                                            </td>
+                                            <td>
+                                                <!-- <span class="arabic" t-esc="ml.product_uom_qty / ml.product_packaging_id.qty"/> -->
+
+                                                <span class="arabic" t-if="ml.product_packaging_id.qty != 0" t-esc="ml.product_uom_qty / ml.product_packaging_id.qty"/>
+                                                <span class="arabic" t-else="ml.product_packaging_id.qty == 0"></span>
+
+                                            </td>
+                                            <!-- <td>
+                                                <div t-esc="ml.lot_ids.name"
+                                                    t-options="{'widget': 'barcode', 'humanreadable': 1, 'width': 400, 'height': 100, 'img_style': 'width:100%;height:35px;'}" />
+                                            </td>
+                                            <td>
+                                                <t>
+                                                    <span
+                                                        t-if="ml.product_id and ml.product_id.barcode">
+                                                        <div t-field="ml.product_id.barcode"
+                                                            t-options="{'widget': 'barcode', 'symbology': 'auto', 'width': 400, 'height': 100, 'quiet': 0, 'img_style': 'height:35px;'}" />
+                                                    </span>
+                                                    <t t-set="product_barcode"
+                                                        t-value="ml.product_id.barcode" />
+                                                </t>
+                                            </td> -->
+                                        </tr>
+                                    </t>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>
