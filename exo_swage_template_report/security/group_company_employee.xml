@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+        <record id="group_ksa_sale_order_custom_inherit" model="res.groups">
+            <field name="name">Swag Sale Order </field>
+        </record>
+
+    </data>
+</odoo>
