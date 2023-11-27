@@ -1,0 +1,894 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* exo_swage_template_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20230727\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-24 11:23+0000\n"
+"PO-Revision-Date: 2023-11-24 11:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"<br/>\n"
+"                                    <br/>\n"
+"\n"
+"\n"
+"                                    <strong>Bransh</strong>"
+msgstr "الفرع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"<br/>\n"
+"                                    <br/>\n"
+"\n"
+"\n"
+"                                    <strong>Invoice Date: </strong>"
+msgstr "تاريخ الفاتورة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"<br/>\n"
+"                                    <br/>\n"
+"\n"
+"\n"
+"                                    <strong>Payment Terms: </strong>"
+msgstr "شروط الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"<br/>\n"
+"                                    <br/>\n"
+"\n"
+"                                    <strong>VAT No </strong>"
+msgstr "الرقم الضريبي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                    <strong style=\" margin:auto;\">Shipping Company :</strong>"
+msgstr "شركة الشحن"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"\n"
+"                                <strong>Bransh</strong>"
+msgstr "الفرع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"\n"
+"                                <strong>Payment Terms: </strong>"
+msgstr "شروط الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"                                <strong>Invoice Date: </strong>"
+msgstr "تاريخ الفاتورة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"<br/>\n"
+"                                <br/>\n"
+"\n"
+"                                <strong>VAT No </strong>"
+msgstr "الرقم الضريبي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid ""
+"<br/> \n"
+"                                 <br/> \n"
+"\n"
+"\n"
+"                                \n"
+"                              \n"
+"                                 \n"
+"\n"
+"                              <strong>Mobile</strong>"
+msgstr "الموبايل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid ""
+"<br/> \n"
+"                              <br/> \n"
+"\n"
+"\n"
+"                              <strong>Expected Arrival: </strong>"
+msgstr "الوصول المتوقع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid ""
+"<br/> \n"
+"                              <br/> \n"
+"\n"
+"\n"
+"                           <strong>Order Date: </strong>"
+msgstr "تاريخ الطلب"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid ""
+"<br/> \n"
+"                              <br/> \n"
+"                                 \n"
+"\n"
+"                              <strong>Mobile</strong>"
+msgstr "الموبايل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid ""
+"<br/> \n"
+"                              <br/>  \n"
+"\n"
+"                              <strong>Email</strong>"
+msgstr "الايميل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid ""
+"<br/>  \n"
+"                              <br/>  \n"
+"\n"
+"                              <strong>Email</strong>"
+msgstr "الايميل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid ""
+"<br/>  \n"
+"                              <br/>  \n"
+"\n"
+"                              <strong>Phone</strong>"
+msgstr "الهاتف"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_test
+msgid "<i class=\"text-white fa fa-at\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_test
+msgid ""
+"<i class=\"text-white fa fa-building-o\" role=\"img\" aria-label=\"Fiscal number\"/>\n"
+"                        <strong>Date: </strong>"
+msgstr "التاريخ"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale
+msgid ""
+"<i class=\"text-white fa fa-building-o\" role=\"img\" aria-label=\"Fiscal "
+"number\"/><strong>Date: </strong>"
+msgstr "التاريخ"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_test
+msgid ""
+"<i class=\"text-white fa fa-globe\" role=\"img\" aria-label=\"Website\" "
+"title=\"Website\"/>"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_test
+msgid ""
+"<i class=\"text-white fa fa-phone\" role=\"img\" aria-label=\"Phone\" title=\"Phone\"/>\n"
+"                        <strong>User Name: </strong>"
+msgstr "اسم المستخدم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale
+msgid ""
+"<i class=\"text-white fa fa-phone\" role=\"img\" aria-label=\"Phone\" "
+"title=\"Phone\"/><strong>User Name: </strong>"
+msgstr "اسم المستخدم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "<span class=\"text-right arabic\">Tax Invoice / فاتورة ضريبية </span>"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                            <strong>Delivery Address </strong>\n"
+"                                        </span>"
+msgstr "عنوان التوصيل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                            <strong>Vendor Address </strong>\n"
+"                                        </span>"
+msgstr "عنوان المورد"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                            <strong>Warehouse Address </strong>\n"
+"                                        </span>"
+msgstr "عنوان المستودع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                        <strong>Customer Address </strong>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"<span>\n"
+"                                    Shipping Date\n"
+"                                </span>"
+msgstr "تاريخ الشحن"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "<span>Invoice Number</span>"
+msgstr "رقم الفاتورة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "<span>Order</span>"
+msgstr "الطلب"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "<span>Status</span>"
+msgstr "الحالة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid ""
+"<strong class=\"mr16\">\n"
+"                                                Subtotal\n"
+"                                            </strong>"
+msgstr "المجموع الفرعي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "المجموع الفرعي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "<strong style=\" margin:auto;\">Shipping document number :</strong>"
+msgstr "رقم وثيقة الشحن :"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "<strong>Invoice Number: </strong>"
+msgstr "رقم الفاتورة:"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Amount"
+msgstr "الاجمالي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"Amount\n"
+"                                            With Tax"
+msgstr "الاجمالي مع الضريبة"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_company_dis
+msgid "Arabic  Company description"
+msgstr "وصف الشركة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic Address"
+msgstr "عنوان الشركة"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_city
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic City"
+msgstr "المدينة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic Company description"
+msgstr "وصف الشركة"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_country
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic Country"
+msgstr "الدولة"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_name
+msgid "Arabic Name"
+msgstr "الاسم"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_state
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic State"
+msgstr "المدينة"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_street
+msgid "Arabic Street"
+msgstr "الطريق"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic Street 2..."
+msgstr "الطريق الثاني"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic Street..."
+msgstr "الطريق"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_street2
+msgid "Arabic Street2"
+msgstr "الطريق الثاني"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_web
+msgid "Arabic Website"
+msgstr "المتوقع الالكتروني"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic ZIP"
+msgstr "الرمز"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__arabic_zip
+msgid "Arabic Zip"
+msgstr "الرمز"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.view_company_form_knk
+msgid "Arabic website"
+msgstr "الموقع الالكتروني"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Barcode"
+msgstr "باركود المنتج"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"Cancelled\n"
+"                                            Invoice"
+msgstr "فاتورة ملغية"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"Cancelled\n"
+"                                    Invoice"
+msgstr "فاتورة ملغية"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Cancelled Purchase Order"
+msgstr "أمر الشراء الملغي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Cancelled Purchase Order :"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model:ir.model,name:exo_swage_template_report.model_res_company
+msgid "Companies"
+msgstr "الشركات "
+
+#. module: exo_swage_template_report
+#: model:ir.model,name:exo_swage_template_report.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_account_bank_statement_line__date_creation
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_account_move__date_creation
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_account_payment__date_creation
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_purchase_order__date_creation
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_res_company__date_creation
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_sale_order__date_creation
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_stock_picking__date_creation
+msgid "Created Date"
+msgstr "تاريخ الانشاء"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Credit Note"
+msgstr "اشعار الدائن"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__out_refund
+msgid "Customer Credit Note"
+msgstr "اشعار العميل الدائن"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__out_invoice
+msgid "Customer Invoice"
+msgstr "فاتورة العميل"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_account_bank_statement_line__invoice_date_supply
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_account_move__invoice_date_supply
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_account_payment__invoice_date_supply
+msgid "Date Of Supply"
+msgstr "تاريخ التزويد"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Delivered"
+msgstr "تم التوصيل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Delivery Slip"
+msgstr "وثيقة توصيل"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Description"
+msgstr "الوصف"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Discount"
+msgstr "الخصم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"Draft\n"
+"                                            Invoice"
+msgstr "فاتورة مسودة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"Draft\n"
+"                                    Invoice"
+msgstr "فاتورة مسودة"
+
+#. module: exo_swage_template_report
+#: model:ir.actions.report,name:exo_swage_template_report.action_report_swage_bill
+msgid "Exo Bill Template"
+msgstr "فاتوة مورد "
+
+#. module: exo_swage_template_report
+#: model:ir.actions.report,name:exo_swage_template_report.action_report_swage_invoice
+msgid "Exo Invoice Template"
+msgstr "فاتوة عميل "
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"Internal\n"
+"                                            Reference"
+msgstr "المرجع الداخلي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid ""
+"Invoice\n"
+"                                    Number"
+msgstr "رقم الفاتورة"
+
+#. module: exo_swage_template_report
+#: model:ir.model,name:exo_swage_template_report.model_account_move
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__entry
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_test
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Order :"
+msgstr "الطلب"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Ordered"
+msgstr "تم الطلب"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Packaging"
+msgstr "الشد"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Packaging Quantity"
+msgstr "كمية الشد"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale
+msgid ""
+"Page:\n"
+"                    <span class=\"page\"/>\n"
+"                    of\n"
+"                    <span class=\"topage\"/>"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_purchase_slip_custom
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_inv
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_sale_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.external_layout_seti_test
+msgid "Page: <span class=\"page\"/> of <span class=\"topage\"/>"
+msgstr ""
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Payment terms"
+msgstr "شروط الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"Post Paid\n"
+"                                                    Purchases"
+msgstr "مشتريات الدفع الآجل"
+
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"Post Paid\n"
+"                                                    Sales"
+msgstr "مبيعات الدفع الآجل"
+
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"Post Paid\n"
+"                                                Purchases"
+msgstr "مشتريات الدفع الآجل"
+
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"Post Paid\n"
+"                                                Sales"
+msgstr "مبيعات الدفع الآجل"
+
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"Pre Paid\n"
+"                                                    Purchases"
+msgstr "مشتريات مسبقة الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid ""
+"Pre Paid\n"
+"                                                    Sale"
+msgstr "مبيعات مسبقة الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"Pre Paid\n"
+"                                                Purchases"
+msgstr "مشتريات مسبقة الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+msgid ""
+"Pre Paid\n"
+"                                                Sale"
+msgstr "مبيعات مسبقة الدفع"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Price"
+msgstr "السعر"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Pro-Forma Invoice"
+msgstr "فاتورة مبدئية"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Pro-Forma Invoice #"
+msgstr "فاتوره مبدئية"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Product"
+msgstr "المنتج"
+
+#. module: exo_swage_template_report
+#: model:ir.actions.report,name:exo_swage_template_report.action_report_swage_delevry_slip_bill
+msgid "Purchase Delivery Slip"
+msgstr "وثيقة تسليم المشتريات"
+
+#. module: exo_swage_template_report
+#: model:ir.model,name:exo_swage_template_report.model_purchase_order
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Purchase Order :"
+msgstr "امر شراء"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__in_receipt
+msgid "Purchase Receipt"
+msgstr "ايصال مستريات"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Quotation"
+msgstr "عرض سعر"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Quotation :"
+msgstr "عرض سعر"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Request for Quotation"
+msgstr "طلب عرض السعر"
+
+#. module: exo_swage_template_report
+#: model:ir.actions.report,name:exo_swage_template_report.action_report_swage_delevry_slip_invoice
+msgid "Sale Delivery Slip"
+msgstr "وثيثة تسليم المبيعات"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Sale Order"
+msgstr "امر بيع"
+
+#. module: exo_swage_template_report
+#: model:ir.model,name:exo_swage_template_report.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__out_receipt
+msgid "Sales Receipt"
+msgstr "ايصال مبيعات"
+
+#. module: exo_swage_template_report
+#. odoo-python
+#: code:addons/exo_swage_template_report/models/saudi_invoice.py:0
+#, python-format
+msgid "Send Invoice"
+msgstr "ارسل الفاتورة"
+
+#. module: exo_swage_template_report
+#: model:ir.actions.report,name:exo_swage_template_report.action_report_sale_ksa_company
+msgid "Exo Sale Order "
+msgstr "امر مبيعات"
+
+#. module: exo_swage_template_report
+#: model:ir.actions.report,name:exo_swage_template_report.action_report_swag_purchase_pdf_custom
+msgid "Exo purchase Order"
+msgstr "امر مشتريات"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+msgid "Tax"
+msgstr "الضريبة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Tax Before Discount"
+msgstr "الضريبة قبل الخصم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Tax after Discount"
+msgstr "الضريبة بعد الخصم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_purchaseorder_custom_template
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Total"
+msgstr "الاجمالي"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Total After Discount Without Tax"
+msgstr "الإجمالي بعد الخصم بدون الضريبة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Total Before Discount Without Tax"
+msgstr "الإجمالي قبل الخصم بدون الضريبة"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Total Discount"
+msgstr "إجمالي الخصم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "Total after Discount"
+msgstr "الإجمالي بعد الخصم"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "Total after Discount with Tax"
+msgstr "الإجمالي بعد الخصم مع الضريبة"
+
+#. module: exo_swage_template_report
+#: model:ir.model,name:exo_swage_template_report.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields,field_description:exo_swage_template_report.field_purchase_order__move_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__in_invoice
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Vendor Bill"
+msgstr "فاتورة مورد"
+
+#. module: exo_swage_template_report
+#: model:ir.model.fields.selection,name:exo_swage_template_report.selection__purchase_order__move_type__in_refund
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_custom_delivery_slip_bill
+msgid "Vendor Credit Note"
+msgstr "اشعار دائن المورد"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.swag_saleorder_custom_template
+msgid "description"
+msgstr "الوصف"
+
+#. module: exo_swage_template_report
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_bill_document
+#: model_terms:ir.ui.view,arch_db:exo_swage_template_report.report_swage_invoice_document
+msgid "payment method"
+msgstr "طريقة الدفع او السداد"
