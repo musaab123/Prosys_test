@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="pay_by_petty_wizard_form">
+            <field name="name">Pay By Petty Cash</field>
+            <field name="model">pay.by.petty.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Pay By Petty Cash">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="petty_id" widget="many2many_tags"/>
+                                <field name="journal_id" widget="many2one_tags"/>
+                                <field name="payment_method_id"/>
+                            </group>
+                            <group>
+                                <field name="amount" widget="monetary"/>
+                                <field name="balance" widget="monetary"/>
+                                <field name="total_balance" widget="monetary"/>
+                            </group>
+                        </group>
+<!--                        <separator string="Reason"/>-->
+<!--                    <field name="reason" required="1" nolabel="1" placeholder="Give leave reason"/>-->
+                    </sheet>
+                    <footer>
+                        <button type="object" name="create_payment" class="btn btn-primary"
+                                string="CREATE PAYMENT"/>
+                        <button string="CANCEL" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_petty_pay_by_wizard" model="ir.actions.act_window">
+            <field name="name">Pay By Petty Cash</field>
+            <field name="res_model">pay.by.petty.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="pay_by_petty_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>
