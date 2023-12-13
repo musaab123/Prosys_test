@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="success_template" inherit_id="website.layout">
+        <xpath expr="//main" position="inside">
+            <div class="container mt-4">
+                <div class="alert alert-success" role="alert">
+                    <strong>Success!</strong>
+                    <p>{{ success_message }}</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
