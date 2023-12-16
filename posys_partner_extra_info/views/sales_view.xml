@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_inherit_form_custom" model="ir.ui.view">
+        <field name="name">sale.order.inherit.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']//group[@name='sale_shipping']"
+                position="inside">
+                <field name="driver_id" />
+            </xpath>
+
+            <!-- <xpath expr="//header" position="inside">
+                <div class="alert alert-warning" role="alert" attrs="{'invisible': [('has_sale_order', '=', False)]}">
+                    Check your tax information
+                </div>
+    
+                <field name="sale_order_count" invisible="1"/>
+                <field name="has_sale_order" invisible="1"/>
+            </xpath> -->
+
+            <xpath expr="//header" position="after">
+                <div class="alert alert-success text-center o_form_header " role="alert" attrs="{'invisible': [('is_first_sale_order', '=', False)]}">
+                    <strong>Check Your Tax Information</strong>
+                </div>
+    
+                <field name="sale_order_count" invisible="1"/>
+                <field name="is_first_sale_order" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="sale_order_inherit_form_inh_custom" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_type']" position="after">
+                <field name="driver_id" />
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="account_move_inherit_form_custom" model="ir.ui.view">
+        <field name="name">account.move.inherit.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='source_id']" position="after">
+                <field name="driver_id" />
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_res_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            
+
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="trade_name" attrs="{'required': [('company_type', '=', 'company')]}"/>
+
+                <field name="cr" attrs="{'required': [('company_type', '=', 'company')]}"/>
+                <field name="sale_order_count" invisible="1"/>
+
+            </xpath>
+
+            <xpath expr="//field[@name='street2']" position="after">
+                <field name="additional_code" placeholder="Additional Code" />
+                <field name="buliding_number" placeholder="Building Number" />
+
+            </xpath>
+            <xpath expr="//field[@name='country_id']" position="after">
+                <field name="region_id" placeholder="Region Area"
+                    options="{'no_create':True,'no_create_edit':True}" attrs="{'required': [('company_type', '=', 'company')]}"/>
+                <field name="district_id" placeholder="District "
+                    options="{'no_create':True,'no_create_edit':True}" />
+            </xpath>
+
+
+            <xpath
+                expr="//page[@name='contact_addresses']/field[@name='child_ids']/form//field[@name='street2']"
+                position="after">
+                <field name="additional_code" placeholder="Additional Code" />
+                <field name="buliding_number" placeholder="Building Number" />
+            </xpath>
+
+            <xpath
+                expr="//page[@name='contact_addresses']/field[@name='child_ids']/form//field[@name='country_id']"
+                position="after">
+                <field name="region_id" placeholder="Region Area"
+                    options="{'no_create':True,'no_create_edit':True}" />
+                <field name="district_id" placeholder="District"
+                    options="{'no_create':True,'no_create_edit':True}" />
+
+            </xpath>
+
+
+            <xpath
+                expr="//page[@name='contact_addresses']/field[@name='child_ids']/form//field[@name='function']"
+                position="after">
+                <field name="jop_id" />
+
+            </xpath>
+
+
+            <xpath
+                expr="//page[@name='contact_addresses']/field[@name='child_ids']/form//field[@name='comment']"
+                position="after">
+                <group>
+                    <group string="Geolocation">
+                        <div>
+                            <span>Lat : <field name="partner_latitude" nolabel="1" class="oe_inline" /></span>
+                            <br />
+                            <span>Long: <field name="partner_longitude" nolabel="1"
+                                    class="oe_inline" /></span>
+                            <br />
+                            <span attrs="{'invisible': [('date_localization', '=', False)]}">Updated
+                                on: <field name="date_localization" nolabel="1" readonly="1"
+                                    class="oe_inline" />
+                        <br />
+                            </span>
+                            <button
+                                attrs="{'invisible': ['|', ('partner_latitude', '!=', 0), ('partner_longitude', '!=', 0)]}"
+                                icon="fa-gear" string="Compute based on address"
+                                title="Compute Localization"
+                                name="geo_localize" type="object" class="btn btn-link p-0" />
+                            <button
+                                attrs="{'invisible': [('partner_latitude', '=', 0), ('partner_longitude', '=', 0)]}"
+                                icon="fa-refresh" string="Refresh" title="Refresh Localization"
+                                name="geo_localize" type="object" class="btn btn-link p-0" />
+
+
+                        </div>
+                    </group>
+                </group>
+                <group name="name" string="Ggoogle Link">
+                    <field name="google_map_link" widget="url" />
+                </group>
+                <div class="col-6">
+                    <div id="get_partner_location"
+                        style="color: #01575b; align-items: center; cursor: pointer;transition: background-color 0.3s ease;">
+                        <strong> Get Location</strong>
+                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+
+            </xpath>
+
+
+        </field>
+
+    </record>
+
+    <record id="view_partner_form_inherited" model="ir.ui.view">
+        <field name="name">partner.form.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="attributes">
+                <attribute name="attrs">{'required': [('company_type', '=', 'company')]}</attribute>
+            </field>
+        </field>
+    </record>
+
+
+    <record id="trade_name_group_by" model="ir.ui.view">
+        <field name="name">res.partner.search.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Trade Name" name="Trade Name" context="{'group_by':'trade_name'}"/>
+                <filter string="Commercial Register" name="Commercial Register" context="{'group_by':'cr'}"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    
+
+
+    <record id="purchase_order_line_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <field name="product_qty" position="after">
+                <field name="product_name" optional="hide" />
+                <field name="product_code" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+
+    <record id="purchase_order_line_form_inherit_stock" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <field name="description_picking" position="after">
+                <field name="product_name" optional="hide" />
+                <field name="product_code" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+
+
+    
+
+    <!-- <record id="stock_move_line_form_inherit" model="ir.ui.view">
+            <field name="name">stock.move.form.inherit</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="description_picking" position="after">
+                    <field name="product_name"/>
+                    <field name="product_code"/>
+                </field>
+            </field>
+        </record> -->
+
+
+    <record id="account_move_inherit_form" model="ir.ui.view">
+        <field name="name">account.move.inherit.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <field name="account_id" position="after">
+                <field name="product_name" optional="hide" />
+                <field name="product_code" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <!-- <record id="view_product_template_filter" model="ir.ui.view">
+        <field name="name">product.template.filter</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Product Name" filter_domain="['|', ('name', 'ilike', self),
+    ('product_code', 'ilike', self)]"/>
+                <field name="product_code" string="Product Code" filter_domain="['|', ('name', 'ilike', self),
+    ('product_code', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record> -->
+
+
+</odoo>
