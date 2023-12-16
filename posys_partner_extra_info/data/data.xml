@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="partner_type_company" model="res.partner.type">
+                <field name="name">Company</field>
+                <field name="view_mode">form,tree</field>
+                <field name="view_id" ref="posys_partner_extra_info.view_partner_form_company"/>
+            </record>
+            
+            <record id="partner_type_individual" model="res.partner.type">
+                <field name="name">Individual</field>
+                <field name="view_mode">form,tree</field>
+                <field name="view_id" ref="posys_partner_extra_info.view_partner_form_individual"/>
+            </record>
+            
+</odoo>
