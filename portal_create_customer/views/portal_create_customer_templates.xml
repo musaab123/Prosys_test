@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_my_home_customer_create" name="Show Customers" customize_show="True" inherit_id="portal.portal_my_home" priority="100">
+		<xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-if="request.env.user.employee_id.create_customer_access">
+
+					<t t-call="portal.portal_docs_entry">
+						<t t-set="title"> 
+							Create Customers
+						</t>
+						<t t-set="url" t-value="'/my/customer'" />
+						<t t-set="placeholder_count" t-value="'customers_count'" />
+					</t>
+				</t>
+
+		</xpath>
+	</template>
+	<template id="portal_my_home_menu_create_customer" inherit_id="portal.portal_breadcrumbs" priority="40">
+		<xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+			<li t-if="page_name == 'customer_list_view'">
+				//  Customers
+			</li>
+		</xpath>
+	</template>
+	
+	<template id="portal_my_customer_list">
+		<t t-call="portal.portal_layout">
+			<t t-call="portal.portal_table">
+				<thead>
+					
+				</thead>
+				<tbody>
+						<tr>
+							<td>
+							<br></br>
+							<br></br>
+
+							<ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                                    <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                        <div class="btn-group flex-grow-1 mr-1 mb-1">
+											<a t-attf-href="/create/customer" class="btn btn-outline-success btn-lg btn-block o_download_btn"  style="color:#000;font-size:30px; font-weight:120;">
+													Create Customer
+													
+											</a>
+                                        </div>
+                                    </div>
+                            </ul>
+							
+							</td>
+							
+						</tr>
+				</tbody>
+			</t>
+		</t>
+	</template>
+
+
+	<!-- customer form create -->
+
+	<template id="portal_apply_create_customer">
+        <t t-call="portal.portal_layout">
+            <form action="/save/customer" method="post">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                <!-- <input type="hidden" name="employee" t-att-value="employee.id" /> -->
+                <t t-set="breadcrumbs_searchbar" t-value="True" />
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Create Customer</t>
+                </t>
+
+				<!-- Your other template code... -->
+			<div class="row">
+				<div class="col-6">
+				<div class="row my-2">
+					<div class="form-group col-xl-3">
+						<label class="col-form-label" for="company_type"></label>
+					</div>
+					<div class="form-group col-xl-6">
+						<t t-foreach="company_types" t-as="comp">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="company_type" t-att-value="comp" id="company_type_${comp}" />
+								<label class="form-check-label" for="company_type_${comp}">
+									<span t-esc="comp" />
+								</label>
+							</div>
+						</t>
+					</div>
+				</div>
+				<br></br>
+
+				<!-- name -->
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>Name</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="name" class="form-control" t-att-value="name" required='True' />
+                    </div>
+                </div>
+				<!-- name -->            
+                <div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="jop_id"><b>Jop Position</b></label>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <select id="jop_id" name="jop_id" class="form-control">
+                            <t t-foreach="jop_id" t-as="mg">
+                                <option t-att-value="mg.id">
+                                    <span t-esc="mg.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+			<!-- Your other template code... -->
+
+			<!-- <div class="row my-2">
+				<div class="form-group col-xl-3">
+					<label class="col-form-label" for="categ_id"><b>Client Activity</b></label>
+				</div>
+				<div class="form-group col-xl-6">
+					<t t-foreach="categ_id" t-as="category">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="categ_id" t-att-value="category.id" id="categ_id_${category.id}" />
+							<label class="form-check-label" for="categ_id_${category.id}">
+								<span t-esc="category.name" />
+							</label>
+						</div>
+					</t>
+				</div>
+			</div> -->
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="region_id"><b>Region</b></label>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <select id="region_id" name="region_id" class="form-control" required='True'>
+                            <t t-foreach="region_id" t-as="reg">
+                                <option t-att-value="reg.id">
+                                    <span t-esc="reg.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="district_id"><b>District</b></label>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <select id="district_id" name="district_id" class="form-control">
+                            <t t-foreach="district_id" t-as="dis">
+                                <option t-att-value="dis.id">
+                                    <span t-esc="dis.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>Vat</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="number" name="vat" class="form-control" t-att-value="vat" required='True' />
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>Trade Name</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="trade_name" class="form-control" t-att-value="trade_name" required='True' />
+                    </div>
+                </div>
+				
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>CR</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="number" name="cr" class="form-control" t-att-value="cr" required='True' />
+                    </div>
+                </div>
+			</div>
+
+			<div class="col-6">
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>Street 1</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="street" class="form-control" t-att-value="street"  />
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>Street 2</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="street2" class="form-control" t-att-value="street2"  />
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>Zip</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="number" name="zip" class="form-control" t-att-value="zip"  />
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="end_date"><b>City</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="city" class="form-control" t-att-value="city" />
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="state_id"><b>State</b></label>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <select id="state_id" name="state_id" class="form-control" >
+                            <t t-foreach="state_id" t-as="stat">
+                                <option t-att-value="stat.id">
+                                    <span t-esc="stat.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="country_id"><b>Country</b></label>
+                    </div>
+                    <div class="form-group col-xl-6">
+                        <select id="country_id" name="country_id" class="form-control" >
+                            <t t-foreach="country_id" t-as="coun">
+                                <option t-att-value="coun.id">
+                                    <span t-esc="coun.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="mobile"><b>mobile</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="number" name="mobile" class="form-control" t-att-value="mobile" required='True' />
+                    </div>
+                </div>
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="additional_code"><b>Addition Code</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="additional_code" class="form-control" t-att-value="additional_code"  />
+                    </div>
+                </div>
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="buliding_number"><b>Buliding No</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="buliding_number" class="form-control" t-att-value="buliding_number" />
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="partner_latitude"><b>Latitude</b></label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="partner_latitude" id="partner_lat" class="form-control" t-att-value="partner_latitude"/>
+                    </div>
+                </div>
+
+				<div class="row my-2">
+                    <div class="form-group col-xl-3">
+                        <label class="col-form-label" for="partner_longitude">Longitude</label>
+                    </div>
+					<div class="form-group col-xl-6">
+                        <input type="text" name="partner_longitude" id="partner_lon" class="form-control" t-att-value="partner_longitude"/>
+                    </div>
+                </div>
+				<!-- customer location section -->
+
+				<div class="row my-2">
+					<a id="get_partner_location_test" class="btn btn-outline-success btn-lg btn-block o_download_btn"
+					style="color:#000;font-size:12px; font-weight:80;width:416px;height:34px;">
+						Get Location
+					</a>
+                </div>
+				
+				<!-- customer location section -->
+
+
+				
+			</div>
+
+			</div>
+				
+                <div class="row mt-2">
+                    <div class="col text-center">
+                        <button class="btn btn-primary mx-2" type="submit">Submit</button>
+						<a class="btn btn-danger mx-2" href="/my/customer" >Cancel</a>
+
+                    </div>
+                </div>
+            </form>
+        </t>
+    </template>  
+
+	<!-- customer form create -->
+
+	<!-- product portal test -->
+	
+	<!-- product portal test -->
+
+
+
+	
+</odoo>
