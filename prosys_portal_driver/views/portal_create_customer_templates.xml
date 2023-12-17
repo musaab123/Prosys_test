@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_my_home_customer_create" name="Show Customers" customize_show="True" inherit_id="portal.portal_my_home" priority="100">
+		<xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+			
+					<t t-call="portal.portal_docs_entry">
+							<t t-set="title"> 
+								Driver Quotations
+							</t>
+						<t t-set="url" t-value="'/my/driver/quotations'"/>
+						<t t-set="placeholder_count" t-value="'driver_quotation_count'" />
+					</t>
+				
+
+					<t t-call="portal.portal_docs_entry">
+						<t t-set="title"> 
+							Driver sale order
+						</t>
+						<t t-set="url"  t-value="'/my/driver/saleorder'"/>
+						<t t-set="placeholder_count" t-value="'driver_sale_order_count'" />
+						
+					</t>
+
+					<t t-call="portal.portal_docs_entry">
+						<t t-set="title"> 
+							Driver Invoice 
+						</t>
+						<t t-set="url"  t-value="'/my/driver/invoice'"/>
+						<t t-set="placeholder_count" t-value="'driver_invoice_count'" />
+					</t>
+				
+					
+
+		</xpath>
+		
+	</template>
+
+	
+
+	<template id="portal_my_order_driver_list" name="My Driver Sales Orders">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Driver Sales Orders</t>
+            </t>
+            <t t-if="orders" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>
+                            <span class='d-none d-md-inline'>Sales Order #</span>
+                            <span class='d-block d-md-none'>Ref.</span>
+                        </th>
+                        <th class="text-end">Order Date</th>
+                        <th class="text-center"/>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="orders" t-as="order">
+                    <tr>
+                        <td><a t-att-href="order.get_portal_url()"><t t-out="order.name"/></a></td>
+                        <td class="text-end">
+                            <span t-field="order.date_order" t-options="{'widget': 'date'}"/>&amp;nbsp;
+                            <span class='d-none d-md-inline' t-field="order.date_order" t-options="{'time_only': True}"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-if="order.state == 'done'"  class="badge rounded-pill text-bg-success">
+                                <i class="fa fa-fw fa-check" role="img" aria-label="Done" title="Done"/>Done
+                            </span>
+                        </td>
+                        <td class="text-end"><span t-field="order.amount_total"/></td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no orders for your account.</p>
+        </t>
+    </template>
+
+
+	<template id="portal_my_quotations_driver_list" name="Driver Quotations">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Driver Quotations</t>
+            </t>
+            <t t-if="quotations" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Quotation #</th>
+                        <th class="text-end">Quotation Date</th>
+                        <th class="text-end">Valid Until</th>
+                        <th class="text-center"/>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="quotations" t-as="quotation">
+                    <tr>
+                        <td><a t-att-href="quotation.get_portal_url()"><t t-out="quotation.name"/></a></td>
+                        <td class="text-end"><span t-field="quotation.date_order"/></td>
+                        <td class="text-end"><span t-field="quotation.validity_date"/></td>
+                        <td class="text-center">
+                            <span t-if="quotation.state == 'cancel'" class="badge rounded-pill text-bg-secondary">
+                                <i class="fa fa-fw fa-remove"/> Cancelled</span>
+                            <span t-if="quotation.is_expired" class="badge rounded-pill text-bg-secondary">
+                                <i class="fa fa-fw fa-clock-o"/> Expired</span>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="quotation.amount_total"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no quotations for your account.</p>
+        </t>
+    </template>
+
+
+
+
+
+	<template id="portal_my_invoice_driver_list" name="My Invoices and Payments">
+		<t t-call="portal.portal_layout">
+		  <t t-set="breadcrumbs_searchbar" t-value="True"/>
+  
+		  <t t-call="portal.portal_searchbar">
+			  <t t-set="title">Invoices</t>
+		  </t>
+		  <t t-if="not invoices">
+			  <p>There are currently no invoices and payments for your account.</p>
+		  </t>
+		  <t t-if="invoices" t-call="portal.portal_table">
+			  <thead>
+				  <tr class="active">
+					  <th>Invoice #</th>
+					  <th>Invoice Date</th>
+					  <th class='d-none d-md-table-cell'>Due Date</th>
+					  <th class="text-center">Status</th>
+					  <th class="text-end">Amount Due</th>
+				  </tr>
+			  </thead>
+			  <tbody>
+				  <t t-foreach="invoices" t-as="invoice">
+					  <tr>
+						  <td>
+							  <a t-att-href="invoice.get_portal_url()" t-att-title="invoice.name">
+								  <t t-esc="invoice.name" t-if="invoice.name != '/'"/>
+								  <em t-else="">Draft Invoice</em>
+							  </a>
+						  </td>
+						  <td><span t-field="invoice.invoice_date"/></td>
+						  <td class='d-none d-md-table-cell'><span t-field="invoice.invoice_date_due"/></td>
+						  <td class="tx_status text-center">
+							  <t t-if="invoice.state == 'posted' and invoice.payment_state not in ('in_payment', 'paid', 'reversed')">
+								  <span class="badge rounded-pill text-bg-info"><i class="fa fa-fw fa-clock-o" aria-label="Opened" title="Opened" role="img"></i><span class="d-none d-md-inline"> Waiting for Payment</span></span>
+							  </t>
+							  <t t-if="invoice.state == 'posted' and invoice.payment_state in ('paid', 'in_payment')">
+								  <span class="badge rounded-pill text-bg-success"><i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"></i><span class="d-none d-md-inline"> Paid</span></span>
+							  </t>
+							  <t t-if="invoice.state == 'posted' and invoice.payment_state == 'reversed'">
+								  <span class="badge rounded-pill text-bg-success"><i class="fa fa-fw fa-check" aria-label="Reversed" title="Reversed" role="img"></i><span class="d-none d-md-inline"> Reversed</span></span>
+							  </t>
+							  <t t-if="invoice.state == 'cancel'">
+								  <span class="badge rounded-pill text-bg-warning"><i class="fa fa-fw fa-remove" aria-label="Cancelled" title="Cancelled" role="img"></i><span class="d-none d-md-inline"> Cancelled</span></span>
+							  </t>
+						  </td>
+						  <td class="text-end"><span t-esc="-invoice.amount_residual if invoice.move_type == 'out_refund' else invoice.amount_residual" t-options='{"widget": "monetary", "display_currency": invoice.currency_id}'/></td>
+					  </tr>
+				  </t>
+			  </tbody>
+		  </t>
+		</t>
+	  </template>
+
+</odoo>
