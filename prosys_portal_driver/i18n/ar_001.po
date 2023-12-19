@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* portal_employee_documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-08 07:00+0000\n"
+"PO-Revision-Date: 2023-07-08 07:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.portal_my_home_menu_petty_cash
+msgid "//  Employee Documents"
+msgstr "وثائق الموظف"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.portal_my_home_expense_ufd
+msgid "Employee Documents"
+msgstr "وثائق الموظف"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.payslip_portal_template
+msgid "Experience Certificate"
+msgstr "شهادة خبرة"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.payslip_portal_template
+msgid "Hello Mr /"
+msgstr "مرحبا سيد \"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.portal_my_certificate_list
+msgid "Please Enter The Certificates List By Clicking Below Button Thanks"
+msgstr "الرجاء الدخول الى قائمة الشهادات بالضغط على الزر اسفل الشاشة شكرا"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.payslip_portal_template
+msgid "Salary Certificate"
+msgstr "شهادة راتب"
+
+#. module: portal_employee_documents
+#: model_terms:ir.ui.view,arch_db:portal_employee_documents.payslip_portal_template
+msgid ""
+"You can download your Experience Certificate and the Salary Certificate with"
+" ease thanks"
+msgstr "يمكنك الان تحميل شهادة الراتب وشهادة الخبرة بكل سهولة شكرا"
