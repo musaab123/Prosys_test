@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="portal_my_home_expense_ufd" name="Show Expenses" customize_show="True" inherit_id="portal.portal_my_home" priority="100">
+      <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+         <t t-call="portal.portal_docs_entry">
+            <t t-set="title"> 
+               Point Of Sale Product
+            </t>
+            <t t-set="url" t-value="'/add/products'" />
+            <t t-set="placeholder_count" t-value="'product_count'" />
+         </t>
+      </xpath>
+   </template>
+   <template id="portal_my_home_menu_petty_cash" inherit_id="portal.portal_breadcrumbs" priority="40">
+      <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+         <li t-if="page_name == 'product_list_view'">
+            Product
+         </li>
+      </xpath>
+   </template>
+
+   <template id="portal_add_product_list_confirmed" name="Proceed for Payment">
+      <t t-call="portal.portal_layout">
+            <div id="wrap" class="oe_structure oe_empty">
+               <section class="mt32 mb64">
+                  <div class="container">
+                        <div class="row">
+                           <div class="text-center">
+                              <br></br>
+                              <h2>Your order with number is
+                                    <t t-esc="sale_order.name"/>, please save it and head to cashair to the payment.
+                              </h2>
+                           </div>
+                        </div>
+                  </div>
+               </section>
+            </div>
+      </t>
+   </template>
+
+   <template id="portal_add_product_not_allowed" name="Not Allowed">
+      <t t-call="portal.portal_layout">
+         <div id="wrap" class="oe_structure oe_empty">
+            <section class="mt32 mb64">
+               <div class="container">
+                     <div class="row">
+                        <div class="text-center">
+                           <br></br>
+                           <h2>You'r not alowed to access this page or it's expired.
+                           </h2>
+                        </div>
+                     </div>
+               </div>
+            </section>
+         </div>
+      </t>
+   </template>
+   <!-- ############################## product template ############################################ -->
+   <template id="portal_add_product_list">
+      <t t-call="portal.portal_layout">
+         <!-- <section id="features" class="py-5 mt-5"> -->
+            <link rel="stylesheet" href="/prosys_product_portal/static/src/css/style.css" />
+            <script type="text/javascript" src="/prosys_product_portal/static/src/js/scanner.js"></script>
+            <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/> -->
+            <!-- <div class="container "> -->
+
+               <div class="continrt_section">
+                  <div class="row">
+                     <div class="js_add_product">
+                        <div class=" flex-wrap flex-md-nowrap gap-4">
+                           <div class="test border-0 gap-2">
+                              <div class ="ext">
+                                 <div class="col col-12 input-and-scan">
+                                    <div class="input-group  d-flex justify-content-center m-3 p-4">
+                                    <input class="barcode w-25" type="text" id="barcode" name="barcode"/>
+                                    <button id="scanButton" class="scan-button" style="margin: 15px;">
+                                       <img src="/prosys_product_portal/static/src/img/barcode _icon.png" alt="Scan" class="img-size" id="scanreader"/>
+                                    </button>
+                                 </div>
+                                    <br/>
+                                    <div class="input-group mx-auto d-flex justify-content-center m-3">
+                                       <button  type="button" class="btn btn-indigo-500  btn-lg" id="searchproduct">Search</button>
+                                    </div>
+                                    <!-- <button type="button" class="mt0 btn btn-outline-secondary text-center" id="searchproduct">Search</button> -->
+                                 </div>
+                      
+                                 
+   
+                                 <div id="myModal" class="pro_modal" style="display:none;">
+                                    <div class="pro_modal_content">
+                                       <div id="reader"></div>
+                                    </div>
+                                 </div>
+                                 
+                                 <br></br>	
+                                 <br></br>
+                                 <input  class="counter" type="number" id="counter" name="counter"  style="display:none;" value="0"/>
+                                 <input  class="company" type="number" id="company" name="company"  style="display:none;"/>
+                                 <input  class="curreny" type="number" id="curreny" name="curreny"  style="display:none;"/>
+                                 <!--oooooooooooooooooooooooooooooooooooooooooooooooo  -->
+                                 <div class="row hov justify-content-center">
+                                 <div class="col-md-2 col-sm-12">  </div>
+                               
+                                 <div class="col-md-8 col-sm-12" id="cardContainer" ></div>
+                                 
+                                 
+                                 <div class="col-md-2 col-sm-12"></div>
+                                 
+                                 <br></br>
+   
+                              </div>
+                              </div>
+                               <br></br>
+                               
+                               <div class="" >
+                                 <div class="row product-card w-100" id="extirnal">
+                                    
+   
+                                 </div>
+                               </div>
+                               <br></br>
+                               <br></br>
+                               <br></br>
+   
+                             
+   
+                              <div class="input-group mx-auto d-flex justify-content-center m-3" >
+                                 <button type="button" class="btn btn-indigo-500  btn-lg" style="display:none;" id="saverequest">SAVE</button>	
+                              </div>
+                              <br></br>
+                              <br></br>
+   
+                              <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                              <br></br>
+                              <div class="last_section" >
+                                       <div class="" style="display:none !important;" id="detailsdiv">
+                                          <label class="form-label fw-bold">phone Number</label>
+   
+                                          <br/>
+                                          
+                                             <input  class="phone  w-25" type="text" id="phone" name="phone"/>
+                                          
+                                       </div>
+                                       <!-- ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                                       <div  id="branchdiv" style="display:none !important;">
+                                         
+                                       </div>
+                                       <br></br>
+                                       <div class=" justify-content-center m-3" style="display:none !important;" id="detailsbtn">
+                                          <button type="button" class="btn btn-outline-secondary" id="Submitrequest" style="margin-left:85px">Submit</button>	
+                                       </div>
+                                    <br></br>
+                                 <!-- </div> -->
+                              </div>
+                              <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               <!-- </div> -->
+               </div>
+               <!-- <div class="continrt_section">
+               <div class="row">
+                  <div class="js_add_product">
+                     <div class=" flex-wrap flex-md-nowrap gap-4">
+                        <div class="test border-0 p-4 gap-2">
+                           <div class ="ext  ">
+                              <div class="col col-12 input-and-scan">
+                                 <input class="barcode w-25" type="text" id="barcode" name="barcode"/>
+                                 <button id="scanButton" class="scan-button">
+                                    <img src="/prosys_product_portal/static/src/img/barcode _icon.png" alt="Scan" class="img-size"/>
+                                 </button>
+                                 <br/>
+                                 <div class="input-group mx-auto d-flex justify-content-center m-3">
+                                 <button type="button" class="btn btn-indigo-500  btn-lg" id="searchproduct">Search</button>
+                              </div>
+                           </div>
+
+                              
+
+                              <div id="myModal" class="pro_modal" style="display:none;">
+                                 <div class="pro_modal_content">
+                                    <div id="reader"></div>
+                                 </div>
+                              </div>
+                              
+                              <br></br>	
+                              <br></br>
+                              <input  class="counter" type="number" id="counter" name="counter"  style="display:none;" value="0"/>
+                              <input  class="company" type="number" id="company" name="company"  style="display:none;"/>
+                              <input  class="curreny" type="number" id="curreny" name="curreny"  style="display:none;"/>
+                              <div class="row hov justify-content-center">
+                                  <div class="col-md-2 col-sm-12">
+                              </div>
+                              <div class="col-md-8 col-sm-12" id="cardContainer" >
+                              
+                              </div>
+                              <div class="col-md-2 col-sm-12">
+                              </div>
+                              <br></br>
+
+                           </div>
+                           </div>
+                            <br></br>
+                            <div class="" >
+                              <div class="row product-card w-100" id="extirnal">
+                                 
+
+                              </div>
+                            </div>
+                           <div class="input-group mx-auto d-flex justify-content-center m-3" >
+                              <button type="button" class="btn btn-indigo-500  btn-lg" style="display:none;" id="saverequest">Save</button>	
+                           </div>
+                           <br></br>
+                           <br></br>
+
+                           <br></br>
+                           <div class="last_section" >
+                              
+                                    <div class="" style="display:none !important;" id="detailsdiv">
+                                       <div class="m-1">
+                                          <label class="form-label fw-bold">phone Number</label>
+                                       </div>
+                                       <br></br>
+                                          <input  class="phone w-25" type="text" id="phone" name="phone"/>
+                                    </div>
+                                    <div class="" id="branchdiv" style="display:none !important;">
+                                      
+                                    </div>
+                                    <br></br>
+                                    <div class=" justify-content-center m-3" style="display:none !important;" id="detailsbtn">
+                                       <button type="button" class="btn btn-outline-secondary" id="Submitrequest" style="margin-left:85px">Submit</button>	
+                                    </div>
+                                 <br></br>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div> -->
+         <!-- </section> -->
+      </t>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      
+   </template>
+</odoo>

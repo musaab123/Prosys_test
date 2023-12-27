@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="portal_my_home_salesmen" name="Show salesmen requests" customize_show="True" inherit_id="portal.portal_my_home" priority="100">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="request.env.user.employee_id.is_sales_person">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">Sales Requests</t>
+                    <t t-set="url" t-value="'/my/salesrequest'" />
+                    <t t-set="placeholder_count" t-value="'salesmen_count'"/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <template id="portal_my_home_menu_salesmen" inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name in ['sales_request']" t-attf-class="breadcrumb-item #{'active' if not sales_request else ''}">
+                Sales Requests
+            </li>
+        </xpath>
+    </template>
+
+
+    <template id="portal_add_product_salesmen_confirmed" name="Proceed for Payment">
+      <t t-call="portal.portal_layout">
+            <div id="wrap" class="oe_structure oe_empty">
+               <section class="mt32 mb64">
+                  <div class="container">
+                        <div class="row">
+                           <div class="text-center">
+                              <br></br>
+                              <h2>order with number is
+                                    <t t-esc="sale_order.name"/>, has been generated successfuly.
+                              </h2>
+                           </div>
+                        </div>
+                  </div>
+               </section>
+            </div>
+      </t>
+   </template>
+
+
+    <template id="portal_my_salesmen_list">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Sales Requests</t>
+            </t>
+            <t t-if="not grouped_salesmen">
+                <p>There are currently no Sales Requests in your account.</p>
+            </t>
+            <div class="mt16 mb16 ml2 mr2 text-right">
+               <div>
+                  <a t-attf-href="/add/products/salesmen" class="action-button btn btn-secondary">
+                     <label>
+                        <i class="icon-plus-1"></i>
+                     </label>
+                     <span class="text-uppercase">Create New Order</span>
+                  </a>
+               </div>
+            </div>
+            <t t-if="grouped_salesmen">
+                <t t-call="portal.portal_table">
+                    <t t-foreach="grouped_salesmen" t-as="salesmens">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Customer Name</th>
+                                <th class="text-center">Customer phone</th>
+                                <th class="text-center">Company</th>
+                                <th/>
+                            </tr>
+                        </thead>
+                        <t t-foreach="salesmens" t-as="salesmen">
+                            <tr id="salesmen_row">
+                                <td class="text-left">
+                                       <span t-field="salesmen.name" />
+                                 </td>
+                                <td class="text-right"><span t-field="salesmen.partner_id.name" /></td>
+                                <td class="text-right"><span t-field="salesmen.partner_id.phone" /></td>
+                                <td class="text-right"><span t-field="salesmen.company_id.name" /></td>
+                            </tr>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- ############################## product template ############################################ -->
+   <template id="portal_add_product_salesmen_list">
+      <t t-call="portal.portal_layout">
+         <section id="features" class="py-5 mt-5">
+            <link rel="stylesheet" href="/prosys_product_portal/static/src/css/style.css" />
+            <script type="text/javascript" src="/prosys_product_portal/static/src/js/scanner.js"></script>
+            <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/> -->
+            <div class="container ">
+               <div class="continrt_section">
+               <div class="row">
+                  <div class="js_add_product">
+                     <div class=" flex-wrap flex-md-nowrap gap-4">
+                        <div class="test border-0 p-4 gap-2">
+                           <!-- <ul class="accourdion">
+                              <li>
+                               -->
+                           <!-- <input type="radio" name="accourdion" id="first" checked="True"/> -->
+                           <!-- <label for="first">Product</label>
+                           <br></br> -->
+                           <div class="ext">
+                              <div class="col col-12 input-and-scan">
+                                 <input class="barcode" type="text" id="barcode" name="barcode"/>
+                                 <button id="scanButton" class="scan-button">
+                                    <img src="/prosys_product_portal/static/src/img/scan.png" alt="Scan" class="img-size" id="scanreader"/>
+                                 </button>
+                              </div>
+                              <div class="mt-1 text-center">
+                                 <button type="button" class="mt0 btn btn-outline-secondary" id="searchproduct">Search</button>
+                              </div>
+                              
+                              
+                              
+                              
+                              
+                              <!-- <img src="/prosys_product_portal/static/src/img/scan.png" alt="Scan" id="scanproduct" width="30" height="40"/> 	 -->
+                              
+                              <!-- <br></br> -->
+                              <!-- <div style="width: 200px" id="reader"></div> -->
+
+                              <div id="myModal" class="pro_modal" style="display:none;">
+                                 <div class="pro_modal_content">
+                                    <div id="reader"></div>
+                                 </div>
+                              </div>
+
+                              <!-- <input name="scanproduct" id="scanproduct" type="text"/> -->
+                              
+                              <!-- <img src="/prosys_product_portal/static/src/img/scan.png" alt="Scan" id="scanproduct" width="30" height="40"/> 	 -->
+                              <!-- <br></br> -->
+                              <!-- <div style="width: 200px" id="reader"></div> -->
+                              
+                              <!-- <br></br> -->
+                              <!-- <button type="button" class="btn btn-outline-secondary" id="searchproduct">Search</button>	 -->
+                              <br></br>	
+                              <br></br>
+                              <input  class="counter" type="number" id="counter" name="counter"  style="display:none;" value="0"/>
+                              <input  class="company" type="number" id="company" name="company"  style="display:none;"/>
+                              <input  class="curreny" type="number" id="curreny" name="curreny"  style="display:none;"/>
+                              <!--oooooooooooooooooooooooooooooooooooooooooooooooo  -->
+                              <div class="row hov justify-content-center">
+                                  <div class="col-2">
+                              </div>
+                              <div class="col-8" id="cardContainer" >
+                              
+                              </div>
+                              <div class="col-2">
+                              </div>
+                              <br></br>
+
+                           </div>
+                           </div>
+                            <br></br>
+                            
+                            <div class="" >
+                              <div class="row product-card" id="extirnal">
+                                 
+
+                              </div>
+                            </div>
+                           <div class="d-flex justify-content-center d-flex m-3 text-center"  >
+                              <button type="button" class="btn btn-outline-secondary" style="display:none;" id="saverequest">Save</button>	
+                           </div>
+                           <br></br>
+                           <div style="text-align:right !important;direction:rtl;" class="d-flex">
+                              <table style="width:30%;text-align:right !important;direction:ltr;">
+                                 <tbody>
+                                    <tr>
+                                       <td style="width:50%;text-align:left;">Total:</td>
+                                       <td style="width:50%;text-align:left;"><span id="subtotal">0</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td style="width:50%;text-align:left;">Vat:</td>
+                                       <td style="width:50%;text-align:left;"><span id="vat_total">0</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td style="width:50%;text-align:left;">Discount:</td>
+                                       <td style="width:50%;text-align:left;"><span id="distotal">0</span></td>
+                                    </tr>
+                                    <tr>
+                                       <td style="width:50%;text-align:left;">Total:</td>
+                                       <td style="width:50%;text-align:left;"><span id="total">0</span></td>
+                                    </tr>
+                                 </tbody>
+                              </table>	
+                           </div>
+
+                           <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                           <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                           <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                           <br></br>
+                           <div class="last_section" >
+                              <!-- <div class="row" >
+                                 <div class="col-12 col-lg-12">
+                                    <div class=" justify-content-center py-0 mt-5">
+                                       <form action="">
+                                          <div class="nav list-inline  justify-content-center">
+                                             <div class="m-1">
+                                                <span>phone Number</span>
+                                             </div>
+                                             <div class="m-1">
+                                                <input  class="inp_des" type="text" id="fname" name="fname"/>
+                                             </div>
+                                          </div>
+                                          <div class=" justify-content-center m-3">
+                                             <button type="button" class="btn btn-outline-secondary">Submit</button>	
+                                          </div>
+                                       </form>
+                                       <br></br>
+                                    </div>
+                                 </div>
+                              </div> -->
+                              <!-- <div class=" justify-content-center py-0 mt-5" > -->
+                                    <div class="nav list-inline d-flex" style="display:none !important;" id="detailsdiv">
+                                       <div class="m-1">
+                                          <span>phone Number</span>
+                                       </div>
+                                       <div class="m-1" style="margin-left:32px;">
+                                          <input  class="phone" type="text" id="phone" name="phone"/>
+                                       </div>
+                                    </div>
+                                    <!-- <div class=" justify-content-center m-3">
+                                       <button type="button" class="btn btn-outline-secondary">Submit</button>	
+                                    </div> -->
+                                    <!-- ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                                    <div class="nav list-inline d-flex" id="branchdiv" style="display:none !important;">
+                                       <!-- <div class="m-1">
+                                       <span class="bransh">Branch </span>
+                                          <label>
+                                             <input type="radio" name="location" id="location" value="jeddeh"/>
+                                             Jeddeh
+                                          </label>
+                                          <br/>
+                                          <label>
+                                             <input type="radio" name="location" id="location" value="mekka"/>
+                                             Mekka
+                                          </label>
+                                          <br/>
+                                          <label>
+                                             <input type="radio" name="location" id="location" value="medina"/>
+                                             Medina
+                                          </label>
+                                       </div> -->
+                                    </div>
+                                    <br></br>
+                                    <!-- </div> -->
+                                    <div class=" justify-content-center m-3" style="display:none !important;" id="detailsbtn">
+                                       <button type="button" class="btn btn-outline-secondary" id="UserSubmitrequest" style="margin-left:85px">Submit</button>	
+                                    </div>
+                                 <!-- </form> -->
+                                 <br></br>
+                              <!-- </div> -->
+                           </div>
+                           <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            </div>
+         </section>
+      </t>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      
+   </template>
+</odoo>
