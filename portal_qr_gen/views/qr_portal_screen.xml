@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="show_qr_productlist_screen">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>Product List Page QR code</title>
+            <link rel="stylesheet" href="/portal_qr_gen/static/src/css/style.css"/>
+
+        </head>
+        <body class="qr_body">
+            <t t-if="qr_record">
+                <t t-foreach="qr_record" t-as="qr">
+                    <div class="qr_container">
+                        <img t-att-src="image_data_uri(qr.qr_image)" maxwidth="100%" width="300px" height="300px"  alt="image-qr-code" style="position: relative; top: 50px;"/>
+                        <!-- <img src="/portal_qr_gen/static/src/img/musab.svg" class="logo_content"/> -->
+                    </div>
+                </t>
+            </t>
+        </body>
+        <script>
+            //<![CDATA[
+            // Reload the page every 10 minutes
+            setInterval(function() {
+                window.location.reload();
+            }, 600000);
+            //]]>
+            </script>
+    </template>
+    
+</odoo>

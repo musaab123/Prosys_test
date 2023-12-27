@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_qr_generate" model="ir.cron">
+        <field name="name">QR Generate</field>
+        <field name="interval_number">30</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="model_qr_generator_model"/>
+        <field name="code">model._autocheck_create_qr()</field>
+        <field name="state">code</field>
+    </record>
+</odoo>
