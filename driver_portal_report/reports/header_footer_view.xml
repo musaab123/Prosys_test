@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+       <template id="custom_ksa_header_footer">
+        <t t-if="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id"/>
+        </t>
+
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"/> 
+        </t>
+
+        <t t-if="o and 'team_id' in o">
+            <t t-set="team" t-value="o.team_id"/>
+            </t>
+
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="team" t-value="crm_team"/>  
+        </t>
+
+
+        <div class="header" style=" direction: initial;">
+            <table style="border:1pt solid white; font-size: 12px;" width="100%">
+                <link rel="stylesheet" href="/orange_report/static/src/css/style.css"/>
+                <tr>
+                    <td colspan="2" width="30%">
+                        <strong><span style="padding-left:5px;" t-field="company.name"/></strong><br/>
+                        <t t-if="team.name">
+                            <span style="padding-left: 5px;" t-field="team.name"/><br/>
+                        </t>
+                        <t t-if="team.english_address">
+                            <span style="padding-left:5px;" t-field="team.english_address"/><br/>
+                        </t>
+                        <t t-if="team.mobile">
+                            <span style="padding-left:5px;" t-field="team.mobile"/><br/>
+                        </t>
+                        <t t-if="team.email">
+                            <span style="padding-left:5px;" t-field="team.email"/><br/>
+                        </t>
+                        <t t-if="company.vat">
+                            <div style="background-color:#4fafba; color: white; width:80%; float:left;" class="text-center">
+	                		    <span style="padding-left:5px;"  t-field="company.vat"/><span> : الرقم الضريبي </span><br/>
+                            </div>
+	                	</t>
+                    </td>
+                    
+                    <td  colspan="3" width="30%" class="text-center"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/></td>
+
+                    <td colspan="2" width="40%" class="enx" style= "position: relative; bottom: 10px;  text-align: right;">
+	                	<strong>
+	                		<span class=" text-right arabic" style="margin-right:6px;" t-field="company.arabic_name"/></strong><br/>
+	                	<t t-if="team.arabic_address">
+	                		<span class="text-right arabic" style="margin-right:6px;"  t-field="team.arabic_address"/><br/>
+	                	</t>
+                        <t t-if="team.mobile">
+                            <span style="padding-left:5px;" t-field="team.mobile"/><br/>
+                        </t>
+                        <t t-if="team.email">
+                            <span style="padding-left:5px;" t-field="team.email"/><br/>
+                        </t>
+                        <!-- <tr>
+                            <th style="background-color:#275c94; color: white;" >Document No :</th>
+                            <td name="td_name"><span t-field="doc.name"/></td>
+                            <th style="background-color:#4fafba; color: white;">رقم المستند</th>
+
+                        </tr> -->
+                        <t t-if="company.company_registry">
+                            <div style="background-color:#4fafba; color: white; width:80%; float:right;" class="text-center">
+	                		    <span class="text-right arabic" style="margin-right:6px;"  t-field="company.company_registry"/><span> : السجل التجاري </span><br/>
+                            </div>
+	                	</t>
+                        
+	                </td>
+	            </tr>
+	        	
+            </table>
+        </div>
+
+        <div class="article o_report_layout_standard">
+            <t t-raw="0" />
+        </div>
+        <div class="footer o_background_footer">
+            <div class="text-center" style="font-size:14px;"  >
+                    <ul class="list-inline" style="background-color:#4fafba; height:40px;">
+                        <li class="list-inline-item text-center text-white" style="position: relative;
+                        top: 7px;"><i class=" fa fa-at" role="img" aria-label="Email" title="Email"/> <strong class="text-white">Email : </strong><span class="" t-field="company.email"/></li>
+                        <li class="list-inline-item text-center text-white" style="position: relative;
+                        top: 7px;"><i class=" fa fa-phone" role="img" aria-label="Mobile" title="Mobile"/> <strong class="text-white">Mobile : </strong><span class="" t-field="company.mobile"/></li>
+                    </ul>
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    of
+                    <span class="topage"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>

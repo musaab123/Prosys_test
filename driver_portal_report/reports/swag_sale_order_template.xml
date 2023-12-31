@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="swag_saleorder_custom_template">
+		<t t-call="driver_portal_report.custom_ksa_header_footer">
+			<t t-foreach="doc" t-as="o">
+				<div class="page" style="">
+					<t t-set="company" t-value="res_company"/>
+                    <div class="row">
+                        <div class="col-6">
+                            <style>
+                                .custom-table {
+
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                
+                                    border-collapse: collapse;
+                                    border-collapse: separate;
+                                    border-spacing: 10px; 
+                                
+                                }
+                                
+                                
+                                .custom-table th, .custom-table td {
+                                
+                                    border: 1px solid #ddd;
+                                
+                                    padding: 10px;
+                                
+                                    text-align: center;
+                                
+                                }
+                                .custom-table tr, {
+                                    margin-bottom: 10px;
+                                    
+                                
+                                }
+                                
+                                
+                            </style>
+                            <table class="custom-table">
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">Document Type :</th>
+                                    <td name="td_name">
+                                        <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice # </span>
+                                        <span t-elif="doc.state in ['draft','sent']">Quotation</span>
+                                        <span t-else="">Sale Order</span>
+                                    </td>
+                                    <th style="background-color:#275c94; color: white;">نوع المستند</th>
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;" >Document No :</th>
+                                    <td name="td_name"><span t-field="doc.name"/></td>
+                                    <th style="background-color:#275c94; color: white;">رقم المستند</th>
+
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">Document Date</th>
+                                    <td name="td_name"><span t-field="o.date_order"/></td>
+                                    <th style="background-color:#275c94; color: white;">تاريخ المستند</th>
+                                    
+                                </tr>
+
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">Payment Type</th>
+                                     <td><span>------</span></td>
+                                    <th style="background-color:#275c94; color: white;">نوع السداد</th>
+
+                                </tr>
+                            
+                            </table>
+                        </div>
+                        <div class="col-6">
+                            <table class="custom-table">
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">Customer No :</th>
+                                    <td name="td_name"><span t-field="doc.partner_id.name"/></td>
+                                    <th style="background-color:#275c94; color: white;">رقم / اسم العميل</th>
+                                </tr>
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;" >Customer Vat No :</th>
+                                    <td name="td_name"><span t-field="doc.partner_id.vat"/></td>
+                                    <th style="background-color:#275c94; color: white;">الرقم الضريبي للعميل</th>
+
+                                </tr >
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">Customer Phone No :</th>
+                                    <td name="td_name"><span t-field="doc.partner_id.mobile"/></td>
+                                    <th style="background-color:#275c94; color: white;">رقم جوال العميل</th>
+                                </tr>
+
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">Customer Address:</th>
+                                    <td name="td_name"><span t-field="doc.partner_id.city"/></td>
+                                    <th style="background-color:#275c94; color: white;">عنوان العميل</th>
+
+                                </tr>
+                            
+                            
+                            
+                            
+                            </table>
+
+                        </div>
+                    </div>
+                    <br></br>
+                    <div class="row">
+                        <div class="col-12">
+                            <style>
+                                .test {
+                                    width: 100%;
+                                    border-collapse: collapse;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                    border-bottom: 1px solid #275c94; 
+                                    font-family: 'Lato', Arial, sans-serif;
+                                }
+
+                                th, td {
+                                    padding: 5px;
+                                    text-align: center;
+                                    padding: 10px;
+                                }
+                            
+                                th {
+                                    background-color: #275c94;
+                                }
+                            
+                                .test th,
+                                .test td {
+                                    border-right: 1px solid #275c94; 
+                                    border-left: 1px solid #275c94; 
+
+                                }
+                        
+                            
+                               
+                            </style>
+
+                            <table class="test">
+                                <thead>
+                                    <tr>
+                                        <th style="background-color:#275c94; color: white;" rowspan="2" colspan="1">الرقم<br/><span>No</span></th>
+                                        <th style="background-color:#275c94; color: white;"  rowspan="2" colspan="1">الوصف<br/><span>Description</span></th>
+                                        <th style="background-color:#275c94; color: white;" rowspan="2" colspan="1">الكمية<br/><span>Qty</span></th>
+                                        <th style="background-color:#275c94; color: white;" rowspan="2" colspan="1">السعر<br/><span>U.Price</span></th>
+                                        <th style="background-color:#275c94; color: white;" rowspan="2" colspan="1">الخصم<br/><span>Disc</span></th>
+                                        <!-- <th style="background-color:#275c94; color: white;" rowspan="2" colspan="1">المجموع<br/><span>Total</span></th> -->
+                                        <th style="background-color:#275c94; color: white;" rowspan="2" colspan="1">الاجمالي<br/><span>Amount</span></th>
+                                        
+                                        <th style="background-color:#275c94; color: white;" rowspan="1" colspan="2">Vat  <span></span> الضريبة</th>
+                                    
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color:#275c94; color: white;" rowspan="1">Value  <span></span> القيمة</th>
+                                        <th style="background-color:#275c94; color: white;" rowspan="1">%</th>
+                                        
+                                        
+                                    </tr>
+                                </thead>
+                                <t t-set="sequence" t-value="1"/>
+                                <t t-set="amount_pure" t-value="0" />
+                                <t t-set="total_untaxed_amount" t-value="0" />
+                                <t t-set="total_discount_all" t-value="0" />
+                                <t t-set="tax_total" t-value="0" />
+
+
+
+
+                                <tbody>
+                                    <t t-foreach="o.order_line" t-as="line">
+                                        <t t-set="amount_pure" t-value="line.price_unit * line.product_uom_qty" />
+                                        <t t-set="discount_percentage" t-value="(line.price_unit * line.product_uom_qty) * (line.discount / 100)" />
+                                        <t t-set="total_untaxed_amount" t-value="total_untaxed_amount + amount_pure" />
+                                        <t t-set="total_discount_all" t-value="total_discount_all + discount_percentage" />
+                                        <t t-set="line_tax_total" t-value="0" />
+                                        <t t-foreach="line.tax_id" t-as="t">
+                                            <t t-set="tax_total"
+                                               t-value="tax_total + line.price_subtotal* t.amount/100" />
+                                            <t t-set="line_tax_total" t-value="line_tax_total + t.amount" />
+                                         </t>
+                                        <tr>
+                                            <td>
+                                                <span t-esc="sequence"/>
+                                            </td>
+
+                                            <td name="td_priceunit" class="text-center">
+                                                <span t-field="line.name"/>
+                                            </td>
+                                            <t t-set="sequence" t-value="sequence + 1"/>
+
+                                            <td name="td_quantity" class="text-center">
+                                                <span t-field="line.product_uom_qty"/>
+                                            </td>
+                                            <td name="td_priceunit" class="text-center">
+                                                <span t-field="line.price_unit"/>
+                                            </td>
+                                            <td class="text-center"> 
+                                                <span t-esc="'%.2f %s '%(line.discount,'')" />
+                                            </td>
+                                            <td class="text-center">
+                                                <sapn t-esc="amount_pure"
+                                                   t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                             </td>
+                                             <td name="td_taxes" class="text-center">
+                                                <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+                                             </td>
+
+                                             <td class="text-center">
+                                                <sapn>%</sapn>
+                                             </td>
+                                            <!-- <td class="text-center">
+                                                <span t-field="line.discount"/>
+                                             </td> -->
+
+                                            
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            
+        
+                        </div>
+                    </div>
+
+                    <br></br>
+                    <div class="row">
+                        
+                        <div class="col-8">
+                            <style>
+                                .custom-table-test {
+
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                
+                                    border-collapse: collapse;
+                                    border-collapse: separate;
+                                    border-spacing: 10px; 
+                                
+                                }
+                                
+                                
+                                .custom-table-test th, .custom-table-test td {
+                                
+                                    border: 1px solid #ddd;
+                                
+                                    padding: 20px;
+                                
+                                    text-align: right;
+                                
+                                }
+                                .custom-table-test tr, {
+                                    margin-bottom: 10px;
+                                    
+                                
+                                }
+                                
+                                
+                            </style>
+                            <table class="custom-table-test">
+                                
+                                <tr>
+                                    <td   style="background-color:#275c94; color: white;" >شروط الاستبدال و الاسترجاع</td >
+
+                                </tr>
+                                <tr>
+                                        <td name="td_name"><span t-field="doc.team_id.driver_note"/></td>
+
+                                </tr>
+                                
+                 
+                               
+    
+                            
+                            </table>
+                        </div>
+
+                        <div class="col-4">
+                            <style>
+                                .custom-table {
+
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                
+                                    border-collapse: collapse;
+                                    border-collapse: separate;
+                                    border-spacing: 10px; 
+                                
+                                }
+                                
+                                
+                                .custom-table th, .custom-table td {
+                                
+                                    border: 1px solid #ddd;
+                                
+                                    padding: 10px;
+                                
+                                    text-align: center;
+                                
+                                }
+                                .custom-table tr, {
+                                    margin-bottom: 10px;
+                                    
+                                
+                                }
+                                
+                                
+                            </style>
+                            <table class="custom-table">
+                                
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;" >الاجمالي بدون الضريبة<br/><span>Total Without Vat</span></th>
+                                    <td  class="text-center ">
+                                        <span t-esc="total_untaxed_amount"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;" >اجمالي الخصم <br/><span>Total Discount</span></th>
+                                    <td class="text-center ">
+                                        <span t-esc="total_discount_all"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <!-- <th style="background-color:#4fafba; color: white;">الاجمالي قبل الضريبة<br/><span>Total Before Vat</span></th>
+                                    <td  class="text-center ">
+                                        <span t-esc="total_untaxed_amount"
+                                        t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td> -->
+                                    <tr>
+                                        <th style="background-color:#4fafba; color: white;">اجمالي الضريبة<br/><span>Total Vat</span></th>
+                                        <td class="text-center">
+                                        <span t-esc="tax_total"
+                                               t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                            </td>
+                                    </tr>
+                                    
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;"> الاجمالي بعد الخصم<br/><span>Total after Discount</span></th>
+                                    <td class="text-center">
+                                        <span t-esc="total_untaxed_amount - total_discount_all"
+                                           t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                     </td>
+                                    
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color:#4fafba; color: white;">اجمالي المبلغ<br/><span>Total Amount</span></th>
+                                        <td class="text-center">
+                                            <span t-esc="(total_untaxed_amount - total_discount_all) + tax_total"
+                                            t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                        </td>
+                                </tr>
+
+
+                               
+                            
+                            </table>
+                        </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <style>
+                                .custom-table {
+
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                
+                                    border-collapse: collapse;
+                                    border-collapse: separate;
+                                    border-spacing: 10px; 
+                                
+                                }
+                                
+                                
+                                .custom-table th, .custom-table td {
+                                
+                                    border: 1px solid #ddd;
+                                
+                                    padding: 10px;
+                                
+                                    text-align: center;
+                                
+                                }
+                                .custom-table tr, {
+                                    margin-bottom: 10px;
+                                    
+                                
+                                }
+                                
+                                
+                            </style>
+                            <table class="custom-table">
+                                <tr>
+                                    <th style="background-color:#275c94; color: white;" >Receiver</th>
+                                    <td><span>  ---------------------------  </span></td>
+                                    <th style="background-color:#4fafba; color: white;">المستلم</th>
+                                </tr>
+                            </table>
+    
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-4">
+
+                            <style>
+                                .custom-table {
+
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                
+                                    border-collapse: collapse;
+                                    border-collapse: separate;
+                                    border-spacing: 10px; 
+                                
+                                }
+                                
+                                
+                                .custom-table th, .custom-table td {
+                                
+                                    border: 1px solid #ddd;
+                                
+                                    padding: 10px;
+                                
+                                    text-align: center;
+                                
+                                }
+                                .custom-table tr, {
+                                    margin-bottom: 10px;
+                                    
+                                
+                                }
+                                
+                                
+                            </style>
+                            <table class="custom-table">
+                                <tr>
+                                    <th style="background-color:#275c94; color: white;" >Seller</th>
+                                    <td name="td_name"><span t-field="doc.user_id.name"/></td>
+                                    <th style="background-color:#4fafba; color: white;">البائع</th>
+                                </tr>
+                            </table>
+                           
+                        </div>
+
+                    </div>
+
+
+
+					
+				</div>
+			</t>
+		</t>
+	</template>
+	
+	<template id="prosys_swag_sale_orde_report">
+	    <t t-call="web.html_container">
+	        <t t-foreach="docs" t-as="doc">
+	            <t t-call="driver_portal_report.swag_saleorder_custom_template"/>
+	        </t>
+	    </t>
+	</template>
+</odoo>
