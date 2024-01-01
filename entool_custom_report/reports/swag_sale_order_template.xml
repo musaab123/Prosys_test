@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_sale_document_inherits" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-set='address']" position="replace">
+            <div class="row">
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id" />
+                </t>
+
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company" />
+                </t>
+
+
+                <div class="col-4" style="font-size: 12px;">
+                    <span class="m-0" t-field="doc.partner_id.name" />
+                    <span><span class="text-white">
+                        cc</span> معلومات الفاتورة / العميل </span>
+                </div>
+                <div class="col-4"></div>
+
+                <div class="col-4 text-end" style="font-size: 12px;">
+                    <span class="m-0" t-field="doc.partner_id.name" />
+                    <span><span class="text-white">
+                        cccc</span> رقم العميل </span>
+
+                </div>
+
+            </div>
+            <br></br>
+            <br></br>
+
+
+            <div class="row">
+                <div class="col-4" style="font-size: 12px;">
+                    <span class="m-0" t-field="doc.validity_date" />
+                    <span><span class="text-white">
+                        cccc</span> تاريخ التوريد </span>
+                </div>
+                <div class="col-4"> </div>
+
+                <div class="col-4 text-end" style="font-size: 12px;">
+                    <span class="m-0" t-field="doc.date_order" />
+                    <span><span class="text-white">
+                        cccc</span> التاريخ </span>
+
+
+                </div>
+
+            </div>
+
+            <br></br>
+            <div class="row">
+                <style>
+                    .custom-table {
+
+                    width: 100%;
+                    font-size:10px;
+                    font-weight: normal;
+
+                    border-collapse: collapse;
+                    border-spacing: 10px;
+
+                    }
+
+
+                    .custom-table th, .custom-table td {
+
+                    border: 1px solid #ddd;
+
+                    padding: 10px;
+
+                    text-align: center;
+
+                    }
+                    .custom-table tr, {
+                    margin-bottom: 10px;
+
+
+                    }
+
+
+                </style>
+                <table class="custom-table">
+                    <tr>
+                        <th colspan="4"><span t-field="doc.name" /><span class="text-white">cccc</span>
+                            فاتورة ضريبية رقم </th>
+                    </tr>
+                    <tr>
+                        <td  >
+                            <span t-field="company.name" />
+                        </td>
+                        <td class="text-end">:الاسم </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="company.vat" />
+                        </td>
+                        <td class="text-end">الرقم الضريبي</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" class="text-end"><span t-field="company.street" /> <span class="text-white">
+                            cccc</span>: العنوان </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="doc.company_id.name" />
+                        </td>
+                        <td class="text-end">شركة الشحن</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="doc.payment_term_id" />
+                        </td>
+                        <td class="text-end">طريقة الدفع</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="company.mobile" />
+                        </td>
+                        <td class="text-end">الجوال</td>
+                    </tr>
+                    <!-- <tr>
+                        <td></td>
+                        <td class="text-end">المستودع</td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            <span t-field="doc.note" />
+                        </td>
+                        <td class="text-end">الملاحظات</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="doc.name" />
+                        </td>
+                        <td class="text-end">رقم الطلب</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-field="doc.amount_total" />
+                        </td>
+                        <td class="text-end">رصيد العميل حتى تاريخ الفاتورة</td>
+                    </tr>
+                </table>
+            </div>
+            <br></br>
+            <br></br>
+
+        </xpath>
+        <xpath expr="//div[hasclass('page')]" position="replace">
+            <link rel="stylesheet" href="/entool_custom_report/static/src/css/style.css"/>
+
+            <div class="row">
+                <div class="col-12">
+                    <style>
+                        .test {
+                        width: 100%;
+                        font-size:10px;
+                        font-weight: normal;
+                        border-collapse: collapse;
+                        border-bottom: 1px solid black;
+                        font-family: 'Lato', Arial, sans-serif;
+                        }
+
+                        th, td {
+                        padding: 5px;
+                        text-align: center;
+                        padding: 10px;
+                        }
+
+                        .test .tes {
+                        background-color: #bfbfbf;
+                        color:black;
+                        }
+
+                        .test th,
+                        .test td {
+                        border-right: 1px solid black;
+                        border-left: 1px solid black;
+
+                        }
+
+
+                    </style>
+
+
+                    <table class="test">
+                        <thead>
+                            <tr>
+                                <td class="tes">صافي القلم بعد الضريبة</td>
+                                <td class="tes">نسبة الضريبة</td>
+                                <td class="tes">الضريبة</td>
+                                <td class="tes">المجموع</td>
+                                <td class="tes">السعر</td>
+                                <td class="tes">الكمية</td>
+                                <td class="tes">الوحدة</td>
+                                <td class="tes">اسم الصنف</td>
+                                <td class="tes" >رمز المادة</td>
+                                <td class="tes">الرقم</td>
+
+                            </tr>
+                            
+                        </thead>
+                        <t t-set="sequence" t-value="0"/>
+                        <t t-set="tax_total" t-value="0" />
+                        <t t-set="amount_pure" t-value="0" />
+                        <t t-set="line_tax_total" t-value="0" />
+                        <t t-set="total_untaxed_amount" t-value="0" />
+                        <t t-set="total_discount_all" t-value="0" />
+
+
+
+
+                        <!-- <t t-set="amount_pure" t-value="0" />
+                        <t t-set="total_untaxed_amount" t-value="0" />
+                        <t t-set="total_discount_all" t-value="0" />
+                        <t t-set="tax_total" t-value="0" /> -->
+
+
+
+
+                        <tbody>
+                            <t t-foreach="doc.order_line" t-as="line">
+
+                                <!-- <t t-set="amount_pure" t-value="line.price_unit * line.product_uom_qty" />
+                                <t t-set="discount_percentage" t-value="(line.price_unit * line.product_uom_qty) * (line.discount / 100)" />
+                                <t t-set="total_untaxed_amount" t-value="total_untaxed_amount + amount_pure" />
+                                <t t-set="total_discount_all" t-value="total_discount_all + discount_percentage" />
+                                <t t-set="line_tax_total" t-value="0" />
+                                <t t-foreach="line.tax_id" t-as="t">
+                                    <t t-set="tax_total"
+                                       t-value="tax_total + line.price_subtotal* t.amount/100" />
+                                    <t t-set="line_tax_total" t-value="line_tax_total + t.amount" />
+                                 </t> -->
+                                 <t t-set="amount_pure" t-value="line.price_unit * line.product_uom_qty" />
+                                 <t t-set="total_untaxed_amount" t-value="total_untaxed_amount + amount_pure" />
+                                 <t t-set="discount_percentage" t-value="(line.price_unit * line.product_uom_qty) * (line.discount / 100)" />
+                                 <t t-set="total_discount_all" t-value="total_discount_all + discount_percentage" />
+                                 
+                                        <t t-foreach="line.tax_id" t-as="t">
+                                            <t t-set="tax_total"
+                                               t-value="tax_total + line.price_subtotal* t.amount/100" />
+                                            <t t-set="line_tax_total" t-value="line_tax_total + t.amount" />
+                                         </t>
+                                <tr>
+         
+                                    <td name="td_quantity" class="text-center">
+                                        <sapn t-esc="amount_pure - line_tax_total"
+                                                   t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td>
+                                    <td name="td_quantity" class="text-center">
+                                        <span t-field="line.tax_id"/>
+                                    </td>
+
+                                    <td name="td_quantity" class="text-center">
+                                        <sapn t-esc="line_tax_total"
+                                                   t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td> 
+                                    <td name="td_priceunit" class="text-center">
+                                        <sapn t-esc="amount_pure"
+                                                   t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td>
+                                    
+                                    <td name="td_priceunit" class="text-center">
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td name="td_quantity" class="text-center">
+                                        <span t-field="line.product_uom_qty"/>
+                                    </td>
+                                    <td name="td_priceunit" class="text-center">
+                                        <span t-field="line.product_uom"/>
+                                    </td>
+                                    <td name="td_priceunit" class="text-center">
+                                        <span t-field="line.product_template_id"/>
+                                    </td>
+                                    <t t-set="sequence" t-value="sequence + 1"/>
+                                    <td name="td_priceunit" class="text-center">
+                                        <span t-field="line.product_template_id.default_code"/>
+                                    </td>
+                                   
+                                    <td>
+                                        <span t-esc="sequence"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    
+
+                </div>
+            </div>
+   
+            <br></br>
+
+
+            <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+            <div class="row" style="border-top: 1px solid black; border-bottom: 1px solid black; 
+            border-left: 1px solid black; border-right: 1px solid black; page-break-inside: avoid;">
+                
+                
+                <!-- <div class="col-4">
+                    <span t-field="doc.note"/>
+
+                </div> -->
+
+                <div class="col-6">
+                    <style>
+                        .custom-table {
+    
+                        width: 100%;
+                        font-size:10px;
+                        font-weight: normal;
+    
+                        border-collapse: collapse;
+                        border-spacing: 10px;
+    
+                        }
+    
+    
+                        .custom-table th, .custom-table td {
+    
+                        border: 1px solid #ddd;
+    
+                        padding: 10px;
+    
+                        text-align: center;
+    
+                        }
+                        .custom-table tr, {
+                        margin-bottom: 10px;
+    
+    
+                        }
+    
+    
+                    </style>
+                    <table class="custom-table">
+                        
+                        <tr>
+                            <td  class="text-center ">
+                                <span t-esc="total_untaxed_amount"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                            </td>
+
+                            <td>:الاجمالي غير شامل ضريبة القيمة المضافة </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center ">
+                                <span t-esc="total_discount_all"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                            </td>
+                            <td>مجموع الخصومات</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-center">
+                                <span t-esc="tax_total"
+                                       t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                                    </td>
+                            <td>مجموع ضريبة القيمة المضافة</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-center">
+                                <span t-esc="(total_untaxed_amount - total_discount_all) + tax_total"
+                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                            </td>
+                            <td>اجمالي المبلغ المستحق</td>
+                        </tr>
+
+                        
+                       
+                    </table>
+
+                </div>
+
+                <div class="col-6 text-end">
+                    <tr>
+                    <span >شروط الاستبدال و الاسترجاع</span>
+                    <span t-field="doc.team_id.driver_note"/>
+                </tr>
+                <tr>
+                    <span t-esc="doc.amount_word(doc.amount_total)"/>
+
+                    <span > : الاجمالي </span>
+
+                </tr>
+                </div>
+
+            </div>
+           
+
+            <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+        </xpath>
+
+
+    </template>
+    <template id="prosys_swag_sale_orde_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="driver_portal_report.report_sale_document_inherits" />
+            </t>
+        </t>
+    </template>
+</odoo>

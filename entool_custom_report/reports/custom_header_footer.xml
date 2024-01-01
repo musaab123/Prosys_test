@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
+        <!-- Custom header -->
+        <xpath expr="//div[1]" position="replace">
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"/>
+                </t>
+        
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"/> 
+                </t>
+        
+                <t t-if="o and 'team_id' in o">
+                    <t t-set="team" t-value="o.team_id"/>
+                    </t>
+        
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="team" t-value="crm_team"/>  
+                </t>
+        
+        
+                <div class="header" style=" direction: initial;">
+                    <table style="border:1pt solid grey;width:100%;font-size:12px;" width="100%">
+                        <link rel="stylesheet" href="/orange_report/static/src/css/style.css"/>
+                        <tr>
+                            <td  width="30%">
+                                <strong><span style="padding-left:5px;" t-field="company.name"/></strong><br/>
+                                <t t-if="team.name">
+                                    <span style="padding-left: 5px;" t-field="team.name"/><br/>
+                                </t>
+                                <t t-if="team.english_address">
+                                    <span style="padding-left:5px;" t-field="team.english_address"/><br/>
+                                </t>
+                                <t t-if="team.mobile">
+                                    <span style="padding-left:5px;" t-field="team.mobile"/><br/>
+                                </t>
+                                <t t-if="team.email">
+                                    <span style="padding-left:5px;" t-field="team.email"/><br/>
+                                </t>
+                                <t t-if="company.company_registry">
+                                    <span style="padding-left:5px;" > C .R. NO: </span> <span style="padding-left:5px;"  t-field="company.company_registry"/><br/>
+                                </t>
+                                <t t-if="company.vat">
+                                    <span style="padding-left:5px;" >VAT : </span>  <span style="padding-left:5px;"  t-field="company.vat"/><br/>
+                            </t>
+                               
+                            </td>
+                            
+                            <td width="30%" class="text-center">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 100px;width: 100px; " alt="Logo"/><br></br>
+                                <strong style="color: black;">Tel:<span style="padding-left:5px;" t-field="company.mobile"/></strong>
+                            </td>
+                            
+                            <td  width="40%" class="enx" style= "position: relative; bottom: 10px;  text-align: right;">
+                                <strong>
+                                    <span class=" text-right arabic" style="margin-right:6px;" t-field="company.arabic_name"/></strong><br/>
+                                <t t-if="team.arabic_address">
+                                    <span class="text-right arabic" style="margin-right:6px;"  t-field="team.arabic_address"/><br/>
+                                </t>
+                                <t t-if="team.mobile">
+                                    <span style="padding-left:5px;" t-field="team.mobile"/><br/>
+                                </t>
+                                <t t-if="team.email">
+                                    <span style="padding-left:5px;" t-field="team.email"/><br/>
+                                </t>
+                               
+                                <t t-if="company.company_registry">
+                                        <span class="text-right arabic" style="padding-left:5px;"  t-field="company.company_registry"/><span> :  سجل تجاري رقم </span><br/>
+                                </t>
+                                <t t-if="company.vat">
+                                        <span style="padding-left:5px;"  t-field="company.vat"/><span> : الرقم الضريبي </span><br/>
+                                </t>
+                                
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+        </xpath>
+
+        <!-- Custom footer -->
+        <xpath expr="//div/div[hasclass('text-center')]" position="replace">
+            <div class="text-center" style="font-size:14px;">
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    (
+                    <span class="page"/>
+                    -
+                    <span class="topage"/>
+                    )
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="account_crm_team_inherit_form_view" model="ir.ui.view">
+        <field name="name">crm.team.inherit.form</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <group name="name" string="Brash Adress">
+                    <field name="mobile" />
+                    <field name="email" />
+                    <field name="arabic_address" />
+                    <field name="english_address" />
+                </group>
+
+            </xpath>
+
+            <xpath expr="//page[@name='members_users']" position="after">
+                <page name="note" string="Note">
+                    <field name="driver_note" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="stock_picking_crm_team_inherit_form_view" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_type']" position="after">
+               <field name="team_id" invisible="true"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
