@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="view_hr_employee_form_driver_inherit" model="ir.ui.view">
+    <field name="name">hr.employee.inherit</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='pin']" position="before">
+            <field name="is_driver"/>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_account_payment_form_view_inehrit" model="ir.ui.view">
+    <field name="name">account.payment.inherit</field>
+    <field name="model">account.payment</field>
+    <field name="inherit_id" ref="account.view_account_payment_form"/>
+    <field name="arch" type="xml">
+        <field name="partner_id" position="after">
+            <field name="driver_id"/>
+         </field>
+
+
+     </field>
+ </record>
+</odoo>

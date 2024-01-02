@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="portal_my_home_customer_create" name="Show Customers" customize_show="True" inherit_id="portal.portal_my_home" priority="100">
+		<xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+			
+					<t t-call="portal.portal_docs_entry">
+							<t t-set="title"> 
+								Driver Quotations
+							</t>
+						<t t-set="url" t-value="'/my/driver/quotations'"/>
+						<t t-set="placeholder_count" t-value="'driver_quotation_count'" />
+					</t>
+				
+
+					<t t-call="portal.portal_docs_entry">
+						<t t-set="title"> 
+							Driver sale order
+						</t>
+						<t t-set="url"  t-value="'/my/driver/saleorder'"/>
+						<t t-set="placeholder_count" t-value="'driver_sale_order_count'" />
+						
+					</t>
+
+					<t t-call="portal.portal_docs_entry">
+						<t t-set="title"> 
+							Driver Invoice 
+						</t>
+						<t t-set="url"  t-value="'/my/driver/invoice'"/>
+						<t t-set="placeholder_count" t-value="'driver_invoice_count'" />
+					</t>
+				
+					
+
+		</xpath>
+		
+	</template>
+
+
+	<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+	<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+	
+
+	<template id="portal_my_order_driver_list" name="My Driver Sales Orders">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Driver Sales Orders</t>
+            </t>
+            <t t-if="orders" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>
+                            <span class='d-none d-md-inline'>Sales Order #</span>
+                           
+                            <span class='d-block d-md-none'>Ref.</span>
+                        </th>
+						<th>
+							<span class='d-none d-md-inline'>Customer</span>
+
+						</th>
+                        <th class="text-end">Order Date</th>
+                        <th class="text-center"/>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="orders" t-as="order">
+                    <tr>
+                        <td><a t-att-href="order.get_portal_url()"><t t-out="order.name"/></a></td>
+                        <td><a t-att-href="order.get_portal_url()"><t t-out="order.partner_id.name"/></a></td>
+
+                        <td class="text-end">
+                            <span t-field="order.date_order" t-options="{'widget': 'date'}"/>&amp;nbsp;
+                            <span class='d-none d-md-inline' t-field="order.date_order" t-options="{'time_only': True}"/>
+                        </td>
+                        <td class="text-center">
+                            <span t-if="order.state == 'done'"  class="badge rounded-pill text-bg-success">
+                                <i class="fa fa-fw fa-check" role="img" aria-label="Done" title="Done"/>Done
+                            </span>
+                        </td>
+                        <td class="text-end"><span t-field="order.amount_total"/></td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no orders for your account.</p>
+        </t>
+
+    </template>
+
+
+	<template id="portal_my_quotations_driver_list" name="Driver Quotations">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Driver Quotations</t>
+            </t>
+            <t t-if="quotations" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Quotation #</th>
+                        <th class="text-end">Quotation Date</th>
+                        <th class="text-end">Valid Until</th>
+                        <th class="text-center"/>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="quotations" t-as="quotation">
+                    <tr>
+                        <td><a t-att-href="quotation.get_portal_url()"><t t-out="quotation.name"/></a></td>
+                        <td class="text-end"><span t-field="quotation.date_order"/></td>
+                        <td class="text-end"><span t-field="quotation.validity_date"/></td>
+                        <td class="text-center">
+                            <span t-if="quotation.state == 'cancel'" class="badge rounded-pill text-bg-secondary">
+                                <i class="fa fa-fw fa-remove"/> Cancelled</span>
+                            <span t-if="quotation.is_expired" class="badge rounded-pill text-bg-secondary">
+                                <i class="fa fa-fw fa-clock-o"/> Expired</span>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="quotation.amount_total"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+            <p t-else="">There are currently no quotations for your account.</p>
+        </t>
+    </template>
+
+
+
+
+
+	<template id="portal_my_invoice_driver_list" name="My Invoices and Payments">
+		<t t-call="portal.portal_layout">
+		  <t t-set="breadcrumbs_searchbar" t-value="True"/>
+  
+		  <t t-call="portal.portal_searchbar">
+			  <t t-set="title">Invoices</t>
+		  </t>
+		  <t t-if="not invoices">
+			  <p>There are currently no invoices and payments for your account.</p>
+		  </t>
+		  <t t-if="invoices" t-call="portal.portal_table">
+			  <thead>
+				  <tr class="active">
+					  <th>Invoice #</th>
+					  <th>Invoice Date</th>
+					  <th>Customer</th>
+
+					  <th class='d-none d-md-table-cell'>Due Date</th>
+					  <th class="text-center">Status</th>
+					  <th class="text-end">Amount Due</th>
+				  </tr>
+			  </thead>
+			  <tbody>
+				  <t t-foreach="invoices" t-as="invoice">
+					  <tr>
+						  <td>
+							  <a t-att-href="invoice.get_portal_url()" t-att-title="invoice.name">
+								  <t t-esc="invoice.name" t-if="invoice.name != '/'"/>
+								  <em t-else="">Draft Invoice</em>
+							  </a>
+						  </td>
+						  <td><span t-field="invoice.invoice_date"/></td>
+						  <td><span t-field="invoice.partner_id.name"/></td>
+
+						  <td class='d-none d-md-table-cell'><span t-field="invoice.invoice_date_due"/></td>
+						  <td class="tx_status text-center">
+							  <t t-if="invoice.state == 'posted' and invoice.payment_state not in ('in_payment', 'paid', 'reversed')">
+								  <span class="badge rounded-pill text-bg-info"><i class="fa fa-fw fa-clock-o" aria-label="Opened" title="Opened" role="img"></i><span class="d-none d-md-inline"> Waiting for Payment</span></span>
+							  </t>
+							  <t t-if="invoice.state == 'posted' and invoice.payment_state in ('paid', 'in_payment')">
+								  <span class="badge rounded-pill text-bg-success"><i class="fa fa-fw fa-check" aria-label="Paid" title="Paid" role="img"></i><span class="d-none d-md-inline"> Paid</span></span>
+							  </t>
+							  <t t-if="invoice.state == 'posted' and invoice.payment_state == 'reversed'">
+								  <span class="badge rounded-pill text-bg-success"><i class="fa fa-fw fa-check" aria-label="Reversed" title="Reversed" role="img"></i><span class="d-none d-md-inline"> Reversed</span></span>
+							  </t>
+							  <t t-if="invoice.state == 'cancel'">
+								  <span class="badge rounded-pill text-bg-warning"><i class="fa fa-fw fa-remove" aria-label="Cancelled" title="Cancelled" role="img"></i><span class="d-none d-md-inline"> Cancelled</span></span>
+							  </t>
+						  </td>
+						  <td class="text-end"><span t-esc="-invoice.amount_residual if invoice.move_type == 'out_refund' else invoice.amount_residual" t-options='{"widget": "monetary", "display_currency": invoice.currency_id}'/></td>
+					  </tr>
+				  </t>
+			  </tbody>
+		  </t>
+		</t>
+	  </template>
+
+
+
+	  <!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+	  <template id="custom_sale_order_portal_content" inherit_id="sale.sale_order_portal_content">
+		<xpath expr="//div[@id='introduction']" position="after">
+			<!-- <t t-if="request.session.get('success_message')">
+                <div class="alert alert-success" role="alert">
+                    <t t-esc="request.session.pop('success_message')" />
+                </div>
+            </t> -->
+			<div class="modal-header">
+				<button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#returnModal">
+					<i class="fa fa-truck"/>
+					Return
+				</button>
+				<!-- <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#returnPaymentModal">
+					<i class="fa fa-print"/>
+					Payment Request
+				</button> -->
+
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+				<link rel="stylesheet" href="/prosys_portal_driver/static/src/css/style.css" />
+				
+				<a id="create_invoice_button" class="btn btn-secondary btn-block o_download_btn" style="color: #fff; font-size: 15px; font-weight: 80; height: 38px;">
+					
+					<i class="fa fa-print"/>
+
+					Create Invoice
+				</a>
+
+				
+				
+			</div>
+			
+	
+			<!-- Modal -->
+			<div class="modal fade" id="returnModal" tabindex="-1" role="dialog" aria-labelledby="returnModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<form id="sale_order_return_portal">
+							<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+							<input type="hidden" />
+							<table class="custom-table">
+								<thead>
+									<tr style="background-color: #f2f2f2;">
+										<th style="padding: 8px; text-align: left;">Products</th>
+										<th style="padding: 8px; text-align: left;">Quantity</th>
+										<th style="padding: 8px; text-align: left;">Return</th>
+										<!-- <th style="padding: 8px; text-align: left;">Reason</th> -->
+									</tr>
+								</thead>
+								<tbody class="sale_tbody">
+									<tr t-foreach="sale_order.order_line.filtered(lambda x:x.product_id.type!='service' and not x.display_type)"
+									t-as="line" class="order_line">
+										<t t-att-class="'bg-200 font-weight-bold o_line_section'">
+											<td id="product_name">
+												<span t-field="line.name"/>
+											</td>
+											<td class="text-right">
+												<div id="quote_qty">
+													<span t-field="line.product_uom_qty"/>
+													<span t-field="line.product_uom"/>
+												</div>
+											</td>
+
+											<td>
+												<div class="css_quantity input-group">
+													<input type="text"
+														class="form-control quantity"
+														style="width: 30px;height: 30px;text-align: center;"
+														t-att-data-min="0"
+														t-att-data-max="int(line.product_uom_qty) == line.product_uom_qty and int(line.product_uom_qty) or line.product_uom_qty"
+														t-att-data-line-id="line.id"
+														t-att-data-order-id="sale_order.id"
+														t-att-data-product-id="line.product_id.id"
+														t-att-data-delivered_qty="int(line.product_uom_qty) == line.product_uom_qty and int(line.product_uom_qty) or line.product_uom_qty"
+														/>
+
+													
+		
+												</div>
+											</td>
+											
+										</t>
+									</tr>
+								</tbody>
+							</table>
+							<div style="
+							width: 200px;
+							height: 100px;
+							position: relative;
+							top: 22px;
+							right: -136px;" >
+								<textarea id="return_reason"
+										name="reason"
+										placeholder="Reason"/>
+							</div>
+
+							<div class="modal-footer">
+								<button id='submit'
+										class="btn btn-secondary flex-grow-1 mb-1">
+									Submit
+								</button>
+								<button type="button" class="btn btn-secondary"
+										id="close-button"
+										data-dismiss="modal">Close
+								</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+			<div class="modal fade" id="returnPaymentModal" tabindex="-1" role="dialog" aria-labelledby="returnModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<form id="sale_order_create_payment">
+							<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+							<input type="hidden" />
+							<!-- <tr t-foreach="o" t-as="doc" > -->
+							<div class="container">
+							<div class="mb-2" style="padding-left: 30px;padding-top: 30px;padding-right: 30px;">
+								<label for="partnerName" class="form-label">Customer Name</label>
+								<br></br>
+								<span t-esc="sale_order.partner_id.name"/>	
+								<input type="hidden" id ="partner_payment" name="partner_id" t-att-value="sale_order.partner_id.id"/>	
+								<input type="hidden" id ="partner_memo"  t-att-value="sale_order.partner_id.name"/>						
+					
+							  </div>
+
+
+							  <div class="mb-2" style="padding-left: 30px;padding-top: 20px;padding-right: 30px;">
+								<label for="partnerName" class="form-label">Driver Name</label>
+								<br></br>
+								<span t-esc="sale_order.driver_id.name"/>
+								<input type="hidden" id ="driver_payment" name="driver_id" t-att-value="sale_order.driver_id.id"/>	
+								<!-- <input type="hidden" id ="partner_memo"  t-att-value="sale_order.driver_id.name"/>							 -->
+								
+							  </div>
+							  <!-- </tr> -->
+
+							  <div class="mb-2" style="padding-left: 30px;">
+								<label for="amount" class="form-label">Amount</label>
+								<input type="text" id="amount" class="form-control" required='True' style="margin-left: 1px;
+								width: 94%;"/>
+							  </div>
+
+							  <div class="mb-2" style="padding-left: 30px;">
+								<label for="disabledSelect" class="form-label">Payment Type</label>
+								<select id="disabledSelect" class="form-select" style="margin-left: 1px;
+								width: 94%;">
+								  <option>Cash</option>
+								  <option>Bank</option>
+
+								</select>
+							  </div>
+
+							</div>
+						
+							<div class="modal-footer">
+								<button id='submit'
+										class="btn btn-secondary flex-grow-1 mb-1">
+									Submit
+								</button>
+								<button type="button" class="btn btn-secondary"
+										id="close-button"
+										data-dismiss="modal">Close
+								</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+		</xpath>
+				
+	</template>
+	
+	
+	
+	  <!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
+
+
+
+	  <!-- download button on payment  -->
+
+		<template id="custom_sale_order_portal_payment" inherit_id="sale.sale_order_portal_template">
+			<xpath expr="//div[hasclass('o_portal_sidebar')]/div[hasclass('o_portal_sale_sidebar')]//ul//li" position="inside">
+
+				<button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#returnPaymentModal">
+					<i class="fa fa-print"/>
+					Create Payment 
+				</button>
+			</xpath>
+			
+			
+		</template>
+	  <!-- download button on payment  -->
+
+
+</odoo>
