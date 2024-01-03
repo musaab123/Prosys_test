@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_seti_sale">
+        <t t-if="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id"/>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+        <t t-set="company" t-value="res_company"/>  
+        </t>
+
+            <div class="header" style="direction: initial;">
+                <div class="text-center"  >
+                    <ul class="list-inline">
+                        
+                        <div>
+                        <img src="/entool_company_custom_report/static/src/img/header.jpg" width="100%" height="200px;" alt="Footer Image" />
+                    </div>
+                    
+                    </ul>
+                    
+                </div>
+     </div>
+     
+        
+        <div class="article o_report_layout_standard">
+            <t t-raw="0" />
+        </div>
+        <div class="footer o_background_footer">
+            <div class="text-center" style="font-size:14px;">
+                <div t-if="report_type == 'pdf'" style="color:black;">
+                    (
+                    <span class="page"/>
+                    -
+                    <span class="topage"/>
+                    )
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="report_swage_invoice_document">
+        <t t-call="entool_company_custom_report.external_layout_seti_sale">
+            <t t-foreach="doc" t-as="o">
+                <div class="page" style="position: relative;
+                top: 60px; width:100%; font-size: 15px;
+              ">
+
+                    <style type="text/css">
+                        @font-face {
+                          font-family:KacstLetter ;
+                          src: url(/entool_company_custom_report/static/fonts/KacstLetter.ttf);
+                        }
+                        h2 {font-family: KacstLetter;}
+                        td {font-family: KacstLetter;}
+                        th { font-family: KacstLetter;}
+                        h5 { font-family: KacstLetter;}
+                        h4 { font-family: KacstLetter;}
+                        p { font-family: KacstLetter;}
+                        span { font-family: KacstLetter;}
+
+
+
+                 </style>
+
+                    <div class="row">
+                        <t t-if="o and 'company_id' in o">
+                            <t t-set="company" t-value="o.company_id" />
+                        </t>
+        
+                        <t t-if="not o or not 'company_id' in o">
+                            <t t-set="company" t-value="res_company" />
+                        </t>
+        
+        
+                        <div class="col-4" style="font-size: 15px;">
+                            <span style="color:black;"> Invoice/Customer info </span>
+                            <p class="m-0" t-field="o.partner_id.name" />
+                        </div>
+                        <div class="col-4"></div>
+        
+                        <div class="col-4 text-end" style="font-size: 15px;">
+                            <span style="color:black;"> Customer No </span>
+                            <p class="m-0" t-field="o.partner_id.mobile" />
+        
+                        </div>
+        
+                    </div>
+                    <br></br>
+                    <br></br>
+        
+        
+                    <div class="row">
+                        <div class="col-4" style="font-size: 15px;">
+                            <span style="color:black;">Date of delivery </span>
+                            <p class="m-0" t-field="o.l10n_sa_delivery_date"/>
+                        </div>
+                        <div class="col-4"> </div>
+        
+                        <div class="col-4 text-end" style="font-size: 15px;">
+                            <span style="color:black;"> Date </span>
+                            <p class="m-0" t-field="o.invoice_date" />
+        
+        
+                        </div>
+        
+                    </div>
+        
+                    <br></br>
+                    <div class="row">
+                        <style>
+                            .custom-table {
+        
+                                width: 100%;
+                                font-size:10px;
+                                font-weight: normal;
+                                font-size: 12px;
+            
+                                border-collapse: collapse;
+                                border-spacing: 10px;
+            
+                                }
+    
+                                .custom-table .hed{
+                                    font-weight: bold;
+                                    font-size: 15px;
+                
+                                    }
+                                
+            
+                                .custom-table th, .custom-table td {
+            
+                                border: 1px solid #ddd;
+            
+                                padding: 10px;
+            
+                                text-align: center;
+            
+                                }
+                                .custom-table tr, {
+                                margin-bottom: 10px;
+            
+            
+                                }
+            
+        
+        
+                        </style>
+                        <table class="custom-table">
+                            <tr>
+                                <td colspan="4">
+                                    <span class="hed">Tax Invoice No. </span>                           
+                                    <span t-if="o.name != '/'" t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=" hed">Vat No</td>
+                               
+                                <td>
+                                    <span t-field="company.vat" />
+                                </td>
+                                
+                                <td class=" hed"> Name </td>
+
+                                <td>
+                                    <span t-field="company.name" />
+                                </td>
+                            
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="">
+                                    <span class="hed">Adress . </span> 
+                                    <span t-field="company.street" /> 
+                                 </td>
+                            </tr>
+                            <tr>
+                                
+                                <td class="hed">Payment method</td>
+                                
+                                <td>
+                                    <span t-field="o.invoice_payment_term_id" />
+                                </td>
+
+                                <td class="hed">Shipping company</td>
+
+                                <td>
+                                    <span t-field="o.company_id.name" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="hed">Phone</td>
+
+                                <td>
+                                    <span t-field="company.mobile" />
+                                </td>
+                                
+                                <td class="hed">Notes</td>
+
+                                <td>
+                                    <span t-field="o.narration" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="hed">Invoice No</td>
+
+                                <td>
+                                    <span t-field="o.name" />
+                                </td>
+                                <td class="hed">Customer balance up to the invoice date</td>
+                           
+                                <td>
+                                    <span t-field="o.amount_total" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br></br>
+                    <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+                    <div class="row">
+                        <div class="col-12">
+                            <style>
+                                .test {
+                                    width: 100%;
+                                    font-size:10px;
+                                    font-weight: normal;
+                                    border-collapse: collapse;
+                                    border-bottom: 1px solid black;
+                                    font-family: 'Lato', Arial, sans-serif;
+                                    }
+            
+                                    th, td {
+                                    padding: 5px;
+                                    text-align: center;
+                                    padding: 10px;
+                                    }
+            
+                                    .test .tes {
+                                    background-color: #bfbfbf;
+                                    color:black;
+                                    font-weight: bold;
+                                    font-size: 15px;
+                                    }
+            
+                                    .test th,
+                                    .test td {
+                                    border-right: 1px solid black;
+                                    border-left: 1px solid black;
+            
+                                    }
+            
+        
+        
+                            </style>
+        
+        
+                            <table class="test" style="page-break-inside: avoid;">
+                                <thead>
+                                    <tr>
+                                        <td class="tes">No</td>
+                                        <td class="tes">Material symbol</td>
+                                        <td class="tes">Product</td>
+                                        <td class="tes">Unit</td>
+                                        <td class="tes">Quantity</td>
+                                        <td class="tes">Price</td>
+                                        <td class="tes">Total</td>
+                                        <td class="tes">Tax</td>
+                                        <td class="tes">Tax Rate</td>
+                                        <td class="tes">Net amount after tax</td>
+        
+                                    </tr>
+                                    
+                                </thead>
+                                <t t-set="sequence" t-value="1"/>
+                                <t t-set="tax_total" t-value="0" />
+                                <t t-set="amount_pure" t-value="0" />
+                                <t t-set="line_tax_total" t-value="0" />
+                                <t t-set="total_untaxed_amount" t-value="0" />
+                                <t t-set="total_discount_all" t-value="0" />
+        
+                                <tbody>
+                                    <t t-set="lines"
+                                               t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+                                        <t t-foreach="lines" t-as="line">
+        
+                                         <t t-set="amount_pure" t-value="line.price_unit * line.quantity" />
+                                         <t t-set="total_untaxed_amount" t-value="total_untaxed_amount + amount_pure" />
+                                         <t t-set="discount_percentage" t-value="(line.price_unit * line.quantity) * (line.discount / 100)" />
+                                         <t t-set="total_discount_all" t-value="total_discount_all + discount_percentage" />
+                                         
+                                         <t t-foreach="line.tax_ids" t-as="t">
+                                            <t t-set="tax_total"
+                                               t-value="tax_total + line.price_subtotal* t.amount/100" />
+                                            <t t-set="line_tax_total" t-value="line_tax_total + t.amount" />
+                                         </t>
+                                        <tr>
+
+                                            <td>
+                                                <span t-esc="sequence"/>
+                                            </td>
+                                            <t t-set="sequence" t-value="sequence + 1"/>
+                                            <td name="td_priceunit" class="text-center">
+                                                <span t-field="line.product_id.default_code"/>
+                                            </td>
+                                            <td name="td_priceunit" class="text-center">
+                                                <span t-field="line.product_id"/>
+                                            </td>
+                                            <td name="td_priceunit" class="text-center">
+                                                <span t-field="line.product_uom_id"/>
+                                            </td>
+
+                                            <td name="td_quantity" class="text-center">
+                                                <span t-field="line.quantity"/>
+        
+                                            </td>
+                                            <td name="td_priceunit" class="text-center">
+                                                <span t-field="line.price_unit"/>
+                                            </td>
+
+                                            <td name="td_priceunit" class="text-center">
+                                                <sapn t-esc="amount_pure"
+                                                           t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                                            </td>
+
+                                            <td class="text-center">
+                                                <span t-esc="tax_total"
+                                                       t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                                            </td>
+
+                                            <td class="text-end">
+                                                <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))"
+                                                      id="line_tax_ids"/>
+                                            </td>
+
+
+                                            <td name="td_quantity" class="text-center">
+                                                <sapn t-esc="amount_pure + tax_total"
+                                                           t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                                            </td>
+                                         
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            
+        
+                        </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+
+                      <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+            <div class="row" style="page-break-inside: avoid; border-top: 1px solid black; 
+            border-bottom: 1px solid black; border-left: 1px solid black; border-right: 1px solid black;position: relative;top:60px;
+            ">
+                
+
+                <div class="col-4">
+                    <style>
+                        .custom-table {
+    
+                        width: 100%;
+                        font-size:10px;
+                        font-weight: normal;
+                        page-break-inside: avoid;
+    
+                        border-collapse: collapse;
+                        border-spacing: 10px;
+    
+                        }
+    
+    
+                        .custom-table th, .custom-table td {
+    
+                        border: 1px solid #ddd;
+    
+                        padding: 10px;
+    
+                        text-align: center;
+    
+                        }
+                        .custom-table tr, {
+                        margin-bottom: 10px;
+    
+    
+                        }
+    
+    
+                    </style>
+                    <table class="custom-table" style="page-break-inside: avoid;">
+                        
+                        <tr>
+                            <td class="hed">Total Untaxed</td>
+
+                            <td  class="text-center ">
+                                <span t-esc="total_untaxed_amount"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="hed">Total discounts</td>
+
+                            <td class="text-center ">
+                                <span t-esc="total_discount_all"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="hed">Total VAT</td>
+
+                            <td class="text-center">
+                                <span t-esc="tax_total"
+                                       t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="hed">Total amount due</td>
+
+                            <td class="text-center">
+                                <span t-esc="(total_untaxed_amount - total_discount_all) + tax_total"
+                                t-options='{"widget": "monetary", "display_currency": o.currency_id}' />
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+                <div class="col-4 text-center" style="page-break-inside: avoid;">
+                    <img t-if="o.get_qr_code()" style="padding: 10px 10px 10px 10px;"
+                           
+                           t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.get_qr_code(), 150, 150)" />
+                </div>
+
+                <div class="col-4 text-end" style="page-break-inside: avoid;">
+                    <div class="row" style="">
+                        <span  style="color:black;"> Exchange and return conditions </span>
+                    </div>
+                    <br></br>
+                    <div class="row" style="">
+                        <span t-field="o.team_id.driver_note"/>
+                    </div>
+
+                <div class="row" style="">
+                    <td style="color:black;">Total</td> 
+                </div>
+                <br></br>
+                <div class="row" style="">
+                    <span t-esc="o.amount_word(o.amount_total)"/>
+
+
+                </div>
+                </div>
+
+            </div>
+           
+
+            <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_swage_custom_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="entool_company_custom_report.report_swage_invoice_document" />
+            </t>
+        </t>
+    </template>
+</odoo>
