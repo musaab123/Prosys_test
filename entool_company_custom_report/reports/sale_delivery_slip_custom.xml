@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="delevry_slip_china_customer_custom_pdf">
+        <t t-call="web.html_container">
+            <div class="article o_report_layout_standard" t-att-data-oe-model="" t-att-data-oe-id="">
+                <t t-call="entool_company_custom_report.external_layout_standard_custom_stock" />
+                <t t-foreach="docs" t-as="o">
+                    <!-- <t t-call="web.external_layout"> -->
+                    <div class="page "
+                        style="position: relative;
+                    top: 60px; width:100%; font-size: 15px; ">
+
+                        <style type="text/css">
+                            @font-face {
+                            font-family:KacstLetter ;
+                            src: url(/entool_company_custom_report/static/fonts/KacstLetter.ttf);
+                            }
+                            h2 {font-family: KacstLetter;}
+                            td {font-family: KacstLetter;}
+                            th { font-family: KacstLetter;}
+                            h5 { font-family: KacstLetter;}
+                            h4 { font-family: KacstLetter;}
+                            p { font-family: KacstLetter;}
+                            span { font-family: KacstLetter;}
+
+
+                        </style>
+
+                        <div class="row">
+                            <h2 style="padding:1pt;margin:0pt;text-align:center;">Preparing goods</h2>
+                        </div>
+                        <br></br>
+                        <div class="row">
+                            <t t-if="o and 'company_id' in o">
+                                <t t-set="company" t-value="o.company_id" />
+                            </t>
+
+                            <t t-if="not o or not 'company_id' in o">
+                                <t t-set="company" t-value="res_company" />
+                            </t>
+
+                            <div class="col-4" style="font-size: 15px;">
+                                <span style="color:black;"> Date </span>
+
+                                <p class="m-0" t-field="o.date_deadline" />
+                            </div>
+
+
+                            <div class="col-4 text-center" style="font-size: 15px;">
+                                <span style="color:black;"> Interner No </span>
+
+                                <p class="m-0" t-field="o.name" />
+                            </div>
+
+                            <div class="col-4 text-center" style="font-size: 15px;">
+                                <span style="color:black;"> Source Document </span>
+
+                                <p class="m-0" t-field="o.origin" />
+                            </div>
+
+                      
+
+
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <div class="row">
+                            <style>
+                                .custom-table {
+
+                                width: 100%;
+                                font-size:10px;
+                                font-weight: normal;
+                                font-size: 12px;
+
+                                border-collapse: collapse;
+                                border-spacing: 10px;
+
+                                }
+
+                                .custom-table .hed{
+                                font-weight: bold;
+                                font-size: 15px;
+
+                                }
+
+
+                                .custom-table th, .custom-table td {
+
+                                border: 1px solid #ddd;
+
+                                padding: 10px;
+
+                                text-align: center;
+
+                                }
+                                .custom-table tr, {
+                                margin-bottom: 10px;
+
+
+                                }
+
+
+                            </style>
+                            <table class="custom-table" style="page-break-inside: avoid;">
+
+                                <tr>
+                                    <td class=" hed"> Name </td>
+
+                                    <td>
+                                        <span t-field="o.partner_id.trade_name" />
+                                    </td>
+
+                                    <td class=" hed"> Name </td>
+
+                                    <td>
+                                        <span t-field="o.partner_id.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>
+                                    </td>
+                                    <td class=""></td>
+                                    <td class=" hed">Address</td>
+
+                                    <td>
+                                        <t t-if="o.partner_id">
+                                            <t t-foreach="o.partner_id.child_ids" t-as="contact">
+                                                <t t-if="contact.type == 'delivery'">
+                                                    City : <span t-field="contact.city"/> __ <span t-field="contact.district_id"/>
+                                                </t>
+                                            </t>
+                                        </t>
+                                    </td>
+                                    
+                                    
+                                        
+                                    
+                                </tr>
+
+                                <tr>
+                                    <td class=" hed"> Phone </td>
+
+                                    <td>
+                                        <span t-field="o.partner_id.mobile" />
+                                    </td>
+                                    <td class=" hed"> Final total </td>
+                                    <td>
+                                        <span t-field="o.sale_id.amount_total" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class=" hed"> Notes </td>
+                                    <td>
+                                        <span t-field="o.note" />
+                                    </td>
+                                    <td class=" hed"> Customer balance </td>
+
+                                    <td>
+                                        <span t-field="o.partner_id.total_due" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span>1 - 1</span>
+                                    </td>
+                                    <td class=""> </td>
+                                    <td class=" hed"> Shipping company </td>
+
+                                    <td>
+                                        <span t-field="o.company_id" />
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+                        </div>
+
+
+                        <br></br>
+                        <div class="row">
+
+                            <br></br>
+                            <br></br>
+                            <br></br>
+
+
+                            <style>
+                                .test {
+                                width: 100%;
+                                font-size:10px;
+                                font-weight: normal;
+                                border-collapse: collapse;
+                                border-bottom: 1px solid black important;
+                                border: 1px solid black important;
+
+                                font-family: 'Lato', Arial, sans-serif;
+                                }
+
+                                .test .tes {
+                                background-color: #bfbfbf;
+                                color:black;
+                                font-weight: bold;
+                                font-size: 15px;
+                                }
+
+                                th, td {
+                                padding: 5px;
+                                text-align: center;
+                                padding: 10px;
+                                }
+
+
+                                .test th,
+                                .test td {
+                                border-right: 1px solid black;
+                                border-left: 1px solid black;
+                                border: 1px solid black important;
+
+
+                                }
+
+
+                            </style>
+
+
+                            <table class="test" style="page-break-inside: avoid;">
+                                <thead>
+                                    <tr>
+                                        <td class="tes">No</td>
+                                        <td class="tes">Product</td>
+                                        <td class="tes">Material symbol</td>
+                                        <td class="tes">Package</td>
+                                        <td class="tes">Package Demand</td>
+                                        <td class="tes">Quantity Done</td>
+
+                                        <td class="tes">Unit</td>
+                                        <td class="tes">Description</td>
+                                        <td class="tes">1</td>
+                                        <td class="tes">2</td>
+                                        <td class="tes">3</td>
+                                    </tr>
+                                </thead>
+                                <t t-set="sequence" t-value="0" />
+                                
+                                <tbody>
+                                    
+                                    <t t-set="lines" t-value="o.move_ids.filtered(lambda x: x.product_uom_qty)"/>
+
+                                    <tr t-foreach="lines" t-as="move" style="border-bottom:1px solid black;">
+                                        <t t-if="o.state =='done'">
+                                            <t t-if="move.quantity_done !=0">
+                                                <t t-set="sequence" t-value="sequence + 1" />
+                                                <td>
+                                                    <span t-esc="sequence" />
+                                                </td>
+                                                <td>
+                                                    <span t-field="move.product_id" />
+                                                    <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                                        <span t-field="move.description_picking" />
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <span t-field="move.product_id.default_code" />
+                                                    <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                                        <span t-field="move.description_picking" />
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <span t-field="move.product_packaging_id.name" />
+                                                    <!-- <span t-field="move.product_uom_qty" /> -->
+                                                </td>
+                                                <td>
+                                                    <span t-field="move.product_packaging_quantity"/>
+
+                                                    <!-- <span t-field="move.quantity_done" /> -->
+                                                </td>
+                                                <td>
+                                                    <span t-field="move.product_packaging_qty_done"/>
+
+                                                    <!-- <span t-field="move.quantity_done" /> -->
+                                                </td>
+                                               
+                                                <td>
+                                                    <span t-field="move.product_uom" />
+                                                </td>
+                                                <td>
+                                                    <span t-field="move.name" />
+                                                    <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                                        <span t-field="move.description_picking" />
+                                                    </p>
+                                                </td>
+                                                <td> 
+    
+                                                </td>
+                                                <td>
+    
+                                                </td>
+                                                <td>
+    
+                                            </td>
+                                            </t>
+                                    </t>
+                                    <t t-else="">
+
+                                        <t t-set="sequence" t-value="sequence + 1" />
+                                        <td>
+                                            <span t-esc="sequence" />
+                                        </td>
+                                        <td>
+                                            <span t-field="move.product_id" />
+                                            <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                                <span t-field="move.description_picking" />
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <span t-field="move.product_id.default_code" />
+                                            <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                                <span t-field="move.description_picking" />
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <span t-field="move.product_packaging_id.name" />
+                                            <!-- <span t-field="move.product_uom_qty" /> -->
+                                        </td>
+                                        <td>
+                                            <span t-field="move.product_packaging_quantity"/>
+
+                                            <!-- <span t-field="move.quantity_done" /> -->
+                                        </td>
+                                        <td>
+                                            
+                                            <span t-field="move.product_packaging_qty_done"/>
+
+                                            <!-- <span t-field="move.quantity_done" /> -->
+                                        </td>
+
+                                       
+
+                                        <td>
+                                            <span t-field="move.product_uom" />
+                                        </td>
+                                        <td>
+                                            <span t-field="move.name" />
+                                            <p t-if="move.description_picking != move.product_id.name and move.description_picking != move.product_id.display_name">
+                                                <span t-field="move.description_picking" />
+                                            </p>
+                                        </td>
+                                        <td> 
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                    </td>
+
+                                    </t>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            
+
+                            
+                        </div>
+
+                        <br></br>
+                        <div class="row">
+                            <style>
+                                .custom-table {
+
+                                width: 100%;
+                                font-size:10px;
+                                font-weight: normal;
+
+                                border-collapse: collapse;
+                                border-spacing: 10px;
+
+                                }
+
+                                .custom-table .hed{
+                                font-weight: bold;
+                                font-size: 15px;
+
+                                }
+
+
+                                .custom-table th, .custom-table td {
+
+                                border: 1px solid #ddd;
+
+                                padding: 10px;
+
+                                text-align: center;
+
+                                }
+                                .custom-table tr, {
+                                margin-bottom: 10px;
+
+
+                                }
+
+
+                            </style>
+                            <table class="custom-table" style="page-break-inside: avoid;">
+
+                                <tr>
+                                    <td class=" hed">Customer Address </td>
+
+                                    <td colspan="3">
+                                        <t t-if="o.partner_id.qr_location">
+                                            <img style="padding: 10px 10px 10px 10px;"
+                                                t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.generate_qr(), 150, 150)" />
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class=" hed">Driver Name</td>
+                                    <td>
+                                        <span t-field="o.driver_id" />
+                                    </td>
+                                    <td class=" hed">The recipient's name, mobile number and signature</td>
+
+                                    <td>
+                                        <div t-field="o.move_ids[0].partner_id"
+                                            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="hed">Notes </td>
+
+                                    <td colspan="3">
+                                        <span t-field="o.note" />
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

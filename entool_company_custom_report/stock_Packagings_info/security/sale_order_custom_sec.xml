@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        <record id="sale_order_qty_custom" model="res.groups">
+            <field name="name">Sale Order Product Uom</field>
+        </record>
+
+
+        <!-- <record id="group_china_purchase_order" model="res.groups">
+            <field name="name">Purchase Order Permition (china)</field>
+        </record> -->
+    </data>
+</odoo>
